@@ -1,0 +1,115 @@
+/* Premium dark theme with glassmorphism */
+
+:root {
+  --color-bg: hsl(210, 20%, 12%);
+  --color-primary: hsl(35, 90%, 55%); /* Indian Yellow */
+  --color-accent: hsl(25, 70%, 40%); /* Acajou */
+  --color-surface: hsla(210, 20%, 20%, 0.6);
+  --color-text: hsl(0, 0%, 95%);
+  --font-family: 'Inter', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family);
+  background: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh;
+  background: linear-gradient(135deg, var(--color-accent), var(--color-primary));
+  color: var(--color-text);
+  text-align: center;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.hero-title {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  margin-bottom: 0.5rem;
+}
+
+.hero-subtitle {
+  font-size: clamp(1rem, 3vw, 1.5rem);
+  margin-bottom: 1.5rem;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  font-weight: 600;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn.primary {
+  background: var(--color-primary);
+  color: #000;
+}
+
+.btn.secondary {
+  background: var(--color-surface);
+  color: var(--color-text);
+  margin-left: 0.5rem;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 15px rgba(0,0,0,0.3);
+}
+
+.section {
+  padding: 4rem 0;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.skill-item {
+  background: var(--color-surface);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  text-align: center;
+  font-weight: 600;
+}
+
+.work-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+.work-grid img {
+  width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+  object-fit: cover;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.footer {
+  background: var(--color-surface);
+  text-align: center;
+  padding: 1rem 0;
+  font-size: 0.9rem;
+}
