@@ -1324,6 +1324,11 @@ textarea.form-input {
   min-height: 120px;
 }
 
+select.form-input option {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+}
+
 .form-status {
   margin-top: 16px;
   font-size: 0.9rem;
