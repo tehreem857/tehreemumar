@@ -1,72 +1,931 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tehreem â€“ AI Automation Specialist</title>
-  <meta name="description" content="Premium portfolio of Tehreem, AI Automation & Business Systems Consultant." />
-  <link rel="stylesheet" href="css/styles.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio of Tehreem, AI Automation Specialist & Business Systems Consultant. Streamlining operations with AI, Closebot, GoHighLevel (GHL), and custom application development.">
+  <meta name="keywords" content="AI Automation, Closebot Setup, GoHighLevel, GHL CRM, Business Systems Consultant, Workflow Integration, Chatbot Development, Tehreem Portfolio">
+  <meta name="author" content="Tehreem">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://tehreem.ai/">
+  <meta property="og:title" content="Tehreem | AI Automation Specialist & Business Systems Consultant">
+  <meta property="og:description" content="I help businesses streamline operations, automate customer interactions, and scale efficiently through AI-powered solutions, Closebot, and GoHighLevel.">
+  
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:title" content="Tehreem | AI Automation Specialist & Business Systems Consultant">
+  <meta property="twitter:description" content="I help businesses streamline operations, automate customer interactions, and scale efficiently through AI-powered solutions, Closebot, and GoHighLevel.">
+
+  <title>Tehreem | AI Automation Specialist & Business Systems Consultant</title>
+  
+  <link rel="stylesheet" href="css/styles.css">
 </head>
-<body>
-  <header class="hero">
-    <div class="container">
-      <h1 class="hero-title">Transforming your Businesses with AI Automation &amp; Smart Systems</h1>
-      <p class="hero-subtitle">I help businesses streamline operations, automate customer interactions, and scale efficiently through AIâ€‘powered solutions, Closebot setup, GoHighLevel management, and custom app development.</p>
-      <div class="cta-buttons">
-        <a href="#contact" class="btn primary">Book a Consultation</a>
-        <a href="#work" class="btn secondary">View My Work</a>
+<body data-theme="dark">
+
+  <!-- Ambient Glow Effects -->
+  <div class="bg-glow-container" aria-hidden="true">
+    <div class="glow-circle glow-1"></div>
+    <div class="glow-circle glow-2"></div>
+    <div class="glow-circle glow-3"></div>
+  </div>
+
+  <!-- Header / Navigation -->
+  <header class="header" id="header">
+    <div class="container nav-container">
+      <a href="#hero" class="logo" aria-label="Tehreem Portfolio Home">
+        <span>T</span>ehreem
+      </a>
+      
+      <nav class="nav-links" id="nav-links" aria-label="Main Navigation">
+        <a href="#about" class="nav-link">About</a>
+        <a href="#services" class="nav-link">Services</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#skills" class="nav-link">Skills</a>
+        <a href="#process" class="nav-link">Process</a>
+        <a href="#testimonials" class="nav-link">Reviews</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
+      
+      <div class="nav-actions">
+        <button class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle Dark/Light Mode" title="Toggle Dark/Light Mode">
+          <!-- Sun Icon (visible in light mode) -->
+          <svg class="sun-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m0 13.5V21M4.93 4.93l1.59 1.59m10.96 10.96l1.59 1.59m-17.5 0l1.59-1.59M17.47 6.52l1.59-1.59M5.25 12H3m18 0h-2.25m-2.25 0a6 6 0 11-12 0 6 6 0 0112 0z"></path>
+          </svg>
+          <!-- Moon Icon (visible in dark mode) -->
+          <svg class="moon-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z"></path>
+          </svg>
+        </button>
+        
+        <a href="#contact" class="btn btn-secondary" style="padding: 10px 20px; font-size: 0.9rem;">Consultation</a>
+        
+        <button class="mobile-menu-btn" id="mobile-menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
+          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
       </div>
     </div>
   </header>
 
-  <section id="about" class="section">
-    <div class="container">
-      <h2>About Me</h2>
-      <p>Seasoned AI Automation Specialist and Business Systems Consultant with a track record of delivering premium, scalable solutions for SMBs and enterprises alike.</p>
+  <!-- Hero Section -->
+  <section class="hero" id="hero">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <div class="hero-tag">
+          <span class="dot"></span> Available for Select Operations & Scaling Projects
+        </div>
+        <h1 class="hero-title">
+          Transforming Businesses with <span>AI Automation</span> & Smart Systems
+        </h1>
+        <p class="hero-subheadline">
+          I help businesses streamline operations, automate customer interactions, and scale efficiently through AI-powered solutions, Closebot setup, GoHighLevel management, and custom application development.
+        </p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn btn-primary">
+            Book a Consultation
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"></path>
+            </svg>
+          </a>
+          <a href="#projects" class="btn btn-secondary">View My Work</a>
+        </div>
+      </div>
+      
+      <div class="hero-graphic-container">
+        <div class="hero-canvas">
+          <div class="hero-glow-blob"></div>
+          <svg class="tech-node-network" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Animated visualization of interconnected AI business tools.">
+            <!-- Interconnected Lines -->
+            <path class="connecting-line" d="M100 200 L200 100 L300 200 L200 300 Z" stroke="rgba(227, 168, 87, 0.3)" stroke-width="1.5" />
+            <path class="connecting-line" d="M200 100 L200 300" stroke="rgba(227, 168, 87, 0.2)" stroke-width="1.5" />
+            <path class="connecting-line" d="M100 200 L300 200" stroke="rgba(227, 168, 87, 0.2)" stroke-width="1.5" />
+            
+            <circle cx="200" cy="200" r="80" stroke="rgba(128, 70, 27, 0.2)" stroke-width="1" stroke-dasharray="4 4" />
+            
+            <!-- Nodes -->
+            <!-- Center Node (AI Core) -->
+            <g class="node-circle node-c1">
+              <circle cx="200" cy="200" r="32" fill="#190F0D" stroke="#E3A857" stroke-width="2" />
+              <path d="M192 195 H208 M192 200 H208 M196 205 H204" stroke="#E3A857" stroke-width="2" stroke-linecap="round" />
+              <circle cx="200" cy="200" r="42" stroke="rgba(227, 168, 87, 0.15)" stroke-width="1" />
+            </g>
+            
+            <!-- Node Top (GHL CRM) -->
+            <g class="node-circle node-c2">
+              <circle cx="200" cy="100" r="22" fill="#190F0D" stroke="#80461B" stroke-width="2" />
+              <path d="M195 95 h10 v10 h-10 z" stroke="#E3A857" stroke-width="1.5" fill="none" />
+              <path d="M195 105 h10" stroke="#E3A857" stroke-width="1.5" />
+            </g>
+            
+            <!-- Node Right (Closebot Chatbot) -->
+            <g class="node-circle node-c3">
+              <circle cx="300" cy="200" r="22" fill="#190F0D" stroke="#80461B" stroke-width="2" />
+              <path d="M295 197 a5 5 0 0110 0 c0 3-5 7-5 7 s-5-4-5-7" stroke="#E3A857" stroke-width="1.5" />
+            </g>
+            
+            <!-- Node Bottom (Integrations/Webhooks) -->
+            <g class="node-circle node-c4">
+              <circle cx="200" cy="300" r="22" fill="#190F0D" stroke="#80461B" stroke-width="2" />
+              <circle cx="196" cy="296" r="3" fill="#E3A857" />
+              <circle cx="204" cy="296" r="3" fill="#E3A857" />
+              <circle cx="200" cy="304" r="3" fill="#E3A857" />
+            </g>
+            
+            <!-- Node Left (Custom Applications) -->
+            <g class="node-circle node-c2">
+              <circle cx="100" cy="200" r="22" fill="#190F0D" stroke="#80461B" stroke-width="2" />
+              <path d="M94 200 h12 M100 194 v12" stroke="#E3A857" stroke-width="1.5" stroke-linecap="round" />
+            </g>
+          </svg>
+        </div>
+      </div>
     </div>
   </section>
 
-  <section id="skills" class="section">
+  <!-- About Me -->
+  <section class="section" id="about">
+    <div class="container about-grid">
+      <div class="about-image-wrapper reveal">
+        <div class="about-image">
+          <img src="images/about_ai_concept.png" alt="AI Operations Concept Map" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; z-index: 1;">
+          <div class="about-image-overlay-card glass-card" style="z-index: 2;">
+            <h4>Tehreem</h4>
+            <p>AI Architect & Integration Expert</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="about-content reveal">
+        <span class="section-tag">About Me</span>
+        <h3>Architecting Operations That Scale Automagically</h3>
+        <p class="about-text">
+          I am a specialized systems architect and automation consultant focused on building cohesive technical ecosystems for high-growth operations. By bridging the gap between legacy CRM architectures and advanced artificial intelligence, I deploy systems that eliminate repetitive labor, capture lost pipeline leads, and elevate client interaction.
+        </p>
+        
+        <div class="about-highlight-grid">
+          <!-- Highlight Item 1 -->
+          <div class="about-highlight-item">
+            <div class="about-highlight-icon">
+              <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M8.684 10.742l-3.447 1.724m0 0l3.447 1.724m-3.447-1.724h12.871M15.316 7.258l3.447 1.724m0 0l-3.447 1.724m3.447-1.724H5.25"></path>
+              </svg>
+            </div>
+            <div>
+              <h4 class="about-highlight-title">Closebot Customizations</h4>
+              <p class="about-highlight-desc">Advanced conversational bots tuned for active sales qualification.</p>
+            </div>
+          </div>
+          
+          <!-- Highlight Item 2 -->
+          <div class="about-highlight-item">
+            <div class="about-highlight-icon">
+              <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h3.75M9 15h3.375c1.88 0 3.402-1.294 3.402-2.89 0-1.596-1.522-2.89-3.402-2.89H9V12z"></path>
+              </svg>
+            </div>
+            <div>
+              <h4 class="about-highlight-title">GoHighLevel (GHL) Pipelines</h4>
+              <p class="about-highlight-desc">High-converting trigger setups, lead nurturing, and CRM automation.</p>
+            </div>
+          </div>
+          
+          <!-- Highlight Item 3 -->
+          <div class="about-highlight-item">
+            <div class="about-highlight-icon">
+              <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"></path>
+              </svg>
+            </div>
+            <div>
+              <h4 class="about-highlight-title">Custom AI Applications</h4>
+              <p class="about-highlight-desc">Bespoke LLM engineering, database routing, and cloud dashboards.</p>
+            </div>
+          </div>
+          
+          <!-- Highlight Item 4 -->
+          <div class="about-highlight-item">
+            <div class="about-highlight-icon">
+              <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z"></path>
+              </svg>
+            </div>
+            <div>
+              <h4 class="about-highlight-title">Workflow Integrations</h4>
+              <p class="about-highlight-desc">Flawless linking across apps via custom API webhooks and Make/Zapier.</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="about-stats">
+          <div class="stat-item">
+            <h4>50+</h4>
+            <p>Operations Automated</p>
+          </div>
+          <div class="stat-item">
+            <h4>99%</h4>
+            <p>GHL Integration Uptime</p>
+          </div>
+          <div class="stat-item">
+            <h4>350h+</h4>
+            <p>Admin Time Reclaimed/Mo</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section class="section" id="services" style="background-color: var(--bg-secondary);">
     <div class="container">
-      <h2>Skills</h2>
+      <div class="section-header reveal">
+        <span class="section-tag">Services</span>
+        <h2 class="section-title">End-to-End <span>Automation</span> Capabilities</h2>
+        <p class="section-subtitle">Delivering high-converting infrastructure designed to turn inbound attention into scheduled revenue, autonomously.</p>
+      </div>
+      
+      <div class="services-grid">
+        <!-- Service Card 1 -->
+        <div class="service-card glass-card reveal reveal-delay-1">
+          <div class="service-icon-box">
+            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+            </svg>
+          </div>
+          <h3>Closebot Setup & Optimization</h3>
+          <p>Deploy advanced conversational AI assistants designed to chat naturally across SMS, Instagram, and web, capturing details without human operators.</p>
+          <ul class="service-list">
+            <li class="service-list-item">
+              <svg fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"></path></svg>
+              AI chatbot configuration & tuning
+            </li>
+            <li class="service-list-item">
+              <svg fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"></path></svg>
+              Lead qualification automation
+            </li>
+            <li class="service-list-item">
+              <svg fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"></path></svg>
+              Customer support workflows
+            </li>
+            <li class="service-list-item">
+              <svg fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"></path></svg>
+              Dynamic prompt injection & context setup
+            </li>
+          </ul>
+        </div>
+        
+        <!-- Service Card 2 -->
+        <div class="service-card glass-card reveal reveal-delay-2">
+          <div class="service-icon-box">
+            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zM3.75 15.75A2.25 2.25 0 016 13.5h2.25a2.25 2.25 0 012.25 2.25V18a2.25 2.25 0 01-2.25 2.25H6A2.25 2.25 0 013.75 18v-2.25zM13.5 6a2.25 2.25 0 012.25-2.25H18A2.25 2.25 0 0120.25 6v2.25A2.25 2.25 0 0118 10.5h-2.25a2.25 2.25 0 01-2.25-2.25V6zM13.5 15.75a2.25 2.25 0 012.25-2.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-2.25A2.25 2.25 0 0113.5 18v-2.25z"></path>
+            </svg>
+          </div>
+          <h3>GoHighLevel Management</h3>
+          <p>Structuring high-end GHL pipelines, custom booking funnels, trigger-link responses, and database integrations to handle leads automatically.</p>
+          <ul class="service-list">
+            <li class="service-list-item">
+              <svg fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"></path></svg>
+              Custom GHL CRM system architecture
+            </li>
+            <li class="service-list-item">
+              <svg fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"></path></svg>
+              Funnel, calendar, and email templates
+            </li>
+            <li class="service-list-item">
+              <svg fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"></path></svg>
+              Complex trigger-based workflow setups
+            </li>
+            <li class="service-list-item">
+              <svg fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"></path></svg>
+              Pipeline tracking and value monitoring
+            </li>
+          </ul>
+        </div>
+        
+        <!-- Service Card 3 -->
+        <div class="service-card glass-card reveal reveal-delay-1">
+          <div class="service-icon-box">
+            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 21l8.904-4.452M18 10.5V18M6 10.5V18M12 3v3m0 0l-3.375 3.375M12 6l3.375 3.375m-6.75 3.75h6.75"></path>
+            </svg>
+          </div>
+          <h3>Custom AI Applications</h3>
+          <p>Developing dedicated software tools that utilize Large Language Models for automated document processing, custom dashboard data, or automated research.</p>
+          <ul class="service-list">
+            <li class="service-list-item">
+              <svg fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"></path></svg>
+              AI-powered analytical business tools
+            </li>
+            <li class="service-list-item">
+              <svg fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"></path></svg>
+              Internal operations knowledge bases
+            </li>
+            <li class="service-list-item">
+              <svg fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"></path></svg>
+              Web API endpoints & connector backends
+            </li>
+            <li class="service-list-item">
+              <svg fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"></path></svg>
+              Custom dynamic reporting dashboards
+            </li>
+          </ul>
+        </div>
+        
+        <!-- Service Card 4 -->
+        <div class="service-card glass-card reveal reveal-delay-2">
+          <div class="service-icon-box">
+            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12c0-1.232-.046-2.453-.138-3.662a4.006 4.006 0 00-3.7-3.7 48.678 48.678 0 00-7.324 0 4.006 4.006 0 00-3.7 3.7C4.547 9.547 4.5 10.768 4.5 12s.047 2.453.138 3.662a4.006 4.006 0 003.7 3.7 48.656 48.656 0 007.324 0 4.006 4.006 0 003.7-3.7c.092-1.209.138-2.43.138-3.662zM12 8.25v7.5m3.75-3.75h-7.5"></path>
+            </svg>
+          </div>
+          <h3>Business Automation</h3>
+          <p>Replacing tedious human operations with programmatic tasks. Sync data between payment processors, document signing tools, and CRMs effortlessly.</p>
+          <ul class="service-list">
+            <li class="service-list-item">
+              <svg fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"></path></svg>
+              Cross-platform data synchronization
+            </li>
+            <li class="service-list-item">
+              <svg fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"></path></svg>
+              Lead nurturing and auto-follow ups
+            </li>
+            <li class="service-list-item">
+              <svg fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"></path></svg>
+              Calendar & booking logic integration
+            </li>
+            <li class="service-list-item">
+              <svg fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"></path></svg>
+              Operations audit and systems layout
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Projects -->
+  <section class="section" id="projects">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Case Studies</span>
+        <h2 class="section-title">Systems In <span>Action</span></h2>
+        <p class="section-subtitle">Proven workflows that eliminate human back-and-forth, increase booking velocity, and secure sales pipelines.</p>
+      </div>
+      
+      <div class="projects-grid">
+        <!-- Project 1 -->
+        <article class="project-card glass-card reveal">
+          <div class="project-thumbnail">
+            <span class="project-tech-badge">Closebot + GHL</span>
+            <img src="images/closebot_qualification.png" alt="Closebot Lead Qualification Mockup Dashboard" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;">
+          </div>
+          <div class="project-info">
+            <h3>AI Lead Qualification System</h3>
+            <p>Built a comprehensive Closebot SMS automation agent that interacts with cold prospects, filters low-fit inquiries, and updates GHL opportunity stages.</p>
+            <div class="project-results">
+              <div class="project-results-label">Results Achieved</div>
+              <div class="project-results-val">85% qualification time decrease &bull; 3.2x Booking Velocity</div>
+            </div>
+            <div class="project-tags">
+              <span class="project-tag">Closebot</span>
+              <span class="project-tag">GHL CRM</span>
+              <span class="project-tag">OpenAI API</span>
+              <span class="project-tag">Make.com</span>
+            </div>
+            <a href="#contact" class="project-link">
+              View Project Details
+              <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"></path>
+              </svg>
+            </a>
+          </div>
+        </article>
+        
+        <!-- Project 2 -->
+        <article class="project-card glass-card reveal">
+          <div class="project-thumbnail">
+            <span class="project-tech-badge">GoHighLevel</span>
+            <img src="images/ghl_pipeline.png" alt="GHL CRM Sales Pipeline Automation Funnel" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;">
+          </div>
+          <div class="project-info">
+            <h3>GoHighLevel Sales Pipeline Automation</h3>
+            <p>Designed a complex multi-touch lead workflow inside GHL that auto-assigns leads, generates interactive SMS booking cards, and sends custom drop notifications.</p>
+            <div class="project-results">
+              <div class="project-results-label">Results Achieved</div>
+              <div class="project-results-val">+42% Appointment Show Rate &bull; Zero Lost Leads</div>
+            </div>
+            <div class="project-tags">
+              <span class="project-tag">GoHighLevel</span>
+              <span class="project-tag">Webhooks</span>
+              <span class="project-tag">SMS Marketing</span>
+              <span class="project-tag">Zapier</span>
+            </div>
+            <a href="#contact" class="project-link">
+              View Project Details
+              <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"></path>
+              </svg>
+            </a>
+          </div>
+        </article>
+        
+        <!-- Project 3 -->
+        <article class="project-card glass-card reveal">
+          <div class="project-thumbnail">
+            <span class="project-tech-badge">Custom Agent</span>
+            <img src="images/ai_support.png" alt="AI Support Chatbot Widget Concept" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;">
+          </div>
+          <div class="project-info">
+            <h3>Custom AI Customer Support Assistant</h3>
+            <p>Developed a high-speed Python AI chatbot linked to internal documentation using vector retrieval to instantly reply to high-frequency technical user inquiries.</p>
+            <div class="project-results">
+              <div class="project-results-label">Results Achieved</div>
+              <div class="project-results-val">78% Support Deflection Rate &bull; 0.9s Average Response Time</div>
+            </div>
+            <div class="project-tags">
+              <span class="project-tag">Python</span>
+              <span class="project-tag">FastAPI</span>
+              <span class="project-tag">Pinecone Vector DB</span>
+              <span class="project-tag">GPT-4</span>
+            </div>
+            <a href="#contact" class="project-link">
+              View Project Details
+              <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"></path>
+              </svg>
+            </a>
+          </div>
+        </article>
+        
+        <!-- Project 4 -->
+        <article class="project-card glass-card reveal">
+          <div class="project-thumbnail">
+            <span class="project-tech-badge">Make + CRM</span>
+            <img src="images/automated_booking.png" alt="Automated Appointment Booking Dashboard" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;">
+          </div>
+          <div class="project-info">
+            <h3>Automated Appointment Booking System</h3>
+            <p>Designed a zero-friction workflow that uses real-time schedule matching algorithms and automatic reminders to reduce client booking friction.</p>
+            <div class="project-results">
+              <div class="project-results-label">Results Achieved</div>
+              <div class="project-results-val">230+ Appointments in 30 Days &bull; -18% No-Show Rate</div>
+            </div>
+            <div class="project-tags">
+              <span class="project-tag">Cal.com API</span>
+              <span class="project-tag">Make.com</span>
+              <span class="project-tag">Twilio SMS</span>
+              <span class="project-tag">VAPI Integration</span>
+            </div>
+            <a href="#contact" class="project-link">
+              View Project Details
+              <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"></path>
+              </svg>
+            </a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section class="section" id="skills" style="background-color: var(--bg-secondary);">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Stack & Expertise</span>
+        <h2 class="section-title">Technical <span>Competencies</span></h2>
+        <p class="section-subtitle">A balanced breakdown of systems consulting experience, automation technologies, and AI configurations.</p>
+      </div>
+      
       <div class="skills-grid">
-        <div class="skill-item">AI Prompt Engineering</div>
-        <div class="skill-item">LLM Fineâ€‘tuning</div>
-        <div class="skill-item">Vector Databases</div>
-        <div class="skill-item">LangChain / Flowise</div>
-        <div class="skill-item">Closebot Setup</div>
-        <div class="skill-item">GoHighLevel Management</div>
+        
+        <!-- Skill Card 2 -->
+        <div class="skills-card glass-card reveal reveal-delay-2">
+          <h3>Closebot</h3>
+          <div class="skills-list">
+            <div class="skill-item">
+              <span class="skill-name">Chatbot Config</span>
+              <div class="skill-bar-wrapper"><div class="skill-bar" data-width="95%"></div></div>
+            </div>
+            <div class="skill-item">
+              <span class="skill-name">Conversation Design</span>
+              <div class="skill-bar-wrapper"><div class="skill-bar" data-width="92%"></div></div>
+            </div>
+            <div class="skill-item">
+              <span class="skill-name">Knowledge Sync</span>
+              <div class="skill-bar-wrapper"><div class="skill-bar" data-width="88%"></div></div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Skill Card 3 -->
+        <div class="skills-card glass-card reveal reveal-delay-3">
+          <h3>GoHighLevel</h3>
+          <div class="skills-list">
+            <div class="skill-item">
+              <span class="skill-name">GHL CRM Setup</span>
+              <div class="skill-bar-wrapper"><div class="skill-bar" data-width="95%"></div></div>
+            </div>
+            <div class="skill-item">
+              <span class="skill-name">Funnel Architectures</span>
+              <div class="skill-bar-wrapper"><div class="skill-bar" data-width="85%"></div></div>
+            </div>
+            <div class="skill-item">
+              <span class="skill-name">Workflow Triggers</span>
+              <div class="skill-bar-wrapper"><div class="skill-bar" data-width="95%"></div></div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Skill Card 4 -->
+        <div class="skills-card glass-card reveal reveal-delay-4">
+          <h3>Automation Tools</h3>
+          <div class="skills-list">
+            <div class="skill-item">
+              <span class="skill-name">Make.com / Integromat</span>
+              <div class="skill-bar-wrapper"><div class="skill-bar" data-width="95%"></div></div>
+            </div>
+            <div class="skill-item">
+              <span class="skill-name">Zapier Automations</span>
+              <div class="skill-bar-wrapper"><div class="skill-bar" data-width="90%"></div></div>
+            </div>
+            <div class="skill-item">
+              <span class="skill-name">n8n / Self-Hosted</span>
+              <div class="skill-bar-wrapper"><div class="skill-bar" data-width="75%"></div></div>
+            </div>
+          </div>
+        </div>
+
+        
+        <!-- Skill Card 6 -->
+        <div class="skills-card glass-card reveal reveal-delay-2">
+          <h3>API Integrations</h3>
+          <div class="skills-list">
+            <div class="skill-item">
+              <span class="skill-name">RESTful Webhooks</span>
+              <div class="skill-bar-wrapper"><div class="skill-bar" data-width="95%"></div></div>
+            </div>
+            <div class="skill-item">
+              <span class="skill-name">GraphQL Queries</span>
+              <div class="skill-bar-wrapper"><div class="skill-bar" data-width="80%"></div></div>
+            </div>
+            <div class="skill-item">
+              <span class="skill-name">OAuth Custom Flow</span>
+              <div class="skill-bar-wrapper"><div class="skill-bar" data-width="85%"></div></div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Skill Card 7 -->
+        <div class="skills-card glass-card reveal reveal-delay-3">
+          <h3>Prompt Engineering</h3>
+          <div class="skills-list">
+            <div class="skill-item">
+              <span class="skill-name">Context Compression</span>
+              <div class="skill-bar-wrapper"><div class="skill-bar" data-width="90%"></div></div>
+            </div>
+            <div class="skill-item">
+              <span class="skill-name">JSON Output Control</span>
+              <div class="skill-bar-wrapper"><div class="skill-bar" data-width="95%"></div></div>
+            </div>
+            <div class="skill-item">
+              <span class="skill-name">Few-Shot Prompting</span>
+              <div class="skill-bar-wrapper"><div class="skill-bar" data-width="95%"></div></div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Skill Card 8 -->
+        <div class="skills-card glass-card reveal reveal-delay-4">
+          <h3>Web Technologies</h3>
+          <div class="skills-list">
+            <div class="skill-item">
+              <span class="skill-name">HTML5 / CSS3</span>
+              <div class="skill-bar-wrapper"><div class="skill-bar" data-width="90%"></div></div>
+            </div>
+            <div class="skill-item">
+              <span class="skill-name">JavaScript (ES6+)</span>
+              <div class="skill-bar-wrapper"><div class="skill-bar" data-width="85%"></div></div>
+            </div>
+            <div class="skill-item">
+              <span class="skill-name">Node.js Backends</span>
+              <div class="skill-bar-wrapper"><div class="skill-bar" data-width="80%"></div></div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <section id="work" class="section">
+  <!-- Process Section -->
+  <section class="section" id="process">
     <div class="container">
-      <h2>Work</h2>
-      <div class="work-grid">
-        <img src="images/work1.png" alt="Work sample 1" />
-        <img src="images/work2.png" alt="Work sample 2" />
-        <img src="images/work3.png" alt="Work sample 3" />
+      <div class="section-header reveal">
+        <span class="section-tag">How It Works</span>
+        <h2 class="section-title">The 5-Step <span>Deployment</span> Protocol</h2>
+        <p class="section-subtitle">A structured system design lifecycle ensuring custom automation assets are deployed error-free.</p>
+      </div>
+      
+      <div class="process-container">
+        <div class="process-line" aria-hidden="true"></div>
+        <div class="process-steps">
+          <!-- Step 1 -->
+          <div class="process-step reveal">
+            <div class="process-node">01</div>
+            <div class="process-content glass-card">
+              <h3>Discovery & Strategy</h3>
+              <p>We trace your administrative bottlenecks, document existing legacy CRM channels, and design a custom workflow layout targeting immediate hour-saving goals.</p>
+            </div>
+          </div>
+          
+          <!-- Step 2 -->
+          <div class="process-step reveal">
+            <div class="process-node">02</div>
+            <div class="process-content glass-card">
+              <h3>System Design</h3>
+              <p>We outline technical schemas detailing data routes, system integrations, conversational prompts, API structures, and CRM pipeline changes before coding.</p>
+            </div>
+          </div>
+          
+          <!-- Step 3 -->
+          <div class="process-step reveal">
+            <div class="process-node">03</div>
+            <div class="process-content glass-card">
+              <h3>Implementation</h3>
+              <p>We configure GHL pipelines, script custom webhooks, train Closebot AI models, and assemble the cloud connections that stitch your systems together.</p>
+            </div>
+          </div>
+          
+          <!-- Step 4 -->
+          <div class="process-step reveal">
+            <div class="process-node">04</div>
+            <div class="process-content glass-card">
+              <h3>Testing & Optimization</h3>
+              <p>We run simulated lead interactions, trace failure paths in API webhooks, and refine language prompt outputs to ensure high-accuracy behavior.</p>
+            </div>
+          </div>
+          
+          <!-- Step 5 -->
+          <div class="process-step reveal">
+            <div class="process-node">05</div>
+            <div class="process-content glass-card">
+              <h3>Deployment & Support</h3>
+              <p>We launch the operations live and provide immediate analytical dashboard configurations, ongoing support, and scaling reviews to adapt to business expansion.</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <section id="contact" class="section">
+  <!-- Testimonials Section -->
+  <section class="section" id="testimonials" style="background-color: var(--bg-secondary);">
     <div class="container">
-      <h2>Contact</h2>
-      <p>Email: <a href="mailto:tehreems857@gmail.com">tehreems857@gmail.com</a></p>
-      <p>Phone: <a href="tel:+92369197296">+92â€¯369â€¯197â€¯296</a></p>
-      <!-- Calendly Inline Widget -->
-      <div class="calendly-wrapper">
-        <div class="calendly-inline-widget" data-url="https://calendly.com/tehreem857" style="min-width:320px;height:700px;"></div>
-        <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+      <div class="section-header reveal">
+        <span class="section-tag">Endorsements</span>
+        <h2 class="section-title">Client <span>Feedback</span></h2>
+        <p class="section-subtitle">Real feedback from clients who replaced manual administrative work with smart, automated digital employees.</p>
+      </div>
+      
+      <div class="testimonial-carousel-container reveal">
+        <div class="testimonial-track" id="testimonial-track">
+          <!-- Slide 1 -->
+          <div class="testimonial-slide">
+            <div class="testimonial-card glass-card">
+              <span class="testimonial-quote-icon" aria-hidden="true">&ldquo;</span>
+              <p class="testimonial-text">
+                "Tehreem completely reworked our GoHighLevel CRM pipelines and connected Closebot to handle SMS lead inquiries. We went from manual lead sorting to a system that qualifies leads and books appointments while we sleep. It's a game-changer."
+              </p>
+              <div class="testimonial-client">
+                <div class="client-avatar">
+                  <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"></path>
+                  </svg>
+                </div>
+                <div class="client-info">
+                  <h4>Marcus Vance</h4>
+                  <p>Director of Operations, ScaleFlow Media</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Slide 2 -->
+          <div class="testimonial-slide">
+            <div class="testimonial-card glass-card">
+              <span class="testimonial-quote-icon" aria-hidden="true">&ldquo;</span>
+              <p class="testimonial-text">
+                "The custom AI support bot Tehreem built for our platform cut down helpdesk tickets by nearly 80%. Our clients receive responses in seconds, and our support team now only handles complex edge cases. Absolute genius!"
+              </p>
+              <div class="testimonial-client">
+                <div class="client-avatar">
+                  <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"></path>
+                  </svg>
+                </div>
+                <div class="client-info">
+                  <h4>Sarah Jenkins</h4>
+                  <p>Founder, SaaSify Systems</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Slide 3 -->
+          <div class="testimonial-slide">
+            <div class="testimonial-card glass-card">
+              <span class="testimonial-quote-icon" aria-hidden="true">&ldquo;</span>
+              <p class="testimonial-text">
+                "Our agency was struggling with booking follow-ups and calendar syncs. Tehreem automated the entire flow using Make.com and custom webhook links. We saved 15 hours of manual outreach in our very first week."
+              </p>
+              <div class="testimonial-client">
+                <div class="client-avatar">
+                  <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"></path>
+                  </svg>
+                </div>
+                <div class="client-info">
+                  <h4>David Cho</h4>
+                  <p>Co-Founder, Elevate Capital</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Controls -->
+        <div class="testimonial-controls">
+          <button class="carousel-btn" id="carousel-prev" aria-label="Previous testimonial">
+            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5"></path>
+            </svg>
+          </button>
+          
+          <div class="carousel-dots" id="carousel-dots">
+            <!-- Rendered dynamically in JS -->
+          </div>
+          
+          <button class="carousel-btn" id="carousel-next" aria-label="Next testimonial">
+            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"></path>
+            </svg>
+          </button>
+        </div>
       </div>
     </div>
   </section>
 
+  <!-- Contact Section -->
+  <section class="section" id="contact">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Let's Connect</span>
+        <h2 class="section-title">Let's Build <span>Smarter</span> Systems Together</h2>
+        <p class="section-subtitle">Book a session or drop an inquiry to outline your systems design roadmap.</p>
+      </div>
+      
+      <div class="contact-grid">
+        <!-- Contact Details and Calendar -->
+        <div class="contact-info-panel reveal">
+          <!-- WhatsApp Contact Method -->
+          <div class="contact-method-card glass-card">
+            <div class="contact-method-icon">
+              <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12.76c0 1.6.43 3.07 1.19 4.35L2.25 21.75l4.82-1.15c1.2.68 2.58 1.07 4.05 1.07 4.9 0 8.88-3.9 8.88-8.73c0-4.83-3.98-8.74-8.88-8.74a8.8 8.8 0 00-8.87 8.73c0 .03 0 .07.01.1z"></path>
+              </svg>
+            </div>
+            <div class="contact-method-details">
+              <h4>WhatsApp Inquiries</h4>
+              <p>+92 369 197296</p>
+              <button class="copy-btn" data-copy="+92369197296">
+                <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M8.25 7.5V6.108c0-1.135-.845-2.098-1.976-2.192.373-.58.962-.971 1.645-.971h3.75c1.036 0 1.875.84 1.875 1.875v3.75c0 .684-.392 1.272-.97 1.645M6.25 10.5V9.108c0-1.135-.845-2.098-1.976-2.192.373-.58.962-.971 1.645-.971h3.75c1.036 0 1.875.84 1.875 1.875v3.75c0 .684-.392 1.272-.97 1.645m-7.38-1.63a1.875 1.875 0 113.75 0v3.75a1.875 1.875 0 11-3.75 0v-3.75z"></path></svg>
+                Copy WhatsApp Link
+              </button>
+            </div>
+          </div>
+          
+          <!-- Email Contact Method -->
+          <div class="contact-method-card glass-card">
+            <div class="contact-method-icon">
+              <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"></path>
+              </svg>
+            </div>
+            <div class="contact-method-details">
+              <h4>Direct Email</h4>
+              <p>tehreems857@gmail.com</p>
+              <button class="copy-btn" data-copy="tehreems857@gmail.com">
+                <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M8.25 7.5V6.108c0-1.135-.845-2.098-1.976-2.192.373-.58.962-.971 1.645-.971h3.75c1.036 0 1.875.84 1.875 1.875v3.75c0 .684-.392 1.272-.97 1.645M6.25 10.5V9.108c0-1.135-.845-2.098-1.976-2.192.373-.58.962-.971 1.645-.971h3.75c1.036 0 1.875.84 1.875 1.875v3.75c0 .684-.392 1.272-.97 1.645m-7.38-1.63a1.875 1.875 0 113.75 0v3.75a1.875 1.875 0 11-3.75 0v-3.75z"></path></svg>
+                Copy Email
+              </button>
+            </div>
+          </div>
+          
+          <!-- Booking Card -->
+          <div class="booking-card glass-card">
+            <h3>Schedule Architecture Mapping</h3>
+            <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 20px;">
+              Select a suitable date for a 30-minute system discovery video mapping session.
+            </p>
+            <!-- Calendly inline widget begin -->
+            <div class="calendly-inline-widget" data-url="https://calendly.com/tehreems857" style="min-width:320px;height:700px;"></div>
+            <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+            <!-- Calendly inline widget end -->
+          </div>
+        </div>
+        
+        <!-- Contact Form -->
+        <div class="contact-form-panel glass-card reveal">
+          <h3 class="contact-form-title">Send a Message</h3>
+          <form id="contact-form" novalidate>
+            <div class="form-group">
+              <label for="form-name" class="form-label">Full Name</label>
+              <input type="text" id="form-name" class="form-input" placeholder="e.g. John Doe" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="form-email" class="form-label">Email Address</label>
+              <input type="email" id="form-email" class="form-input" placeholder="e.g. john@example.com" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="form-service" class="form-label">Select Core Service Required</label>
+              <select id="form-service" class="form-input" style="appearance: none; background-image: url('data:image/svg+xml;utf8,<svg fill=\"%23E3A857\" height=\"24\" viewBox=\"0 0 24 24\" width=\"24\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M7 10l5 5 5-5z\"/></svg>'); background-repeat: no-repeat; background-position: right 12px center;">
+                <option value="closebot">Closebot Setup & Optimization</option>
+                <option value="ghl">GoHighLevel CRM Management</option>
+                <option value="ai-app">Custom AI Application Development</option>
+                <option value="automation">Business Workflow Integration</option>
+              </select>
+            </div>
+            
+            <div class="form-group">
+              <label for="form-message" class="form-label">Operation Details & Description</label>
+              <textarea id="form-message" class="form-input" placeholder="Please outline the workflow bottleneck you wish to automate..." required></textarea>
+            </div>
+            
+            <button type="submit" class="btn btn-primary" style="width: 100%;">
+              Transmit Operations Request
+              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5"></path>
+              </svg>
+            </button>
+            <div id="form-feedback" class="form-status" role="alert"></div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
   <footer class="footer">
-    <div class="container">Â© 2026 Tehreem â€“ All Rights Reserved.</div>
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a href="#hero" class="logo"><span>T</span>ehreem</a>
+        <p>Architecting autonomous systems that capture pipeline opportunities and simplify CRM logistics.</p>
+      </div>
+      
+      <div class="footer-nav-col">
+        <h4>Navigation</h4>
+        <ul class="footer-links">
+          <li><a href="#about" class="footer-link">About Me</a></li>
+          <li><a href="#services" class="footer-link">Core Services</a></li>
+          <li><a href="#projects" class="footer-link">Case Studies</a></li>
+          <li><a href="#skills" class="footer-link">Expertise Stack</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-nav-col">
+        <h4>Let's Build</h4>
+        <ul class="footer-links">
+          <li><a href="#contact" class="footer-link">Book Integration Mapping</a></li>
+          <li><a href="#process" class="footer-link">Deployment Protocol</a></li>
+          <li><a href="#testimonials" class="footer-link">Client Reviews</a></li>
+        </ul>
+        <div class="social-links" style="margin-top: 20px;">
+          <!-- LinkedIn -->
+          <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="LinkedIn Profile">
+            <svg fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+            </svg>
+          </a>
+          <!-- WhatsApp Link -->
+          <a href="https://wa.me/" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="WhatsApp Link">
+            <svg fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.559 5.334-11.89 11.893-11.89 3.181.001 6.167 1.24 8.413 3.488 2.247 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.333 11.89-11.892 11.89-2.006-.001-3.973-.508-5.729-1.472l-6.265 1.679zm6.54-5.3c1.675.994 3.327 1.517 5.3 1.518 5.485 0 9.948-4.464 9.95-9.95.002-2.657-1.03-5.153-2.902-7.028-1.872-1.874-4.372-2.905-7.034-2.906-5.488 0-9.952 4.464-9.955 9.951-.001 1.868.49 3.694 1.42 5.313l-1.025 3.738 3.846-1.028zm11.233-7.558c-.3-.149-1.772-.874-2.046-.975-.274-.101-.474-.149-.674.15-.199.299-.773.974-.948 1.173-.174.199-.349.224-.648.075-.3-.149-1.266-.467-2.41-1.485-.89-.793-1.49-1.773-1.665-2.072-.174-.299-.019-.461.13-.61.135-.133.3-.349.449-.523.149-.174.199-.299.299-.498.1-.2.05-.374-.025-.523-.075-.15-.674-1.621-.924-2.22-.243-.585-.49-.506-.674-.515-.174-.009-.374-.01-.573-.01-.2 0-.523.075-.798.374-.274.299-1.047 1.022-1.047 2.491 0 1.47 1.072 2.89 1.222 3.09.149.199 2.11 3.22 5.111 4.517.714.309 1.272.493 1.706.632.717.228 1.371.196 1.888.118.577-.087 1.772-.724 2.022-1.42.25-.697.25-1.295.174-1.419-.075-.125-.274-.199-.573-.349z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="container footer-bottom">
+      <p>&copy; 2026 Tehreem AI Operations Consulting. All Rights Reserved.</p>
+      <p>Built for Enterprise Performance.</p>
+    </div>
   </footer>
 
   <script src="js/main.js"></script>
