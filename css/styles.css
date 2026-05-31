@@ -1182,6 +1182,7 @@ button, input, textarea, select {
   display: grid;
   grid-template-columns: 0.9fr 1.1fr;
   gap: 50px;
+  align-items: start;
 }
 
 .contact-info-panel {
