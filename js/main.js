@@ -70,29 +70,46 @@ document.addEventListener('DOMContentLoaded', () => {
     const currentTheme = document.body.getAttribute('data-theme');
     const newTheme = currentTheme === 'light' ? 'dark' : 'light';
     
+    document.body.style.transition = 'background-color 0.6s cubic-bezier(0.16, 1, 0.3, 1), color 0.6s cubic-bezier(0.16, 1, 0.3, 1)';
     document.body.setAttribute('data-theme', newTheme);
     localStorage.setItem('theme', newTheme);
   });
 
   // ==========================================
-  // 3. Scroll Reveal Animations (Intersection Observer)
+  // 3. Scroll Reveal Animations (Staggered Intersection Observer)
   // ==========================================
   const revealElements = document.querySelectorAll('.reveal');
   
   const revealObserver = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
+        // Check if this element is inside a grid/container with siblings
+        const parent = entry.target.parentElement;
+        const siblings = parent ? Array.from(parent.querySelectorAll(':scope > .reveal')) : [];
+        
+        if (siblings.length > 1) {
+          const idx = siblings.indexOf(entry.target);
+          entry.target.style.transitionDelay = `${idx * 0.08}s`;
+        }
+        
         entry.target.classList.add('active');
-        // Once visible, trigger skill progress bars if this is the skills section
-        if (entry.target.id === 'skills') {
+        
+        // Trigger skill progress bars if this is the skills section
+        if (entry.target.closest('#skills')) {
           animateSkillBars();
         }
+
+        // Trigger stat counters if this is the about section
+        if (entry.target.closest('#about')) {
+          animateStatCounters();
+        }
+
         observer.unobserve(entry.target);
       }
     });
   }, {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
+    threshold: 0.15,
+    rootMargin: '0px 0px -80px 0px'
   });
 
   revealElements.forEach(elem => {
@@ -108,13 +125,42 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // Animate stat counters
+  function animateStatCounters() {
+    const statItems = document.querySelectorAll('.stat-item h4');
+    statItems.forEach(item => {
+      const text = item.textContent;
+      const match = text.match(/(\d+)/);
+      if (!match) return;
+      
+      const target = parseInt(match[1]);
+      const suffix = text.replace(match[1], '').trim();
+      const prefix = text.substring(0, text.indexOf(match[1]));
+      let current = 0;
+      const duration = 1500;
+      const startTime = performance.now();
+      
+      function update(currentTime) {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        // Ease out cubic
+        const eased = 1 - Math.pow(1 - progress, 3);
+        current = Math.round(target * eased);
+        item.textContent = prefix + current + suffix;
+        if (progress < 1) requestAnimationFrame(update);
+      }
+      requestAnimationFrame(update);
+    });
+  }
+
   // Fallback for elements already in viewport
   setTimeout(() => {
     revealElements.forEach(elem => {
       const rect = elem.getBoundingClientRect();
       if (rect.top < window.innerHeight && rect.bottom > 0) {
         elem.classList.add('active');
-        if (elem.id === 'skills') animateSkillBars();
+        if (elem.closest('#skills')) animateSkillBars();
+        if (elem.closest('#about')) animateStatCounters();
       }
     });
   }, 100);
@@ -143,7 +189,22 @@ document.addEventListener('DOMContentLoaded', () => {
   const dots = Array.from(dotsNav.children);
 
   const updateSlidePosition = (targetIndex) => {
+    // Subtle scale + opacity transition for outgoing/incoming slides
+    if (slides[currentIndex]) {
+      slides[currentIndex].style.opacity = '0.6';
+      slides[currentIndex].style.transform = 'scale(0.96)';
+    }
+    
     track.style.transform = `translateX(-${targetIndex * 100}%)`;
+    
+    requestAnimationFrame(() => {
+      setTimeout(() => {
+        slides.forEach(slide => {
+          slide.style.opacity = '1';
+          slide.style.transform = 'scale(1)';
+        });
+      }, 80);
+    });
     
     // Update active dot
     dots.forEach(dot => dot.classList.remove('active'));
@@ -318,6 +379,28 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   });
+
+  // ==========================================
+  // 7. Subtle Parallax Glow on Scroll
+  // ==========================================
+  const glowCircles = document.querySelectorAll('.glow-circle');
+  
+  if (glowCircles.length > 0) {
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          const scrollY = window.scrollY;
+          glowCircles.forEach((glow, i) => {
+            const speed = 0.03 + (i * 0.015);
+            glow.style.transform = `translateY(${scrollY * speed}px)`;
+          });
+          ticking = false;
+        });
+        ticking = true;
+      }
+    });
+  }
 });
 
 // Spin Animation Keyframes injected in CSS (helper)
