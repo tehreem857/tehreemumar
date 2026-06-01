@@ -8,32 +8,39 @@
 
 :root {
   /* Colors */
-  --acajou: #4C2F27;
-  --old-burgundy: #2A1715;
+  --midnight-black: #0A0A0F;
+  --neon-purple: #8B5CF6;
+  --neon-blue: #22D3EE;
+  --soft-gray: #A1A1AA;
+  --glow-accent: #A78BFA;
+
+  /* Legacy Variable Aliases to support existing layouts */
+  --acajou: var(--neon-purple);
+  --old-burgundy: #12121A;
   --white: #FFFFFF;
-  --indian-yellow: #E3A857;
-  --russet: #80461B;
+  --indian-yellow: var(--neon-purple);
+  --russet: var(--neon-blue);
 
   /* Theme: Dark (Default) */
-  --bg-primary: #0F0908;
-  --bg-secondary: #190F0D;
-  --bg-tertiary: #231512;
+  --bg-primary: #0A0A0F;
+  --bg-secondary: #12121A;
+  --bg-tertiary: #1B1B2A;
   --text-primary: #FFFFFF;
-  --text-secondary: #D4C9C6;
-  --text-muted: #9E8F8B;
+  --text-secondary: #A1A1AA;
+  --text-muted: #71717A;
   
-  --accent: var(--indian-yellow);
-  --accent-rgb: 227, 168, 87;
-  --accent-secondary: var(--russet);
+  --accent: var(--neon-purple);
+  --accent-rgb: 139, 92, 246;
+  --accent-secondary: var(--neon-blue);
   
-  --glass-bg: rgba(25, 15, 13, 0.6);
-  --glass-border: rgba(227, 168, 87, 0.1);
-  --glass-border-hover: rgba(227, 168, 87, 0.25);
-  --card-shadow: rgba(0, 0, 0, 0.6);
+  --glass-bg: rgba(18, 18, 26, 0.6);
+  --glass-border: rgba(139, 92, 246, 0.15);
+  --glass-border-hover: rgba(34, 211, 238, 0.3);
+  --card-shadow: rgba(0, 0, 0, 0.8);
   
-  --gradient-gold-rust: linear-gradient(135deg, var(--indian-yellow) 0%, var(--russet) 100%);
-  --gradient-dark: linear-gradient(180deg, #0F0908 0%, #1D100E 100%);
-  --glow-bg: rgba(227, 168, 87, 0.05);
+  --gradient-gold-rust: linear-gradient(135deg, var(--neon-purple) 0%, var(--neon-blue) 100%);
+  --gradient-dark: linear-gradient(180deg, #0A0A0F 0%, #12121A 100%);
+  --glow-bg: rgba(167, 139, 250, 0.05);
 
   --font-heading: 'Outfit', sans-serif;
   --font-body: 'Plus Jakarta Sans', sans-serif;
@@ -48,20 +55,20 @@
 }
 
 [data-theme="light"] {
-  --bg-primary: #FDFBF7;
-  --bg-secondary: #F6F1EA;
-  --bg-tertiary: #EDE4D8;
-  --text-primary: #2A1715;
-  --text-secondary: #4A3530;
-  --text-muted: #7E6B65;
+  --bg-primary: #F9F9FB;
+  --bg-secondary: #F1F0F5;
+  --bg-tertiary: #E4E3EB;
+  --text-primary: #0A0A0F;
+  --text-secondary: #4B4B5A;
+  --text-muted: #71717A;
   
-  --glass-bg: rgba(253, 251, 247, 0.8);
-  --glass-border: rgba(76, 47, 39, 0.12);
-  --glass-border-hover: rgba(76, 47, 39, 0.25);
-  --card-shadow: rgba(76, 47, 39, 0.08);
+  --glass-bg: rgba(249, 249, 251, 0.8);
+  --glass-border: rgba(139, 92, 246, 0.15);
+  --glass-border-hover: rgba(34, 211, 238, 0.3);
+  --card-shadow: rgba(10, 10, 15, 0.05);
   
-  --gradient-dark: linear-gradient(180deg, #FDFBF7 0%, #F5F0E6 100%);
-  --glow-bg: rgba(227, 168, 87, 0.08);
+  --gradient-dark: linear-gradient(180deg, #F9F9FB 0%, #F1F0F5 100%);
+  --glow-bg: rgba(139, 92, 246, 0.08);
 }
 
 /* Base Styles */
@@ -163,7 +170,7 @@ button, input, textarea, select {
   right: -10%;
   width: 500px;
   height: 500px;
-  background: var(--acajou);
+  background: var(--glow-accent);
   animation-delay: -10s;
 }
 
@@ -205,12 +212,12 @@ button, input, textarea, select {
   text-transform: uppercase;
   letter-spacing: 0.15em;
   color: var(--accent);
-  background: rgba(227, 168, 87, 0.1);
+  background: rgba(139, 92, 246, 0.1);
   padding: 6px 16px;
   border-radius: 100px;
   display: inline-block;
   margin-bottom: 16px;
-  border: 1px solid rgba(227, 168, 87, 0.2);
+  border: 1px solid rgba(139, 92, 246, 0.2);
 }
 
 .section-title {
@@ -253,12 +260,12 @@ button, input, textarea, select {
   background: var(--gradient-gold-rust);
   color: #000000;
   font-weight: 700;
-  box-shadow: 0 4px 20px rgba(227, 168, 87, 0.25);
+  box-shadow: 0 4px 20px rgba(139, 92, 246, 0.25);
 }
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 30px rgba(227, 168, 87, 0.4);
+  box-shadow: 0 8px 30px rgba(139, 92, 246, 0.4);
   filter: brightness(1.08);
 }
 
@@ -288,7 +295,7 @@ button, input, textarea, select {
 
 .glass-card:hover {
   border-color: var(--glass-border-hover);
-  box-shadow: 0 15px 35px rgba(227, 168, 87, 0.08);
+  box-shadow: 0 15px 35px rgba(139, 92, 246, 0.08);
   transform: translateY(-4px);
 }
 
@@ -438,8 +445,8 @@ button, input, textarea, select {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: rgba(227, 168, 87, 0.08);
-  border: 1px solid rgba(227, 168, 87, 0.15);
+  background: rgba(139, 92, 246, 0.08);
+  border: 1px solid rgba(139, 92, 246, 0.15);
   border-radius: 100px;
   padding: 6px 14px;
   font-size: 0.85rem;
@@ -589,14 +596,14 @@ button, input, textarea, select {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(25,15,13,0) 50%, rgba(25,15,13,0.9) 100%);
+  background: linear-gradient(180deg, rgba(10,10,15,0) 50%, rgba(10,10,15,0.9) 100%);
 }
 
 .about-image svg {
   width: 80px;
   height: 80px;
   color: var(--indian-yellow);
-  filter: drop-shadow(0 0 15px rgba(227, 168, 87, 0.3));
+  filter: drop-shadow(0 0 15px rgba(139, 92, 246, 0.3));
 }
 
 .about-image-overlay-card {
@@ -646,7 +653,7 @@ button, input, textarea, select {
 }
 
 .about-highlight-icon {
-  background: rgba(227, 168, 87, 0.15);
+  background: rgba(139, 92, 246, 0.15);
   color: var(--indian-yellow);
   width: 36px;
   height: 36px;
@@ -732,13 +739,13 @@ button, input, textarea, select {
   width: 60px;
   height: 60px;
   border-radius: 12px;
-  background: rgba(227, 168, 87, 0.1);
+  background: rgba(139, 92, 246, 0.1);
   color: var(--indian-yellow);
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 28px;
-  border: 1px solid rgba(227, 168, 87, 0.2);
+  border: 1px solid rgba(139, 92, 246, 0.2);
   transition: var(--transition-normal);
 }
 
@@ -877,8 +884,8 @@ button, input, textarea, select {
 }
 
 .project-results {
-  background: rgba(227, 168, 87, 0.05);
-  border: 1px dashed rgba(227, 168, 87, 0.2);
+  background: rgba(139, 92, 246, 0.05);
+  border: 1px dashed rgba(139, 92, 246, 0.2);
   border-radius: 8px;
   padding: 12px 16px;
   margin-bottom: 24px;
@@ -1042,7 +1049,7 @@ button, input, textarea, select {
 
 .process-step:hover .process-node {
   border-color: var(--indian-yellow);
-  box-shadow: 0 0 20px rgba(227, 168, 87, 0.2);
+  box-shadow: 0 0 20px rgba(139, 92, 246, 0.2);
   transform: scale(1.08) rotate(5deg);
 }
 
@@ -1218,7 +1225,7 @@ button, input, textarea, select {
 }
 
 .contact-method-icon {
-  background: rgba(227, 168, 87, 0.1);
+  background: rgba(139, 92, 246, 0.1);
   color: var(--indian-yellow);
   width: 48px;
   height: 48px;
@@ -1227,7 +1234,7 @@ button, input, textarea, select {
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  border: 1px solid rgba(227, 168, 87, 0.2);
+  border: 1px solid rgba(139, 92, 246, 0.2);
 }
 
 .contact-method-icon svg {
@@ -1336,7 +1343,7 @@ button, input, textarea, select {
 .form-input:focus {
   border-color: var(--indian-yellow);
   background: rgba(255, 255, 255, 0.04);
-  box-shadow: 0 0 10px rgba(227, 168, 87, 0.1);
+  box-shadow: 0 0 10px rgba(139, 92, 246, 0.1);
   transform: translateY(-1px);
 }
 
