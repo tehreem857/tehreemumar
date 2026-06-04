@@ -1,4 +1,18 @@
 User-agent: *
 Allow: /
 
+# Crawl rate
+Crawl-delay: 1
+
+# Sitemap declaration
 Sitemap: https://tehreemumar.com/sitemap.xml
+
+# Additional bot permissions
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
