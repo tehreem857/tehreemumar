@@ -322,15 +322,27 @@ document.addEventListener('DOMContentLoaded', () => {
       </svg>
     `;
 
-    // Mock API request network delay
+    // Formspree endpoint
+    const FORM_ENDPOINT = "https://formspree.io/f/mykadknj";
     try {
-      await new Promise(resolve => setTimeout(resolve, 1800));
-      
-      // Success response
-      showFeedback('Integration Request Transmitted Successfully. Tehreem will review and reply within 12 hours.', 'success');
-      contactForm.reset();
+      const response = await fetch(FORM_ENDPOINT, {
+        method: "POST",
+        headers: {
+          "Accept": "application/json",
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ name, email, message })
+      });
+
+      if (response.ok) {
+        showFeedback('Integration Request Transmitted Successfully. Tehreem will review and reply within 12 hours.', 'success');
+        contactForm.reset();
+      } else {
+        const errData = await response.json();
+        showFeedback(errData.error || 'Failed to transmit request.', 'error');
+      }
     } catch (err) {
-      showFeedback('Failed to transmit request. Please retry or contact tehreems857@gmail.com directly.', 'error');
+      showFeedback('Network error. Please try again later.', 'error');
     } finally {
       submitBtn.disabled = false;
       submitBtn.innerHTML = originalBtnText;
