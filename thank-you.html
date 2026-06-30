@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap">
+  <link rel="stylesheet" href="/css/styles.css">
+  <meta name="robots" content="noindex, follow">
+  <title>Thank You | Tehreem Umar</title>
+  <style>
+    .thank-you-wrapper {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+      position: relative;
+      overflow: hidden;
+      background: var(--bg-primary);
+    }
+    .thank-you-card {
+      max-width: 600px;
+      width: 100%;
+      text-align: center;
+      padding: 50px 40px;
+      z-index: 10;
+    }
+    .success-icon-wrapper {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 30px;
+      border-radius: 50%;
+      background: rgba(139, 92, 246, 0.1);
+      border: 2px solid var(--neon-purple);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--neon-purple);
+      box-shadow: 0 0 20px rgba(139, 92, 246, 0.2);
+    }
+    .thank-you-title {
+      font-size: 2.5rem;
+      margin-bottom: 16px;
+      background: linear-gradient(135deg, #FFFFFF 0%, #A78BFA 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .thank-you-text {
+      color: var(--text-secondary);
+      font-size: 1.1rem;
+      margin-bottom: 30px;
+      line-height: 1.6;
+    }
+    .thank-you-divider {
+      height: 1px;
+      background: rgba(255, 255, 255, 0.1);
+      margin: 25px 0;
+    }
+    .calendly-suggestion {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      margin-bottom: 25px;
+    }
+    .btn-group {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    @media (min-width: 480px) {
+      .btn-group {
+        flex-direction: row;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header / Navigation -->
+  <header class="header" id="header" style="background: rgba(10, 10, 15, 0.8);">
+    <div class="container header-container">
+      <a href="/" class="logo"><span>T</span>ehreem</a>
+      <a href="/" class="btn btn-outline" style="padding: 8px 16px; font-size: 0.9rem;">Back to Site</a>
+    </div>
+  </header>
+
+  <!-- Thank You Content -->
+  <main class="thank-you-wrapper">
+    <!-- Glow Background Effects -->
+    <div class="glow-circle" style="top: 20%; left: 10%; background: radial-gradient(circle, rgba(139,92,246,0.15) 0%, transparent 70%);"></div>
+    <div class="glow-circle" style="bottom: 10%; right: 10%; background: radial-gradient(circle, rgba(34,211,238,0.15) 0%, transparent 70%);"></div>
+
+    <div class="thank-you-card glass-card reveal active">
+      <div class="success-icon-wrapper">
+        <svg width="40" height="40" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"></path>
+        </svg>
+      </div>
+      <h1 class="thank-you-title">Transmission Successful</h1>
+      <p class="thank-you-text">
+        Your message has been safely received. Tehreem will review your automation scope and get back to you via email within 12 hours.
+      </p>
+      
+      <div class="thank-you-divider"></div>
+      
+      <p class="calendly-suggestion">
+        Want to fast-track your roadmap mapping? You can also book a direct slot on Calendly.
+      </p>
+      
+      <div class="btn-group">
+        <a href="/#contact" class="btn btn-primary">Schedule Live Session</a>
+        <a href="/" class="btn btn-outline">Return to Home</a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer" style="padding: 30px 0; border-top: 1px solid rgba(255, 255, 255, 0.05); text-align: center;">
+    <p style="font-size: 0.85rem; color: var(--text-muted);">© 2026 Tehreem Umar. All rights reserved.</p>
+  </footer>
+</body>
+</html>
