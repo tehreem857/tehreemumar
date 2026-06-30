@@ -298,6 +298,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const name = document.getElementById('form-name').value.trim();
     const email = document.getElementById('form-email').value.trim();
     const message = document.getElementById('form-message').value.trim();
+    const gotcha = contactForm.querySelector('input[name="_gotcha"]')?.value || "";
     const submitBtn = contactForm.querySelector('button[type="submit"]');
     
     // Basic Client-side Validation
@@ -331,12 +332,15 @@ document.addEventListener('DOMContentLoaded', () => {
           "Accept": "application/json",
           "Content-Type": "application/json"
         },
-        body: JSON.stringify({ name, email, message })
+        body: JSON.stringify({ name, email, message, _gotcha: gotcha })
       });
 
       if (response.ok) {
-        showFeedback('Integration Request Transmitted Successfully. Tehreem will review and reply within 12 hours.', 'success');
+        showFeedback('Integration Request Transmitted Successfully. Redirecting...', 'success');
         contactForm.reset();
+        setTimeout(() => {
+          window.location.href = "/thank-you.html";
+        }, 1000);
       } else {
         const errData = await response.json();
         showFeedback(errData.error || 'Failed to transmit request.', 'error');
