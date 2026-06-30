@@ -866,6 +866,17 @@
             </a>
           </div>
         </article>
+        <article class="project-card glass-card reveal">
+          <div class="project-info" style="padding: 32px;">
+            <span class="project-tag" style="margin-bottom:16px;display:inline-block;">GoHighLevel · Funnels · Website</span>
+            <h3 style="margin-bottom:12px;">Building a GoHighLevel Website & Funnels from Scratch</h3>
+            <p style="color:var(--text-secondary);font-size:0.95rem;margin-bottom:20px;">Step-by-step guide to creating a full-featured GoHighLevel website and sales funnels, integrating branding, lead capture, and automation.</p>
+            <a href="/blog/building-ghl-website-funnels-from-scratch.html" class="project-link" aria-label="Read guide on building GoHighLevel website and funnels">
+              Read Full Guide
+              <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"></path></svg>
+            </a>
+          </div>
+        </article>
       </div>
     </div>
   </section>
@@ -933,6 +944,8 @@
         <div class="contact-form-panel glass-card reveal">
           <h3 class="contact-form-title">Send a Message</h3>
           <form id="contact-form" novalidate>
+            <!-- Honeypot Spam Protection -->
+            <input type="text" name="_gotcha" style="display:none !important" tabindex="-1" autocomplete="off">
             <div class="form-group">
               <label for="form-name" class="form-label">Full Name</label>
               <input type="text" id="form-name" class="form-input" placeholder="e.g. John Doe" required>
