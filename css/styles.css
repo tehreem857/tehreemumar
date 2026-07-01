@@ -1878,6 +1878,10 @@ body::after {
 }
 
 @media (max-width: 768px) {
+  .nav-blog-btn {
+    display: none !important;
+  }
+
   .section {
     padding: 60px 0;
   }
