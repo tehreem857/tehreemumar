@@ -6,6 +6,42 @@
 document.addEventListener('DOMContentLoaded', () => {
 
   // ==========================================
+  // 0. Light / Dark Theme Toggle
+  // ==========================================
+  const themeToggleBtn = document.getElementById('theme-toggle');
+  const savedTheme = localStorage.getItem('theme');
+  const systemPrefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+
+  const applyTheme = (theme) => {
+    document.body.setAttribute('data-theme', theme);
+    const isLight = theme === 'light';
+    const blogNav = document.querySelector('.blog-nav');
+    if (blogNav) {
+      if (window.scrollY > 40) {
+        blogNav.style.background = isLight ? 'rgba(249,249,251,0.96)' : 'rgba(10,10,15,0.96)';
+      } else {
+        blogNav.style.background = isLight ? 'rgba(249,249,251,0.85)' : 'rgba(10,10,15,0.85)';
+      }
+    }
+  };
+
+  if (savedTheme === 'light' || (!savedTheme && systemPrefersLight)) {
+    applyTheme('light');
+  } else {
+    applyTheme('dark');
+  }
+
+  if (themeToggleBtn) {
+    themeToggleBtn.addEventListener('click', () => {
+      const currentTheme = document.body.getAttribute('data-theme');
+      const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+      document.body.style.transition = 'background-color 0.6s cubic-bezier(0.16, 1, 0.3, 1), color 0.6s cubic-bezier(0.16, 1, 0.3, 1)';
+      applyTheme(newTheme);
+      localStorage.setItem('theme', newTheme);
+    });
+  }
+
+  // ==========================================
   // 1. Scroll Progress Bar
   // ==========================================
   const progressBar = document.querySelector('.scroll-progress-bar');
@@ -165,12 +201,15 @@ document.addEventListener('DOMContentLoaded', () => {
   const blogNav = document.querySelector('.blog-nav');
   if (blogNav) {
     window.addEventListener('scroll', () => {
+      const isLight = document.body.getAttribute('data-theme') === 'light';
       if (window.scrollY > 40) {
-        blogNav.style.background = 'rgba(10,10,15,0.96)';
-        blogNav.style.boxShadow  = '0 4px 30px rgba(0,0,0,0.3)';
+        blogNav.style.background = isLight ? 'rgba(249,249,251,0.96)' : 'rgba(10,10,15,0.96)';
+        blogNav.style.boxShadow  = isLight ? '0 4px 30px rgba(139,92,246,0.03)' : '0 4px 30px rgba(0,0,0,0.3)';
+        blogNav.style.borderBottom = '1px solid var(--border)';
       } else {
-        blogNav.style.background = 'rgba(10,10,15,0.85)';
+        blogNav.style.background = isLight ? 'rgba(249,249,251,0.85)' : 'rgba(10,10,15,0.85)';
         blogNav.style.boxShadow  = 'none';
+        blogNav.style.borderBottom = '1px solid transparent';
       }
     }, { passive: true });
   }
