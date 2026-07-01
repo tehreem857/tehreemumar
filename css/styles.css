@@ -122,7 +122,7 @@ button, input, textarea, select {
 
 /* Glow Background Effects */
 .bg-glow-container {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -1518,6 +1518,353 @@ select.form-input option {
 .hero .hero-subheadline { animation: fade-in-up 1s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both; }
 .hero .hero-actions { animation: fade-in-up 1s cubic-bezier(0.16, 1, 0.3, 1) 0.4s both; }
 .hero-graphic-container { animation: fade-in-up 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both; }
+
+/* ==========================================
+   PREMIUM MODERN ANIMATION SYSTEM
+   ========================================== */
+
+/* 1. Cursor Glow Follower */
+.cursor-glow {
+  position: fixed;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.07) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9997;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.4s ease;
+  opacity: 0;
+  will-change: left, top;
+}
+
+.cursor-glow.visible {
+  opacity: 1;
+}
+
+[data-theme="light"] .cursor-glow {
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.04) 0%, transparent 70%);
+}
+
+@media (pointer: coarse) {
+  .cursor-glow { display: none; }
+}
+
+/* 2. Scroll Progress Bar */
+.scroll-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: var(--gradient-gold-rust);
+  z-index: 10001;
+  width: 0%;
+  border-radius: 0 2px 2px 0;
+  box-shadow: 0 0 12px rgba(var(--accent-rgb), 0.5), 0 0 4px rgba(var(--accent-rgb), 0.3);
+}
+
+/* 3. Animated Gradient Border on Cards */
+@property --border-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.glass-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.glass-card > .card-border-glow {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: conic-gradient(from var(--border-angle), transparent 60%, var(--neon-purple) 78%, var(--neon-blue) 88%, transparent 100%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  z-index: 0;
+  opacity: 0;
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  animation: rotate-border 4s linear infinite;
+  pointer-events: none;
+}
+
+.glass-card:hover > .card-border-glow {
+  opacity: 1;
+}
+
+@keyframes rotate-border {
+  to { --border-angle: 360deg; }
+}
+
+/* 4. Tech Marquee Strip */
+.marquee-strip {
+  overflow: hidden;
+  padding: 18px 0;
+  border-top: 1px solid var(--glass-border);
+  border-bottom: 1px solid var(--glass-border);
+  background: var(--bg-secondary);
+  position: relative;
+}
+
+.marquee-strip::before,
+.marquee-strip::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 120px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.marquee-strip::before {
+  left: 0;
+  background: linear-gradient(90deg, var(--bg-secondary), transparent);
+}
+
+.marquee-strip::after {
+  right: 0;
+  background: linear-gradient(270deg, var(--bg-secondary), transparent);
+}
+
+.marquee-track {
+  display: flex;
+  gap: 48px;
+  animation: marquee-scroll 35s linear infinite;
+  width: max-content;
+  will-change: transform;
+}
+
+.marquee-strip:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+.marquee-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  white-space: nowrap;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  user-select: none;
+  transition: color 0.3s ease;
+}
+
+.marquee-item:hover {
+  color: var(--accent);
+}
+
+.marquee-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--accent);
+  opacity: 0.4;
+  flex-shrink: 0;
+}
+
+@keyframes marquee-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* 5. Hero Character Reveal */
+.hero-title .char {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(40px) rotateX(-50deg);
+  animation: char-reveal 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.hero-title .char-space {
+  display: inline-block;
+  width: 0.3em;
+}
+
+@keyframes char-reveal {
+  to {
+    opacity: 1;
+    transform: translateY(0) rotateX(0deg);
+  }
+}
+
+/* 6. Directional Scroll Reveals */
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-80px) scale(0.97);
+  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-left.active {
+  opacity: 1;
+  transform: translateX(0) scale(1);
+}
+
+.reveal-right {
+  opacity: 0;
+  transform: translateX(80px) scale(0.97);
+  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-right.active {
+  opacity: 1;
+  transform: translateX(0) scale(1);
+}
+
+/* 7. Subtle Noise Texture Overlay */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity: 0.018;
+  pointer-events: none;
+  z-index: 9998;
+  mix-blend-mode: overlay;
+}
+
+[data-theme="light"] body::after {
+  opacity: 0.025;
+  mix-blend-mode: multiply;
+}
+
+/* 8. 3D Tilt Card Transform */
+.tilt-card {
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.tilt-card .project-info,
+.tilt-card .service-icon-box,
+.tilt-card h3 {
+  transform: translateZ(30px);
+}
+
+/* 9. Magnetic Button Spotlight */
+.btn {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn .btn-spotlight {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle 80px at var(--spot-x, 50%) var(--spot-y, 50%), rgba(255,255,255,0.12) 0%, transparent 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.btn:hover .btn-spotlight {
+  opacity: 1;
+}
+
+.btn > *:not(.btn-spotlight) {
+  position: relative;
+  z-index: 1;
+}
+
+/* 10. Enhanced Active Nav State */
+.nav-link.active {
+  color: var(--text-primary);
+}
+
+.nav-link.active::after {
+  width: 100%;
+}
+
+/* 11. Smooth Section Dividers */
+.section {
+  position: relative;
+}
+
+.section-divider {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 1px;
+  background: var(--gradient-gold-rust);
+  opacity: 0.3;
+}
+
+/* 12. Floating Particles */
+.particles-container {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.particle {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: var(--accent);
+  opacity: 0;
+  animation: particle-float linear infinite;
+}
+
+@keyframes particle-float {
+  0% {
+    opacity: 0;
+    transform: translateY(100%) translateX(0);
+  }
+  10% {
+    opacity: 0.3;
+  }
+  90% {
+    opacity: 0.15;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-100vh) translateX(100px);
+  }
+}
+
+/* 13. Card Hover Shimmer */
+.glass-card::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    115deg,
+    transparent 40%,
+    rgba(var(--accent-rgb), 0.03) 45%,
+    rgba(var(--accent-rgb), 0.06) 50%,
+    rgba(var(--accent-rgb), 0.03) 55%,
+    transparent 60%
+  );
+  transform: translateX(-100%) rotate(0deg);
+  transition: none;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.glass-card:hover::after {
+  animation: card-shimmer 1.2s ease forwards;
+}
+
+@keyframes card-shimmer {
+  to {
+    transform: translateX(100%) rotate(0deg);
+  }
+}
 
 /* Responsive Adjustments */
 @media (max-width: 1024px) {
