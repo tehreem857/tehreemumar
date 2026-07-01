@@ -798,3 +798,125 @@ body::after {
   .blog-article h2 { font-size: 1.35rem; }
   .step-card { padding: 20px; }
 }
+
+/* ==========================================
+   LIGHT MODE STYLING FOR BLOGS
+   ========================================== */
+[data-theme="light"] {
+  --bg-primary: #F9F9FB;
+  --bg-secondary: #F1F0F5;
+  --bg-card: rgba(0, 0, 0, 0.02);
+  --text-primary: #0A0A0F;
+  --text-secondary: #4B4B5A;
+  --text-muted: #71717A;
+  --border: rgba(139, 92, 246, 0.12);
+  --border-hover: rgba(34, 211, 238, 0.35);
+}
+
+[data-theme="light"] body::after {
+  opacity: 0.015;
+  mix-blend-mode: multiply;
+}
+
+[data-theme="light"] .glow-circle {
+  opacity: 0.35;
+  mix-blend-mode: normal;
+  filter: blur(120px);
+}
+[data-theme="light"] .glow-1 { background: rgba(139, 92, 246, 0.18); }
+[data-theme="light"] .glow-2 { background: rgba(34, 211, 238, 0.15); }
+[data-theme="light"] .glow-3 { background: rgba(167, 139, 250, 0.12); }
+
+[data-theme="light"] .cursor-glow {
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.09) 0%, transparent 70%);
+}
+
+[data-theme="light"] .blog-nav {
+  background: rgba(249, 249, 251, 0.8);
+}
+
+[data-theme="light"] .marquee-strip {
+  background: var(--bg-secondary);
+}
+
+[data-theme="light"] .hero-blog {
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.06) 0%, rgba(34, 211, 238, 0.04) 100%);
+}
+
+[data-theme="light"] .hero-blog::before {
+  background: radial-gradient(ellipse 60% 60% at 50% 100%, rgba(139, 92, 246, 0.08), transparent);
+}
+
+[data-theme="light"] .blog-hero-title {
+  background: linear-gradient(135deg, #0A0A0F 0%, var(--glow-accent) 60%, var(--neon-blue) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+[data-theme="light"] .step-card {
+  background: #FFFFFF;
+  box-shadow: 0 4px 20px rgba(10, 10, 15, 0.02);
+}
+
+[data-theme="light"] .step-card:hover {
+  box-shadow: 0 12px 30px rgba(139, 92, 246, 0.08);
+}
+
+[data-theme="light"] .step-card::after {
+  background: linear-gradient(
+    115deg,
+    transparent 40%,
+    rgba(255, 255, 255, 0.5) 45%,
+    rgba(255, 255, 255, 0.85) 50%,
+    rgba(255, 255, 255, 0.5) 55%,
+    transparent 60%
+  );
+}
+
+[data-theme="light"] .cta-box {
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.05), rgba(34, 211, 238, 0.03));
+}
+
+[data-theme="light"] .cta-box:hover {
+  box-shadow: 0 10px 40px rgba(139, 92, 246, 0.05);
+}
+
+[data-theme="light"] code {
+  background: rgba(139, 92, 246, 0.06);
+  color: var(--neon-purple);
+}
+
+/* Theme Toggle Button */
+.theme-toggle-btn {
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--text-primary);
+  transition: var(--transition);
+}
+.theme-toggle-btn:hover {
+  border-color: var(--border-hover);
+  background: var(--bg-secondary);
+  transform: scale(1.05);
+}
+.theme-toggle-btn svg {
+  width: 18px;
+  height: 18px;
+}
+.theme-toggle-btn .sun-icon {
+  display: none;
+}
+[data-theme="light"] .theme-toggle-btn .moon-icon {
+  display: none;
+}
+[data-theme="light"] .theme-toggle-btn .sun-icon {
+  display: block;
+}
+
+
