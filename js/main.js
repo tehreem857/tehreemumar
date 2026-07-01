@@ -417,6 +417,207 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
+
+  // ==========================================
+  // 8. Cursor Glow Follower
+  // ==========================================
+  const cursorGlow = document.querySelector('.cursor-glow');
+  if (cursorGlow && window.matchMedia('(pointer: fine)').matches) {
+    let glowX = 0, glowY = 0;
+    let currentX = 0, currentY = 0;
+    let rafId = null;
+
+    document.addEventListener('mousemove', (e) => {
+      glowX = e.clientX;
+      glowY = e.clientY;
+      if (!cursorGlow.classList.contains('visible')) {
+        cursorGlow.classList.add('visible');
+      }
+      if (!rafId) {
+        rafId = requestAnimationFrame(updateGlow);
+      }
+    });
+
+    function updateGlow() {
+      currentX += (glowX - currentX) * 0.15;
+      currentY += (glowY - currentY) * 0.15;
+      cursorGlow.style.left = currentX + 'px';
+      cursorGlow.style.top = currentY + 'px';
+      
+      if (Math.abs(glowX - currentX) > 0.5 || Math.abs(glowY - currentY) > 0.5) {
+        rafId = requestAnimationFrame(updateGlow);
+      } else {
+        rafId = null;
+      }
+    }
+
+    document.addEventListener('mouseleave', () => {
+      cursorGlow.classList.remove('visible');
+    });
+  }
+
+  // ==========================================
+  // 9. Scroll Progress Bar
+  // ==========================================
+  const scrollProgressBar = document.querySelector('.scroll-progress-bar');
+  if (scrollProgressBar) {
+    let scrollTicking = false;
+    window.addEventListener('scroll', () => {
+      if (!scrollTicking) {
+        requestAnimationFrame(() => {
+          const scrollTop = window.scrollY;
+          const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+          const scrollPercent = (scrollTop / docHeight) * 100;
+          scrollProgressBar.style.width = scrollPercent + '%';
+          scrollTicking = false;
+        });
+        scrollTicking = true;
+      }
+    });
+  }
+
+  // ==========================================
+  // 10. 3D Tilt Card Effect
+  // ==========================================
+  const tiltCards = document.querySelectorAll('.tilt-card');
+  tiltCards.forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      const rotateX = ((y - centerY) / centerY) * -6;
+      const rotateY = ((x - centerX) / centerX) * 6;
+      
+      card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
+    });
+
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(0)';
+      card.style.transition = 'transform 0.6s cubic-bezier(0.16, 1, 0.3, 1)';
+      setTimeout(() => { card.style.transition = ''; }, 600);
+    });
+  });
+
+  // ==========================================
+  // 11. Magnetic Button Spotlight
+  // ==========================================
+  const magneticBtns = document.querySelectorAll('.btn');
+  magneticBtns.forEach(btn => {
+    // Add spotlight element if not already present
+    if (!btn.querySelector('.btn-spotlight')) {
+      const spotlight = document.createElement('span');
+      spotlight.className = 'btn-spotlight';
+      btn.appendChild(spotlight);
+    }
+
+    btn.addEventListener('mousemove', (e) => {
+      const rect = btn.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      btn.style.setProperty('--spot-x', x + 'px');
+      btn.style.setProperty('--spot-y', y + 'px');
+    });
+  });
+
+  // ==========================================
+  // 12. Hero Title Character Reveal
+  // ==========================================
+  const heroTitle = document.querySelector('.hero-title');
+  if (heroTitle && !heroTitle.dataset.split) {
+    heroTitle.dataset.split = 'true';
+    const childNodes = Array.from(heroTitle.childNodes);
+    heroTitle.innerHTML = '';
+    let charIndex = 0;
+
+    childNodes.forEach(node => {
+      if (node.nodeType === Node.TEXT_NODE) {
+        const text = node.textContent;
+        for (let i = 0; i < text.length; i++) {
+          if (text[i] === ' ') {
+            const space = document.createElement('span');
+            space.className = 'char-space';
+            heroTitle.appendChild(space);
+          } else {
+            const span = document.createElement('span');
+            span.className = 'char';
+            span.textContent = text[i];
+            span.style.animationDelay = (charIndex * 0.025) + 's';
+            heroTitle.appendChild(span);
+          }
+          charIndex++;
+        }
+      } else if (node.nodeType === Node.ELEMENT_NODE) {
+        // Preserve child elements (like <span> for gradient text)
+        const clone = node.cloneNode(false);
+        const innerText = node.textContent;
+        for (let i = 0; i < innerText.length; i++) {
+          if (innerText[i] === ' ') {
+            const space = document.createElement('span');
+            space.className = 'char-space';
+            clone.appendChild(space);
+          } else {
+            const span = document.createElement('span');
+            span.className = 'char';
+            span.textContent = innerText[i];
+            span.style.animationDelay = (charIndex * 0.025) + 's';
+            clone.appendChild(span);
+          }
+          charIndex++;
+        }
+        heroTitle.appendChild(clone);
+      }
+    });
+  }
+
+  // ==========================================
+  // 13. Floating Particles in Hero
+  // ==========================================
+  const particlesContainer = document.querySelector('.particles-container');
+  if (particlesContainer) {
+    const particleCount = 25;
+    for (let i = 0; i < particleCount; i++) {
+      const particle = document.createElement('div');
+      particle.className = 'particle';
+      particle.style.left = Math.random() * 100 + '%';
+      particle.style.animationDuration = (8 + Math.random() * 15) + 's';
+      particle.style.animationDelay = (Math.random() * 10) + 's';
+      particle.style.width = (2 + Math.random() * 3) + 'px';
+      particle.style.height = particle.style.width;
+      particlesContainer.appendChild(particle);
+    }
+  }
+
+  // ==========================================
+  // 14. Directional Scroll Reveals
+  // ==========================================
+  const directionalElements = document.querySelectorAll('.reveal-left, .reveal-right');
+  const dirRevealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('active');
+        dirRevealObserver.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.15,
+    rootMargin: '0px 0px -60px 0px'
+  });
+
+  directionalElements.forEach(el => dirRevealObserver.observe(el));
+
+  // ==========================================
+  // 15. Add Animated Border Glow to Glass Cards
+  // ==========================================
+  document.querySelectorAll('.glass-card').forEach(card => {
+    if (!card.querySelector('.card-border-glow')) {
+      const glow = document.createElement('div');
+      glow.className = 'card-border-glow';
+      card.insertBefore(glow, card.firstChild);
+    }
+  });
+
 });
 
 // Spin Animation Keyframes injected in CSS (helper)
