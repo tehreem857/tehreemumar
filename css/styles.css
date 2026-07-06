@@ -1550,14 +1550,15 @@ select.form-input option {
 .cursor-dot {
   width: 8px;
   height: 8px;
-  background-color: #D4AF37; /* Golden color */
+  background-color: #22D3EE; /* Neon Cyan */
+  box-shadow: 0 0 10px rgba(34, 211, 238, 0.5);
 }
 
 .cursor-outline {
   width: 40px;
   height: 40px;
-  border: 2px solid rgba(212, 175, 55, 0.6);
-  transition: width 0.2s, height 0.2s, background-color 0.2s;
+  border: 2px solid rgba(139, 92, 246, 0.6); /* Neon Purple */
+  transition: width 0.2s, height 0.2s, background-color 0.2s, border-color 0.2s;
 }
 
 @media (pointer: coarse) {
