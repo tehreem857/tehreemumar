@@ -1535,33 +1535,39 @@ select.form-input option {
    PREMIUM MODERN ANIMATION SYSTEM
    ========================================== */
 
-/* 1. Cursor Glow Follower */
-.cursor-glow {
+/* 1. Magnetic Trail Cursor */
+.cursor-dot, .cursor-outline {
   position: fixed;
-  width: 700px;
-  height: 700px;
-  background: radial-gradient(circle at center, rgba(139, 92, 246, 0.15) 0%, rgba(34, 211, 238, 0.08) 25%, rgba(139, 92, 246, 0.02) 50%, transparent 70%);
+  top: 0;
+  left: 0;
+  transform: translate(-50%, -50%);
   border-radius: 50%;
   pointer-events: none;
-  z-index: 9997;
-  transform: translate(-50%, -50%);
-  transition: opacity 0.4s ease;
-  opacity: 0;
-  will-change: left, top;
-  mix-blend-mode: screen;
+  z-index: 9999;
+  display: none;
 }
 
-.cursor-glow.visible {
-  opacity: 1;
+.cursor-dot {
+  width: 8px;
+  height: 8px;
+  background-color: #D4AF37; /* Golden color */
 }
 
-[data-theme="light"] .cursor-glow {
-  background: radial-gradient(circle at center, rgba(139, 92, 246, 0.12) 0%, rgba(34, 211, 238, 0.06) 25%, rgba(139, 92, 246, 0.02) 50%, transparent 70%);
-  mix-blend-mode: multiply;
+.cursor-outline {
+  width: 40px;
+  height: 40px;
+  border: 2px solid rgba(212, 175, 55, 0.6);
+  transition: width 0.2s, height 0.2s, background-color 0.2s;
 }
 
 @media (pointer: coarse) {
-  .cursor-glow { display: none; }
+  .cursor-dot, .cursor-outline { display: none !important; }
+}
+
+/* Hide default cursor globally on desktop */
+@media (pointer: fine) {
+  body { cursor: none; }
+  a, button, .hover-target, input, textarea { cursor: none; }
 }
 
 /* 2. Scroll Progress Bar */
