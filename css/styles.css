@@ -1538,9 +1538,9 @@ select.form-input option {
 /* 1. Cursor Glow Follower */
 .cursor-glow {
   position: fixed;
-  width: 600px;
-  height: 600px;
-  background: radial-gradient(circle, rgba(139, 92, 246, 0.07) 0%, transparent 70%);
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(circle at center, rgba(139, 92, 246, 0.15) 0%, rgba(34, 211, 238, 0.08) 25%, rgba(139, 92, 246, 0.02) 50%, transparent 70%);
   border-radius: 50%;
   pointer-events: none;
   z-index: 9997;
@@ -1548,6 +1548,7 @@ select.form-input option {
   transition: opacity 0.4s ease;
   opacity: 0;
   will-change: left, top;
+  mix-blend-mode: screen;
 }
 
 .cursor-glow.visible {
@@ -1555,7 +1556,8 @@ select.form-input option {
 }
 
 [data-theme="light"] .cursor-glow {
-  background: radial-gradient(circle, rgba(139, 92, 246, 0.09) 0%, transparent 70%);
+  background: radial-gradient(circle at center, rgba(139, 92, 246, 0.12) 0%, rgba(34, 211, 238, 0.06) 25%, rgba(139, 92, 246, 0.02) 50%, transparent 70%);
+  mix-blend-mode: multiply;
 }
 
 @media (pointer: coarse) {
