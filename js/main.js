@@ -421,38 +421,59 @@ document.addEventListener('DOMContentLoaded', () => {
   // ==========================================
   // 8. Cursor Glow Follower
   // ==========================================
-  const cursorGlow = document.querySelector('.cursor-glow');
-  if (cursorGlow && window.matchMedia('(pointer: fine)').matches) {
-    let glowX = 0, glowY = 0;
-    let currentX = 0, currentY = 0;
+  const cursorDot = document.querySelector('.cursor-dot');
+  const cursorOutline = document.querySelector('.cursor-outline');
+  
+  if (cursorDot && cursorOutline && window.matchMedia('(pointer: fine)').matches) {
+    let mouseX = 0, mouseY = 0;
+    let outlineX = 0, outlineY = 0;
     let rafId = null;
 
     document.addEventListener('mousemove', (e) => {
-      glowX = e.clientX;
-      glowY = e.clientY;
-      if (!cursorGlow.classList.contains('visible')) {
-        cursorGlow.classList.add('visible');
-      }
-      if (!rafId) {
-        rafId = requestAnimationFrame(updateGlow);
-      }
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+      
+      cursorDot.style.display = 'block';
+      cursorOutline.style.display = 'block';
+      
+      // Immediate tracking for dot
+      cursorDot.style.left = mouseX + 'px';
+      cursorDot.style.top = mouseY + 'px';
+      
+      if (!rafId) rafId = requestAnimationFrame(animateOutline);
     });
 
-    function updateGlow() {
-      currentX += (glowX - currentX) * 0.15;
-      currentY += (glowY - currentY) * 0.15;
-      cursorGlow.style.left = currentX + 'px';
-      cursorGlow.style.top = currentY + 'px';
+    function animateOutline() {
+      outlineX += (mouseX - outlineX) * 0.15;
+      outlineY += (mouseY - outlineY) * 0.15;
+      cursorOutline.style.left = outlineX + 'px';
+      cursorOutline.style.top = outlineY + 'px';
       
-      if (Math.abs(glowX - currentX) > 0.5 || Math.abs(glowY - currentY) > 0.5) {
-        rafId = requestAnimationFrame(updateGlow);
+      if (Math.abs(mouseX - outlineX) > 0.5 || Math.abs(mouseY - outlineY) > 0.5) {
+        rafId = requestAnimationFrame(animateOutline);
       } else {
         rafId = null;
       }
     }
 
     document.addEventListener('mouseleave', () => {
-      cursorGlow.classList.remove('visible');
+      cursorDot.style.display = 'none';
+      cursorOutline.style.display = 'none';
+    });
+
+    // Add hover states for interactive elements
+    const interactives = document.querySelectorAll('a, button, .hover-target');
+    interactives.forEach(el => {
+      el.addEventListener('mouseenter', () => {
+        cursorOutline.style.width = '70px';
+        cursorOutline.style.height = '70px';
+        cursorOutline.style.backgroundColor = 'rgba(212, 175, 55, 0.15)';
+      });
+      el.addEventListener('mouseleave', () => {
+        cursorOutline.style.width = '40px';
+        cursorOutline.style.height = '40px';
+        cursorOutline.style.backgroundColor = 'transparent';
+      });
     });
   }
 
