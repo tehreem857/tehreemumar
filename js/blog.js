@@ -109,7 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
       el.addEventListener('mouseenter', () => {
         cursorOutline.style.width = '70px';
         cursorOutline.style.height = '70px';
-        cursorOutline.style.backgroundColor = 'rgba(212, 175, 55, 0.15)';
+        cursorOutline.style.backgroundColor = 'rgba(139, 92, 246, 0.15)'; /* Neon Purple */
       });
       el.addEventListener('mouseleave', () => {
         cursorOutline.style.width = '40px';
