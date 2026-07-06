@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Cursor Previews</title>
+<style>
+  body { 
+    background: #0a0a0f; 
+    color: white; 
+    font-family: 'Inter', sans-serif; 
+    display: flex; 
+    flex-wrap: wrap; 
+    height: 100vh; 
+    margin: 0; 
+    overflow: hidden; 
+    cursor: none; /* Hides default cursor */
+  }
+  .zone { 
+    flex: 1 1 50%; 
+    display: flex; 
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center; 
+    border: 1px solid rgba(255,255,255,0.1); 
+    position: relative; 
+  }
+  
+  /* Reset default cursors inside zones */
+  .zone * { cursor: none !important; }
+  
+  h2 { font-size: 24px; margin-bottom: 20px; color: #fff; text-transform: uppercase; letter-spacing: 2px;}
+  p { margin-bottom: 30px; color: #888; max-width: 300px; text-align: center; line-height: 1.5; }
+  button { 
+    padding: 15px 40px; 
+    font-size: 1.1rem; 
+    background: #fff; 
+    color: #000; 
+    border: none; 
+    border-radius: 50px; 
+    font-weight: bold;
+    transition: transform 0.2s;
+  }
+  button:hover { transform: scale(1.05); }
+
+  /* =========================
+     Option 1: Magnetic Trail 
+     ========================= */
+  .cursor-dot, .cursor-outline { 
+    position: fixed; top: 0; left: 0; transform: translate(-50%, -50%); 
+    border-radius: 50%; pointer-events: none; z-index: 9999; display: none; 
+  }
+  .cursor-dot { width: 8px; height: 8px; background-color: #8B5CF6; }
+  .cursor-outline { 
+    width: 40px; height: 40px; 
+    border: 2px solid rgba(139, 92, 246, 0.6); 
+    transition: width 0.2s, height 0.2s, background-color 0.2s; 
+  }
+  
+  /* =========================
+     Option 2: Inverting Lens 
+     ========================= */
+  .cursor-lens { 
+    position: fixed; top: 0; left: 0; width: 60px; height: 60px; 
+    background: white; border-radius: 50%; pointer-events: none; 
+    mix-blend-mode: difference; transform: translate(-50%, -50%); 
+    z-index: 9999; display: none; transition: width 0.3s, height 0.3s; 
+  }
+
+  /* =========================
+     Option 3: Morphing Blob 
+     ========================= */
+  .cursor-blob { 
+    position: fixed; top: 0; left: 0; width: 60px; height: 60px; 
+    background: linear-gradient(135deg, #8B5CF6, #22D3EE); 
+    border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; 
+    pointer-events: none; transform: translate(-50%, -50%); 
+    z-index: 9999; display: none; 
+    animation: morph 3s linear infinite; filter: blur(2px); 
+    transition: transform 0.2s ease;
+  }
+  @keyframes morph { 
+    0%, 100% { border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; } 
+    34% { border-radius: 70% 30% 50% 50% / 30% 30% 70% 70%; } 
+    67% { border-radius: 100% 60% 60% 100% / 100% 100% 60% 60%; } 
+  }
+
+  /* =========================
+     Option 4: Interactive Label 
+     ========================= */
+  .cursor-label { 
+    position: fixed; top: 0; left: 0; width: 12px; height: 12px; 
+    background: #22D3EE; border-radius: 50px; pointer-events: none; 
+    transform: translate(-50%, -50%); z-index: 9999; display: none; 
+    justify-content: center; align-items: center; color: #000; 
+    font-weight: bold; font-size: 0px; white-space: nowrap; 
+    transition: width 0.3s, height 0.3s, font-size 0.3s, background 0.3s; 
+  }
+</style>
+</head>
+<body>
+
+<div class="zone" id="zone1">
+  <h2>1. Magnetic Trail</h2>
+  <p>A solid dot that perfectly tracks the mouse, with a hollow trailing circle that expands on hover.</p>
+  <button class="hover-target">Hover Me</button>
+</div>
+
+<div class="zone" id="zone2" style="background: #e5e5e5; color: #000;">
+  <h2>2. Inverting Lens</h2>
+  <p>A magic lens with a 'difference' blend mode that inverts the colors of whatever it touches.</p>
+  <button class="hover-target" style="background: #000; color: #fff;">Hover Me</button>
+</div>
+
+<div class="zone" id="zone3">
+  <h2>3. Morphing Blob</h2>
+  <p>A creative, organic liquid shape that constantly morphs like a lava lamp.</p>
+  <button class="hover-target">Hover Me</button>
+</div>
+
+<div class="zone" id="zone4">
+  <h2>4. Interactive Label</h2>
+  <p>A clean dot that seamlessly expands into a text label when you hover over interactive elements.</p>
+  <button class="hover-target">Hover Me</button>
+</div>
+
+<div class="cursor-dot"></div>
+<div class="cursor-outline"></div>
+<div class="cursor-lens"></div>
+<div class="cursor-blob"></div>
+<div class="cursor-label"></div>
+
+<script>
+  let mouseX = 0, mouseY = 0;
+  let outlineX = 0, outlineY = 0;
+  
+  const dot = document.querySelector('.cursor-dot');
+  const outline = document.querySelector('.cursor-outline');
+  const lens = document.querySelector('.cursor-lens');
+  const blob = document.querySelector('.cursor-blob');
+  const label = document.querySelector('.cursor-label');
+  
+  let currentStyle = 1;
+
+  // Change cursor style based on which quadrant you are in
+  document.querySelectorAll('.zone').forEach((zone, index) => {
+    zone.addEventListener('mouseenter', () => {
+      currentStyle = index + 1;
+      dot.style.display = 'none';
+      outline.style.display = 'none';
+      lens.style.display = 'none';
+      blob.style.display = 'none';
+      label.style.display = 'none';
+      
+      if(currentStyle === 1) { dot.style.display = 'block'; outline.style.display = 'block'; }
+      if(currentStyle === 2) { lens.style.display = 'block'; }
+      if(currentStyle === 3) { blob.style.display = 'block'; }
+      if(currentStyle === 4) { label.style.display = 'flex'; }
+    });
+  });
+
+  document.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+    
+    // Immediate tracking
+    dot.style.left = mouseX + 'px';
+    dot.style.top = mouseY + 'px';
+    lens.style.left = mouseX + 'px';
+    lens.style.top = mouseY + 'px';
+    blob.style.left = mouseX + 'px';
+    blob.style.top = mouseY + 'px';
+    label.style.left = mouseX + 'px';
+    label.style.top = mouseY + 'px';
+  });
+
+  // Smooth trailing animation specifically for Option 1 outline
+  function animate() {
+    outlineX += (mouseX - outlineX) * 0.15;
+    outlineY += (mouseY - outlineY) * 0.15;
+    outline.style.left = outlineX + 'px';
+    outline.style.top = outlineY + 'px';
+    requestAnimationFrame(animate);
+  }
+  animate();
+
+  // Hover states for interactive elements
+  document.querySelectorAll('.hover-target').forEach(btn => {
+    btn.addEventListener('mouseenter', () => {
+      // Option 1
+      outline.style.width = '70px'; 
+      outline.style.height = '70px'; 
+      outline.style.backgroundColor = 'rgba(139, 92, 246, 0.15)';
+      
+      // Option 2
+      lens.style.width = '120px'; 
+      lens.style.height = '120px';
+      
+      // Option 3
+      blob.style.transform = 'translate(-50%, -50%) scale(1.5)';
+      
+      // Option 4
+      label.style.width = '100px'; 
+      label.style.height = '100px'; 
+      label.style.fontSize = '14px'; 
+      label.textContent = 'View';
+    });
+    
+    btn.addEventListener('mouseleave', () => {
+      outline.style.width = '40px'; 
+      outline.style.height = '40px'; 
+      outline.style.backgroundColor = 'transparent';
+      
+      lens.style.width = '60px'; 
+      lens.style.height = '60px';
+      
+      blob.style.transform = 'translate(-50%, -50%) scale(1)';
+      
+      label.style.width = '12px'; 
+      label.style.height = '12px'; 
+      label.style.fontSize = '0px'; 
+      label.textContent = '';
+    });
+  });
+</script>
+</body>
+</html>
