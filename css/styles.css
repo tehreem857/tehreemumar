@@ -352,7 +352,7 @@ button, input, textarea, select {
 }
 
 .brand-logo-img {
-  height: 40px; /* Adjust based on navbar height */
+  height: 65px; 
   width: auto;
   object-fit: contain;
   transition: transform var(--transition-fast);
