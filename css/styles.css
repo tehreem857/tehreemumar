@@ -1555,7 +1555,7 @@ select.form-input option {
   transform: translate(-50%, -50%);
   border-radius: 50%;
   pointer-events: none;
-  z-index: 9999;
+  z-index: 2147483647 !important; /* Maximum possible z-index to stay above Closebot */
   display: none;
 }
 
@@ -1577,10 +1577,18 @@ select.form-input option {
   .cursor-dot, .cursor-outline { display: none !important; }
 }
 
-/* Hide default cursor globally on desktop */
+/* Hide default cursor globally on desktop, but keep it for chatbots/iframes */
 @media (pointer: fine) {
   body { cursor: none; }
   a, button, .hover-target, input, textarea { cursor: none; }
+  
+  /* Restore default cursor specifically for the Closebot widget so users can type */
+  iframe, #cb-chat-container, .cb-chat-wrapper, [id^="cb-"], [class^="cb-"], [id*="closebot"], [class*="closebot"] { 
+    cursor: auto !important; 
+  }
+  iframe *, #cb-chat-container *, .cb-chat-wrapper *, [id^="cb-"] *, [class^="cb-"] *, [id*="closebot"] *, [class*="closebot"] * { 
+    cursor: auto !important; 
+  }
 }
 
 /* 2. Scroll Progress Bar */
