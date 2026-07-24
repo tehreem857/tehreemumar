@@ -58,12 +58,11 @@ document.addEventListener('DOMContentLoaded', () => {
   
   // Set default theme from localStorage or OS Preference
   const savedTheme = localStorage.getItem('theme');
-  const systemPrefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
   
-  if (savedTheme === 'light' || (!savedTheme && systemPrefersLight)) {
-    document.body.setAttribute('data-theme', 'light');
-  } else {
+  if (savedTheme === 'dark') {
     document.body.setAttribute('data-theme', 'dark');
+  } else {
+    document.body.setAttribute('data-theme', 'light');
   }
 
   themeToggleBtn.addEventListener('click', () => {
@@ -639,6 +638,69 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+  // ==========================================
+  // 16. VanillaTilt 3D Cards
+  // ==========================================
+  if (typeof VanillaTilt !== 'undefined') {
+    VanillaTilt.init(document.querySelectorAll(".service-card, .project-card, .about-image-overlay-card"), {
+      max: 8,
+      speed: 400,
+      glare: true,
+      "max-glare": 0.15,
+      perspective: 1000,
+      scale: 1.02
+    });
+  }
+
+  // ==========================================
+  // 17. Magnetic Buttons
+  // ==========================================
+  const magneticButtons = document.querySelectorAll('.btn');
+  magneticButtons.forEach(btn => {
+    btn.addEventListener('mousemove', (e) => {
+      const rect = btn.getBoundingClientRect();
+      const x = e.clientX - rect.left - rect.width / 2;
+      const y = e.clientY - rect.top - rect.height / 2;
+      btn.style.transform = `translate(${x * 0.2}px, ${y * 0.2}px)`;
+    });
+    btn.addEventListener('mouseleave', () => {
+      btn.style.transform = `translate(0px, 0px)`;
+    });
+  });
+
+  // ==========================================
+  // 18. GSAP Advanced Scroll Animations
+  // ==========================================
+  if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Parallax hero elements
+    gsap.to(".hero-graphic-container", {
+      yPercent: 30,
+      ease: "none",
+      scrollTrigger: {
+        trigger: "#hero",
+        start: "top top",
+        end: "bottom top",
+        scrub: true
+      }
+    });
+
+    // Staggered Fade Up for Sections
+    gsap.utils.toArray('.section-tag, .section-title, .section-subtitle').forEach(el => {
+      gsap.from(el, {
+        y: 40,
+        opacity: 0,
+        duration: 1,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: el,
+          start: "top 85%",
+          toggleActions: "play none none none"
+        }
+      });
+    });
+  }
 });
 
 // Spin Animation Keyframes injected in CSS (helper)
@@ -648,5 +710,6 @@ style.textContent = `
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
   }
+  .btn { transition: transform 0.3s cubic-bezier(0.1, 0.7, 0.1, 1), background-color 0.3s ease, color 0.3s ease !important; }
 `;
 document.head.appendChild(style);
