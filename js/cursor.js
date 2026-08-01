@@ -61,7 +61,7 @@
     el.addEventListener('mouseenter', () => {
       outline.style.width = '70px';
       outline.style.height = '70px';
-      outline.style.backgroundColor = 'rgba(139, 92, 246, 0.15)';
+      outline.style.backgroundColor = 'rgba(16, 185, 129, 0.15)';
     });
     el.addEventListener('mouseleave', () => {
       outline.style.width = '40px';
