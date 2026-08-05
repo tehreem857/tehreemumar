@@ -713,3 +713,52 @@ style.textContent = `
   .btn { transition: transform 0.3s cubic-bezier(0.1, 0.7, 0.1, 1), background-color 0.3s ease, color 0.3s ease !important; }
 `;
 document.head.appendChild(style);
+
+// ==========================================
+// Global Closebot Widget Handler
+// ==========================================
+window.triggerClosebotWidget = function(e) {
+  if (e && e.preventDefault) e.preventDefault();
+
+  // 1. Try global Closebot API calls if defined by script
+  if (typeof window.Closebot === 'function') {
+    try { window.Closebot('open'); return; } catch(err){}
+  }
+  if (typeof window.CloseBot === 'function') {
+    try { window.CloseBot('open'); return; } catch(err){}
+  }
+  if (window.CloseBot && typeof window.CloseBot.open === 'function') {
+    try { window.CloseBot.open(); return; } catch(err){}
+  }
+
+  // 2. Click launcher button / widget elements dynamically created by cb.js
+  const selectors = [
+    '#closebot-chat-button',
+    '#closebot-widget-launcher',
+    '#closebot-launcher',
+    '.cb-launcher',
+    '#cb-button',
+    '#cb-widget-btn',
+    'button[id*="closebot"]',
+    'div[id*="closebot"]',
+    'iframe[src*="closebot"]'
+  ];
+
+  for (let sel of selectors) {
+    const el = document.querySelector(sel);
+    if (el) {
+      el.click();
+      if (el.tagName === 'IFRAME') {
+        try {
+          el.contentWindow.postMessage({ type: 'open' }, '*');
+          el.contentWindow.postMessage('open', '*');
+        } catch(err){}
+      }
+      return;
+    }
+  }
+
+  // 3. Fallback: Scroll to contact or navigate
+  window.location.href = 'contact.html';
+};
+
