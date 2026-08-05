@@ -28,15 +28,16 @@
   
   --text-primary: #0F172A;
   --text-secondary: #334155;
-  --text-muted: #64748B;
+  --text-muted: #475569; /* Increased contrast for crisp legibility */
   
-  --accent: #10B981; /* Emerald Green */
-  --accent-rgb: 16, 185, 129;
-  --accent-secondary: #F59E0B; /* Champagne Gold */
+  --accent: #059669; /* High-contrast Emerald Green for light mode */
+  --accent-soft: #10B981;
+  --accent-rgb: 5, 150, 105;
+  --accent-secondary: #D97706; /* High-contrast Warm Gold for light mode */
   
-  --glass-bg: rgba(255, 255, 255, 0.85);
-  --glass-border: rgba(16, 185, 129, 0.2);
-  --glass-border-hover: rgba(245, 158, 11, 0.4);
+  --glass-bg: rgba(255, 255, 255, 0.9);
+  --glass-border: rgba(5, 150, 105, 0.2);
+  --glass-border-hover: rgba(217, 119, 6, 0.4);
   --card-shadow: rgba(15, 23, 42, 0.08);
   
   --gradient-gold-rust: linear-gradient(135deg, #10B981 0%, #F59E0B 100%);
@@ -63,19 +64,20 @@
   --bg-tertiary: #334155;
   
   --text-primary: #F8FAFC;
-  --text-secondary: #CBD5E1;
+  --text-secondary: #E2E8F0;
   --text-muted: #94A3B8;
   
-  --accent: #10B981;
-  --accent-secondary: #F59E0B;
+  --accent: #34D399; /* Vibrant high-contrast Emerald Green for dark mode */
+  --accent-soft: #10B981;
+  --accent-secondary: #FBBF24;
   
-  --glass-bg: rgba(30, 41, 59, 0.75);
-  --glass-border: rgba(16, 185, 129, 0.25);
-  --glass-border-hover: rgba(245, 158, 11, 0.5);
+  --glass-bg: rgba(30, 41, 59, 0.85);
+  --glass-border: rgba(52, 211, 153, 0.25);
+  --glass-border-hover: rgba(251, 191, 36, 0.5);
   --card-shadow: rgba(0, 0, 0, 0.5);
   
   --gradient-dark: linear-gradient(180deg, #0F172A 0%, #1E293B 100%);
-  --glow-bg: rgba(16, 185, 129, 0.08);
+  --glow-bg: rgba(52, 211, 153, 0.08);
 }
 
 /* Base Styles */
@@ -1994,5 +1996,67 @@ body::after {
   .skills-grid { grid-template-columns: 1fr; }
   .about-stats { grid-template-columns: 1fr; gap: 15px; text-align: center; }
   .hero-actions { flex-direction: column; width: 100%; }
-  .hero-actions .btn { width: 100%; }
+}
+
+/* ==========================================
+   UI/UX IMPROVEMENTS & ACCESSIBILITY
+   ========================================== */
+
+/* Hero Capabilities Pills */
+.hero-capabilities-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 20px 0 28px 0;
+}
+
+.cap-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(16, 185, 129, 0.08);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  padding: 7px 14px;
+  border-radius: 100px;
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  backdrop-filter: blur(8px);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cap-pill:hover {
+  border-color: var(--accent);
+  background: rgba(16, 185, 129, 0.16);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.15);
+}
+
+/* Showcase Card ROI Impact Tag */
+.showcase-card-roi {
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: var(--accent);
+  margin-top: 3px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  letter-spacing: 0.01em;
+}
+
+/* Primary Nav CTA button */
+.nav-cta-btn {
+  background: var(--gradient-gold-rust) !important;
+  color: #0F172A !important;
+  font-weight: 700 !important;
+  box-shadow: 0 4px 16px rgba(16, 185, 129, 0.35) !important;
+  border: none !important;
+  transition: all 0.3s ease !important;
+}
+
+.nav-cta-btn:hover {
+  transform: translateY(-2px) scale(1.03) !important;
+  box-shadow: 0 8px 25px rgba(16, 185, 129, 0.5) !important;
+}
+
 }
