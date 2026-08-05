@@ -541,9 +541,12 @@ button, input, textarea, select {
 /* Hero Tech Graphic Workspace */
 .hero-graphic-container {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
   position: relative;
+  width: 100%;
+  min-width: 0;
 }
 
 .hero-canvas {
