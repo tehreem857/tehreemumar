@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -24,7 +24,7 @@
   <meta property="twitter:description" content="AI Automation Consultant specializing in Closebot, AI voice agents, workflow automation, CRM integrations, and conversational AI. Book a discovery session with Tehreem Umar.">
   <meta property="twitter:image" content="https://tehreemumar.com/images/about_ai_concept.png">
 
-  <title>AI Automation Consultant & GoHighLevel CRM Expert | Tehreem Umar</title>
+  <title>AI Automation Consultant &amp; GoHighLevel CRM Expert | Tehreem Umar</title>
 
   <!-- JSON-LD Schema: ProfessionalService -->
   <script type="application/ld+json">
@@ -45,7 +45,7 @@
   }
   </script>
 
-  <!-- JSON-LD Schema: WebSite (Sitelinks SearchBox) -->
+  <!-- JSON-LD Schema: WebSite -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -71,9 +71,151 @@
   }
   </script>
   
-  <link rel="stylesheet" href="css/styles.css?v=4.0">
+  <link rel="stylesheet" href="css/styles.css?v=5.0">
   <!-- Closebot -->
   <script src="https://api.closebot.com/scripts/cb.js?source=JHI94PrQQnZmAli4" async></script>
+
+  <style>
+    /* ── Hero Projects Showcase ── */
+    .hero-projects-showcase {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .showcase-label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+
+    .showcase-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 8px var(--accent);
+      animation: pulse-dot 2s infinite alternate;
+    }
+
+    .showcase-card {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 16px 20px;
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: 16px;
+      text-decoration: none;
+      color: var(--text-primary);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .showcase-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(16,185,129,0.05) 0%, transparent 60%);
+      opacity: 0;
+      transition: opacity 0.35s ease;
+    }
+
+    .showcase-card:hover {
+      border-color: rgba(16, 185, 129, 0.4);
+      box-shadow: 0 8px 32px rgba(16, 185, 129, 0.15);
+      transform: translateX(6px);
+    }
+
+    .showcase-card:hover::before {
+      opacity: 1;
+    }
+
+    .showcase-card-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent);
+      flex-shrink: 0;
+      transition: background 0.3s ease;
+    }
+
+    .showcase-card:hover .showcase-card-icon {
+      background: rgba(16, 185, 129, 0.18);
+    }
+
+    .showcase-card-info {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .showcase-card-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      font-family: var(--font-heading);
+    }
+
+    .showcase-card-desc {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .showcase-card-tag {
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--accent);
+      background: rgba(16, 185, 129, 0.08);
+      border: 1px solid rgba(16, 185, 129, 0.15);
+      padding: 3px 10px;
+      border-radius: 100px;
+      white-space: nowrap;
+      letter-spacing: 0.04em;
+    }
+
+    .showcase-card-arrow {
+      color: var(--text-muted);
+      transition: color 0.3s ease, transform 0.3s ease;
+      flex-shrink: 0;
+    }
+
+    .showcase-card:hover .showcase-card-arrow {
+      color: var(--accent);
+      transform: translate(2px, -2px);
+    }
+
+    /* Nth card accent colors */
+    .showcase-card:nth-child(3) .showcase-card-icon { background: rgba(245,158,11,0.1); border-color: rgba(245,158,11,0.2); color: #F59E0B; }
+    .showcase-card:nth-child(3):hover .showcase-card-icon { background: rgba(245,158,11,0.18); }
+    .showcase-card:nth-child(3) .showcase-card-tag { color: #F59E0B; background: rgba(245,158,11,0.08); border-color: rgba(245,158,11,0.15); }
+    .showcase-card:nth-child(3):hover { border-color: rgba(245,158,11,0.4); box-shadow: 0 8px 32px rgba(245,158,11,0.12); }
+    .showcase-card:nth-child(3):hover .showcase-card-arrow { color: #F59E0B; }
+
+    .showcase-card:nth-child(4) .showcase-card-icon { background: rgba(167,139,250,0.1); border-color: rgba(167,139,250,0.2); color: #A78BFA; }
+    .showcase-card:nth-child(4):hover .showcase-card-icon { background: rgba(167,139,250,0.18); }
+    .showcase-card:nth-child(4) .showcase-card-tag { color: #A78BFA; background: rgba(167,139,250,0.08); border-color: rgba(167,139,250,0.15); }
+    .showcase-card:nth-child(4):hover { border-color: rgba(167,139,250,0.4); box-shadow: 0 8px 32px rgba(167,139,250,0.12); }
+    .showcase-card:nth-child(4):hover .showcase-card-arrow { color: #A78BFA; }
+  </style>
 </head>
 <body data-theme="light">
 
@@ -140,7 +282,7 @@
     <div class="container hero-grid">
       <div class="hero-content">
         <div class="hero-tag">
-          <span class="dot"></span> Available for Select Operations & Scaling Projects
+          <span class="dot"></span> Available for Select Operations &amp; Scaling Projects
         </div>
         <h1 class="hero-title">
           <span>AI Automation Consultant</span> &amp; GoHighLevel CRM Systems Expert
@@ -158,53 +300,71 @@
           <a href="projects.html" class="btn btn-secondary">View My Work</a>
         </div>
       </div>
-      
+
+      <!-- ✨ Live Projects Showcase -->
       <div class="hero-graphic-container">
-        <div class="hero-canvas">
-          <div class="hero-glow-blob"></div>
-          <svg class="tech-node-network" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Animated visualization of interconnected AI business tools.">
-            <!-- Interconnected Lines -->
-            <path class="connecting-line" d="M100 200 L200 100 L300 200 L200 300 Z" stroke="rgba(139, 92, 246, 0.3)" stroke-width="1.5" />
-            <path class="connecting-line" d="M200 100 L200 300" stroke="rgba(139, 92, 246, 0.2)" stroke-width="1.5" />
-            <path class="connecting-line" d="M100 200 L300 200" stroke="rgba(139, 92, 246, 0.2)" stroke-width="1.5" />
-            
-            <circle cx="200" cy="200" r="80" stroke="rgba(34, 211, 238, 0.2)" stroke-width="1" stroke-dasharray="4 4" />
-            
-            <!-- Nodes -->
-            <!-- Center Node (AI Core) -->
-            <g class="node-circle node-c1">
-              <circle cx="200" cy="200" r="32" fill="#12121A" stroke="#8B5CF6" stroke-width="2" />
-              <path d="M192 195 H208 M192 200 H208 M196 205 H204" stroke="#8B5CF6" stroke-width="2" stroke-linecap="round" />
-              <circle cx="200" cy="200" r="42" stroke="rgba(139, 92, 246, 0.15)" stroke-width="1" />
-            </g>
-            
-            <!-- Node Top (GHL CRM) -->
-            <g class="node-circle node-c2">
-              <circle cx="200" cy="100" r="22" fill="#12121A" stroke="#22D3EE" stroke-width="2" />
-              <path d="M195 95 h10 v10 h-10 z" stroke="#8B5CF6" stroke-width="1.5" fill="none" />
-              <path d="M195 105 h10" stroke="#8B5CF6" stroke-width="1.5" />
-            </g>
-            
-            <!-- Node Right (Closebot Chatbot) -->
-            <g class="node-circle node-c3">
-              <circle cx="300" cy="200" r="22" fill="#12121A" stroke="#22D3EE" stroke-width="2" />
-              <path d="M295 197 a5 5 0 0110 0 c0 3-5 7-5 7 s-5-4-5-7" stroke="#8B5CF6" stroke-width="1.5" />
-            </g>
-            
-            <!-- Node Bottom (Integrations/Webhooks) -->
-            <g class="node-circle node-c4">
-              <circle cx="200" cy="300" r="22" fill="#12121A" stroke="#22D3EE" stroke-width="2" />
-              <circle cx="196" cy="296" r="3" fill="#8B5CF6" />
-              <circle cx="204" cy="296" r="3" fill="#8B5CF6" />
-              <circle cx="200" cy="304" r="3" fill="#8B5CF6" />
-            </g>
-            
-            <!-- Node Left (Custom Applications) -->
-            <g class="node-circle node-c2">
-              <circle cx="100" cy="200" r="22" fill="#12121A" stroke="#22D3EE" stroke-width="2" />
-              <path d="M94 200 h12 M100 194 v12" stroke="#8B5CF6" stroke-width="1.5" stroke-linecap="round" />
-            </g>
-          </svg>
+        <div class="hero-projects-showcase">
+          <div class="showcase-label">
+            <span class="showcase-dot"></span> Live Projects I've Built
+          </div>
+
+          <!-- Project 1: AI Resume Builder -->
+          <a href="https://tehreem857.github.io/resume-generator" target="_blank" rel="noopener noreferrer" class="showcase-card" id="hero-project-resume">
+            <div class="showcase-card-icon">
+              <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+              </svg>
+            </div>
+            <div class="showcase-card-info">
+              <span class="showcase-card-title">ResumeAI</span>
+              <span class="showcase-card-desc">AI-Powered Resume Builder</span>
+            </div>
+            <div class="showcase-card-tag">AI · Builder</div>
+            <div class="showcase-card-arrow">
+              <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+              </svg>
+            </div>
+          </a>
+
+          <!-- Project 2: TaleWeave Story Platform -->
+          <a href="https://tehreem857.github.io/tale-weave" target="_blank" rel="noopener noreferrer" class="showcase-card" id="hero-project-story">
+            <div class="showcase-card-icon">
+              <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+              </svg>
+            </div>
+            <div class="showcase-card-info">
+              <span class="showcase-card-title">TaleWeave</span>
+              <span class="showcase-card-desc">Interactive Story Platform</span>
+            </div>
+            <div class="showcase-card-tag">Creative · Web</div>
+            <div class="showcase-card-arrow">
+              <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+              </svg>
+            </div>
+          </a>
+
+          <!-- Project 3: AURÉLIE Jewelry Shop -->
+          <a href="https://tehreem857.github.io/jewelry-shop" target="_blank" rel="noopener noreferrer" class="showcase-card" id="hero-project-jewelry">
+            <div class="showcase-card-icon">
+              <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+              </svg>
+            </div>
+            <div class="showcase-card-info">
+              <span class="showcase-card-title">AURÉLIE</span>
+              <span class="showcase-card-desc">Fine Handmade Jewelry Store</span>
+            </div>
+            <div class="showcase-card-tag">E-Commerce · UI</div>
+            <div class="showcase-card-arrow">
+              <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+              </svg>
+            </div>
+          </a>
+
         </div>
       </div>
     </div>
@@ -241,7 +401,7 @@
     </div>
   </div>
 
-  <!-- About Me -->
+  <!-- Footer -->
   <footer class="footer">
     <div class="container footer-grid">
       <div class="footer-brand">
@@ -279,7 +439,7 @@
               <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
             </svg>
           </a>
-          <!-- WhatsApp Link -->
+          <!-- WhatsApp -->
           <a href="https://wa.me/923369197296" rel="noopener noreferrer" class="social-btn" aria-label="WhatsApp Link">
             <svg fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.559 5.334-11.89 11.893-11.89 3.181.001 6.167 1.24 8.413 3.488 2.247 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.333 11.89-11.892 11.89-2.006-.001-3.973-.508-5.729-1.472l-6.265 1.679zm6.54-5.3c1.675.994 3.327 1.517 5.3 1.518 5.485 0 9.948-4.464 9.95-9.95.002-2.657-1.03-5.153-2.902-7.028-1.872-1.874-4.372-2.905-7.034-2.906-5.488 0-9.952 4.464-9.955 9.951-.001 1.868.49 3.694 1.42 5.313l-1.025 3.738 3.846-1.028zm11.233-7.558c-.3-.149-1.772-.874-2.046-.975-.274-.101-.474-.149-.674.15-.199.299-.773.974-.948 1.173-.174.199-.349.224-.648.075-.3-.149-1.266-.467-2.41-1.485-.89-.793-1.49-1.773-1.665-2.072-.174-.299-.019-.461.13-.61.135-.133.3-.349.449-.523.149-.174.199-.299.299-.498.1-.2.05-.374-.025-.523-.075-.15-.674-1.621-.924-2.22-.243-.585-.49-.506-.674-.515-.174-.009-.374-.01-.573-.01-.2 0-.523.075-.798.374-.274.299-1.047 1.022-1.047 2.491 0 1.47 1.072 2.89 1.222 3.09.149.199 2.11 3.22 5.111 4.517.714.309 1.272.493 1.706.632.717.228 1.371.196 1.888.118.577-.087 1.772-.724 2.022-1.42.25-.697.25-1.295.174-1.419-.075-.125-.274-.199-.573-.349z"/>
@@ -295,7 +455,7 @@
     </div>
   </footer>
 
-    <!-- Animation Libraries -->
+  <!-- Animation Libraries -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
@@ -303,10 +463,3 @@
   <script src="js/cursor.js"></script>
 </body>
 </html>
-
-
-
-
-
-
-
