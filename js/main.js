@@ -720,19 +720,33 @@ document.head.appendChild(style);
 window.triggerClosebotWidget = function(e) {
   if (e && e.preventDefault) e.preventDefault();
 
-  // 1. Try global Closebot API calls if defined by script
+  // 1. Direct match for Closebot launcher button (.cb-btn or [data-cb].cb-btn)
+  const cbBtn = document.querySelector('.cb-btn') || document.querySelector('[data-cb].cb-btn');
+  if (cbBtn) {
+    cbBtn.click();
+    return;
+  }
+
+  // 2. Direct match for Closebot chat panel (.cb-panel)
+  const cbPanel = document.querySelector('.cb-panel') || document.querySelector('[data-cb].cb-panel');
+  if (cbPanel) {
+    cbPanel.classList.remove('hidden');
+    cbPanel.style.opacity = '1';
+    cbPanel.style.pointerEvents = 'auto';
+    cbPanel.style.transform = 'translateY(0)';
+    return;
+  }
+
+  // 3. Global API calls if available
   if (typeof window.Closebot === 'function') {
     try { window.Closebot('open'); return; } catch(err){}
   }
   if (typeof window.CloseBot === 'function') {
     try { window.CloseBot('open'); return; } catch(err){}
   }
-  if (window.CloseBot && typeof window.CloseBot.open === 'function') {
-    try { window.CloseBot.open(); return; } catch(err){}
-  }
 
-  // 2. Click launcher button / widget elements dynamically created by cb.js
-  const selectors = [
+  // 4. Broader selector match
+  const altSelectors = [
     '#closebot-chat-button',
     '#closebot-widget-launcher',
     '#closebot-launcher',
@@ -744,21 +758,16 @@ window.triggerClosebotWidget = function(e) {
     'iframe[src*="closebot"]'
   ];
 
-  for (let sel of selectors) {
+  for (let sel of altSelectors) {
     const el = document.querySelector(sel);
     if (el) {
       el.click();
-      if (el.tagName === 'IFRAME') {
-        try {
-          el.contentWindow.postMessage({ type: 'open' }, '*');
-          el.contentWindow.postMessage('open', '*');
-        } catch(err){}
-      }
       return;
     }
   }
 
-  // 3. Fallback: Scroll to contact or navigate
+  // 5. Fallback: navigate to contact.html if widget script hasn't loaded
   window.location.href = 'contact.html';
 };
+
 
