@@ -71,7 +71,7 @@
   }
   </script>
   
-  <link rel="stylesheet" href="css/styles.css?v=5.0">
+  <link rel="stylesheet" href="css/styles.css?v=6.0">
   <!-- Closebot -->
   <script src="https://api.closebot.com/scripts/cb.js?source=JHI94PrQQnZmAli4" async></script>
 
@@ -401,18 +401,22 @@
           <!-- 🤖 Cute Robot -->
           <div class="robot-wrapper" aria-hidden="true">
             <div style="position:relative; display:inline-block;">
+              <!-- Ambient Aura Glow -->
+              <div style="position:absolute; inset:-20px; background:radial-gradient(circle, rgba(16,185,129,0.18) 0%, rgba(16,185,129,0.03) 65%, transparent 85%); border-radius:50%; pointer-events:none; z-index:0;"></div>
               <!-- Robot body with sway -->
-              <div class="robot-body-sway">
+              <div class="robot-body-sway" style="position:relative; z-index:1;">
                 <img
                   class="robot-img"
-                  src="images/cute_robot.png"
+                  src="images/cute_robot.png?v=3"
                   alt="AI Robot"
+                  width="220"
+                  height="177"
                   draggable="false"
                   loading="eager"
                 />
               </div>
               <!-- Ground shadow that breathes with the float -->
-              <div class="robot-shadow"></div>
+              <div class="robot-shadow" style="position:relative; z-index:1;"></div>
             </div>
           </div>
           <!-- END Robot -->
