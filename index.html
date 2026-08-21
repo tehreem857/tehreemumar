@@ -71,7 +71,7 @@
   }
   </script>
   
-  <link rel="stylesheet" href="css/styles.css?v=10.0">
+  <link rel="stylesheet" href="css/styles.css?v=11.0">
   <!-- Closebot -->
   <script src="https://api.closebot.com/scripts/cb.js?source=JHI94PrQQnZmAli4" async></script>
 
@@ -104,23 +104,22 @@
 
     /* Float animation */
     @keyframes botFloat {
-      0%   { transform: translateY(0px) rotate(0deg); }
-      30%  { transform: translateY(-10px) rotate(-0.4deg); }
-      60%  { transform: translateY(-5px) rotate(0.3deg); }
-      100% { transform: translateY(0px) rotate(0deg); }
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      35%      { transform: translateY(-16px) rotate(-2deg); }
+      70%      { transform: translateY(-6px) rotate(1.5deg); }
     }
 
     /* Subtle body sway */
     .robot-body-sway {
       display: flex;
       justify-content: center;
-      animation: bodySway 5s ease-in-out infinite;
+      animation: bodySway 4.5s ease-in-out infinite;
       transform-origin: center bottom;
     }
     @keyframes bodySway {
       0%,100% { transform: rotate(0deg); }
-      25%      { transform: rotate(-1deg); }
-      75%      { transform: rotate(1deg); }
+      25%      { transform: rotate(-2.5deg); }
+      75%      { transform: rotate(2.5deg); }
     }
 
     /* Ground glow shadow */
@@ -326,7 +325,7 @@
         <img src="images/tehreem_logo.png" alt="tehreemumar.com" class="brand-logo-img">
       </a>
       
-      <nav class="nav-links" id="nav-links" aria-label="Main Navigation">
+            <nav class="nav-links" id="nav-links" aria-label="Main Navigation">
         <a href="about.html" class="nav-link">About</a>
         <a href="services.html" class="nav-link">Services</a>
         <a href="projects.html" class="nav-link">Projects</a>
