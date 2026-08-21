@@ -10,12 +10,12 @@
    CSS VARIABLES
    ========================================== */
 :root {
-  --bg-primary: #0F172A;
-  --bg-secondary: #1E293B;
-  --bg-card: rgba(30, 41, 59, 0.6);
-  --text-primary: #F8FAFC;
-  --text-secondary: #CBD5E1;
-  --text-muted: #94A3B8;
+  --bg-primary: #FFFFFF;
+  --bg-secondary: #FFFFFF;
+  --bg-card: rgba(255, 255, 255, 0.9);
+  --text-primary: #0F172A;
+  --text-secondary: #334155;
+  --text-muted: #475569;
   --neon-purple: #10B981; /* Emerald Green */
   --neon-blue: #F59E0B; /* Champagne Gold */
   --glow-accent: #34D399;
