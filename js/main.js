@@ -52,27 +52,15 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ==========================================
-  // 2. Light / Dark Theme Toggle
+  // 2. Light Theme Enforcer (Pure Plain White)
   // ==========================================
-  const themeToggleBtn = document.getElementById('theme-toggle');
-  
-  // Set default theme from localStorage or OS Preference
-  const savedTheme = localStorage.getItem('theme');
-  
-  if (savedTheme === 'dark') {
-    document.body.setAttribute('data-theme', 'dark');
-  } else {
-    document.body.setAttribute('data-theme', 'light');
-  }
+  document.body.setAttribute('data-theme', 'light');
+  localStorage.setItem('theme', 'light');
 
-  themeToggleBtn.addEventListener('click', () => {
-    const currentTheme = document.body.getAttribute('data-theme');
-    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-    
-    document.body.style.transition = 'background-color 0.6s cubic-bezier(0.16, 1, 0.3, 1), color 0.6s cubic-bezier(0.16, 1, 0.3, 1)';
-    document.body.setAttribute('data-theme', newTheme);
-    localStorage.setItem('theme', newTheme);
-  });
+  const themeToggleBtn = document.getElementById('theme-toggle');
+  if (themeToggleBtn) {
+    themeToggleBtn.style.display = 'none';
+  }
 
   // ==========================================
   // 3. Scroll Reveal Animations (Staggered Intersection Observer)
