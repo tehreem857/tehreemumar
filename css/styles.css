@@ -2084,4 +2084,82 @@ body::after {
   box-shadow: 0 8px 25px rgba(16, 185, 129, 0.5) !important;
 }
 
+/* ==========================================
+   CLOSEBOT EMOJI REACTION SYSTEM
+   ========================================== */
+.cb-msg, .cb-message, .cb-panel [class*="message"], [id*="cb-"] [class*="message"] {
+  position: relative !important;
+}
+
+.cb-emoji-picker-bar {
+  position: absolute;
+  top: -38px;
+  right: 10px;
+  background: #FFFFFF !important;
+  border: 1px solid #E2E8F0 !important;
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.12) !important;
+  border-radius: 24px !important;
+  padding: 3px 8px !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+  z-index: 999999 !important;
+  opacity: 0;
+  transform: translateY(6px) scale(0.92);
+  pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.cb-msg:hover .cb-emoji-picker-bar,
+.cb-message:hover .cb-emoji-picker-bar,
+.cb-panel [class*="message"]:hover .cb-emoji-picker-bar,
+.cb-emoji-picker-bar.active {
+  opacity: 1 !important;
+  transform: translateY(0) scale(1) !important;
+  pointer-events: auto !important;
+}
+
+.cb-emoji-btn {
+  border: none !important;
+  background: transparent !important;
+  font-size: 1.15rem !important;
+  cursor: pointer !important;
+  padding: 2px 4px !important;
+  border-radius: 50% !important;
+  transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+  line-height: 1 !important;
+}
+
+.cb-emoji-btn:hover {
+  transform: scale(1.35) !important;
+}
+
+.cb-reaction-badge {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+  background: #F8FAFC !important;
+  border: 1px solid #CBD5E1 !important;
+  border-radius: 12px !important;
+  padding: 2px 8px !important;
+  font-size: 0.8rem !important;
+  font-weight: 600 !important;
+  color: #0F172A !important;
+  margin-top: 6px !important;
+  cursor: pointer !important;
+  animation: cbPopIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+}
+
+.cb-reaction-badge.user-reacted {
+  background: #ECFDF5 !important;
+  border-color: #10B981 !important;
+  color: #047857 !important;
+}
+
+@keyframes cbPopIn {
+  0% { transform: scale(0.5); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+
 }
