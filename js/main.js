@@ -758,4 +758,78 @@ window.triggerClosebotWidget = function(e) {
   window.location.href = 'contact.html';
 };
 
+// ==========================================
+// CLOSEBOT CHAT WIDGET EMOJI REACTIONS
+// ==========================================
+(function initClosebotEmojiReactions() {
+  const EMOJIS = ['👍', '❤️', '😂', '😮', '😢', '🔥', '👏'];
+  const STORAGE_KEY = 'closebot_reactions_store_v1';
+
+  function getSavedReactions() {
+    try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}'); }
+    catch(e) { return {}; }
+  }
+
+  function saveReaction(msgId, emoji) {
+    const store = getSavedReactions();
+    store[msgId] = store[msgId] === emoji ? null : emoji;
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(store));
+    return store[msgId];
+  }
+
+  function attachEmojiPicker(msgEl, index) {
+    if (msgEl.querySelector('.cb-emoji-picker-bar')) return;
+    const msgId = msgEl.getAttribute('data-msg-id') || `msg_${index}_${msgEl.textContent.trim().substring(0, 10)}`;
+    msgEl.setAttribute('data-msg-id', msgId);
+
+    // Create Floating Bar
+    const bar = document.createElement('div');
+    bar.className = 'cb-emoji-picker-bar';
+
+    EMOJIS.forEach(emoji => {
+      const btn = document.createElement('button');
+      btn.className = 'cb-emoji-btn';
+      btn.textContent = emoji;
+      btn.type = 'button';
+      btn.title = `React with ${emoji}`;
+      btn.onclick = (e) => {
+        e.stopPropagation();
+        const activeEmoji = saveReaction(msgId, emoji);
+        renderReactionBadge(msgEl, activeEmoji);
+      };
+      bar.appendChild(btn);
+    });
+
+    msgEl.appendChild(bar);
+
+    // Render initial saved state
+    const saved = getSavedReactions()[msgId];
+    if (saved) renderReactionBadge(msgEl, saved);
+  }
+
+  function renderReactionBadge(msgEl, emoji) {
+    let badge = msgEl.querySelector('.cb-reaction-badge');
+    if (!emoji) {
+      if (badge) badge.remove();
+      return;
+    }
+    if (!badge) {
+      badge = document.createElement('div');
+      badge.className = 'cb-reaction-badge';
+      msgEl.appendChild(badge);
+    }
+    badge.textContent = `${emoji} 1`;
+    badge.classList.add('user-reacted');
+  }
+
+  // Observe Closebot panel for new messages dynamically
+  const observer = new MutationObserver(() => {
+    const messages = document.querySelectorAll('.cb-panel [class*="msg"], .cb-panel [class*="message"], [id*="cb-"] [class*="message"]');
+    messages.forEach((msg, idx) => attachEmojiPicker(msg, idx));
+  });
+
+  observer.observe(document.body, { childList: true, subtree: true });
+})();
+
+
 
