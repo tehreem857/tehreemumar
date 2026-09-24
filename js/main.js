@@ -759,11 +759,11 @@ window.triggerClosebotWidget = function(e) {
 };
 
 // ==========================================
-// CLOSEBOT CHAT WIDGET EMOJI REACTIONS
+// CLOSEBOT CHAT WIDGET EMOJI REACTIONS (REFINED UI)
 // ==========================================
 (function initClosebotEmojiReactions() {
   const EMOJIS = ['👍', '❤️', '😂', '😮', '😢', '🔥', '👏'];
-  const STORAGE_KEY = 'closebot_reactions_store_v1';
+  const STORAGE_KEY = 'closebot_reactions_store_v2';
 
   function getSavedReactions() {
     try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}'); }
@@ -777,12 +777,20 @@ window.triggerClosebotWidget = function(e) {
     return store[msgId];
   }
 
-  function attachEmojiPicker(msgEl, index) {
-    if (msgEl.querySelector('.cb-emoji-picker-bar')) return;
-    const msgId = msgEl.getAttribute('data-msg-id') || `msg_${index}_${msgEl.textContent.trim().substring(0, 10)}`;
+  function attachEmojiReactionSystem(msgEl, index) {
+    if (msgEl.querySelector('.cb-reaction-trigger')) return;
+    const textSnippet = msgEl.textContent.trim().substring(0, 12).replace(/[^a-zA-Z0-9]/g, '');
+    const msgId = msgEl.getAttribute('data-msg-id') || `msg_${index}_${textSnippet}`;
     msgEl.setAttribute('data-msg-id', msgId);
 
-    // Create Floating Bar
+    // 1. Create Small Subtle Trigger Button
+    const trigger = document.createElement('button');
+    trigger.className = 'cb-reaction-trigger';
+    trigger.type = 'button';
+    trigger.innerHTML = '😊';
+    trigger.title = 'Add reaction';
+
+    // 2. Create Popover Bar
     const bar = document.createElement('div');
     bar.className = 'cb-emoji-picker-bar';
 
@@ -791,18 +799,29 @@ window.triggerClosebotWidget = function(e) {
       btn.className = 'cb-emoji-btn';
       btn.textContent = emoji;
       btn.type = 'button';
-      btn.title = `React with ${emoji}`;
       btn.onclick = (e) => {
         e.stopPropagation();
         const activeEmoji = saveReaction(msgId, emoji);
         renderReactionBadge(msgEl, activeEmoji);
+        bar.classList.remove('show');
       };
       bar.appendChild(btn);
     });
 
+    // Toggle popover on trigger click (for mobile/touch support)
+    trigger.onclick = (e) => {
+      e.stopPropagation();
+      // Hide all other active popovers first
+      document.querySelectorAll('.cb-emoji-picker-bar.show').forEach(b => {
+        if (b !== bar) b.classList.remove('show');
+      });
+      bar.classList.toggle('show');
+    };
+
+    msgEl.appendChild(trigger);
     msgEl.appendChild(bar);
 
-    // Render initial saved state
+    // Render initial saved state if present
     const saved = getSavedReactions()[msgId];
     if (saved) renderReactionBadge(msgEl, saved);
   }
@@ -822,14 +841,22 @@ window.triggerClosebotWidget = function(e) {
     badge.classList.add('user-reacted');
   }
 
+  // Hide popover when clicking anywhere else
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.cb-emoji-picker-bar') && !e.target.closest('.cb-reaction-trigger')) {
+      document.querySelectorAll('.cb-emoji-picker-bar.show').forEach(b => b.classList.remove('show'));
+    }
+  });
+
   // Observe Closebot panel for new messages dynamically
   const observer = new MutationObserver(() => {
     const messages = document.querySelectorAll('.cb-panel [class*="msg"], .cb-panel [class*="message"], [id*="cb-"] [class*="message"]');
-    messages.forEach((msg, idx) => attachEmojiPicker(msg, idx));
+    messages.forEach((msg, idx) => attachEmojiReactionSystem(msg, idx));
   });
 
   observer.observe(document.body, { childList: true, subtree: true });
 })();
+
 
 
 
