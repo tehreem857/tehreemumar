@@ -146,38 +146,42 @@
         <!-- Contact Form -->
         <div class="contact-form-panel glass-card reveal">
           <h3 class="contact-form-title">Send a Message</h3>
-          <form id="contact-form" novalidate>
+          <form id="contact-form" action="https://api.web3forms.com/submit" method="POST">
+            <!-- Web3Forms Config -->
+            <input type="hidden" name="access_key" value="dceca9da-1eae-4124-ab52-089f05ba397a">
+            <input type="hidden" name="redirect" value="https://tehreemumar.com/thank-you.html">
+            <input type="hidden" name="subject" id="form-subject" value="New Booking Request — tehreemumar.com">
             <!-- Honeypot Spam Protection -->
-            <input type="text" name="_gotcha" style="display:none !important" tabindex="-1" autocomplete="off">
+            <input type="checkbox" name="botcheck" style="display:none !important" tabindex="-1" autocomplete="off">
             <div class="form-group">
               <label for="form-name" class="form-label">Full Name</label>
-              <input type="text" id="form-name" class="form-input" placeholder="e.g. John Doe" required>
+              <input type="text" id="form-name" name="name" class="form-input" placeholder="e.g. John Doe" required>
             </div>
 
             <div class="form-group">
               <label for="form-email" class="form-label">Email Address</label>
-              <input type="email" id="form-email" class="form-input" placeholder="e.g. john@example.com" required>
+              <input type="email" id="form-email" name="email" class="form-input" placeholder="e.g. john@example.com" required>
             </div>
 
             <div class="form-group">
               <label for="form-service" class="form-label">Select Core Service Required</label>
-              <select id="form-service" class="form-input" style="appearance: none; background-image: url('data:image/svg+xml;utf8,<svg fill=&quot;%238B5CF6&quot; height=&quot;24&quot; viewBox=&quot;0 0 24 24&quot; width=&quot;24&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;><path d=&quot;M7 10l5 5 5-5z&quot;/></svg>'); background-repeat: no-repeat; background-position: right 12px center;">
-                <option value="closebot">Closebot Setup &amp; Optimization</option>
-                <option value="ghl">GoHighLevel CRM Management</option>
-                <option value="ai-app">Custom AI Application Development</option>
-                <option value="automation">Business Workflow Integration</option>
+              <select id="form-service" name="service" class="form-input" style="appearance: none; background-image: url('data:image/svg+xml;utf8,<svg fill=&quot;%238B5CF6&quot; height=&quot;24&quot; viewBox=&quot;0 0 24 24&quot; width=&quot;24&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;><path d=&quot;M7 10l5 5 5-5z&quot;/></svg>'); background-repeat: no-repeat; background-position: right 12px center;">
+                <option value="Closebot Setup &amp; Optimization">Closebot Setup &amp; Optimization</option>
+                <option value="GoHighLevel CRM Management">GoHighLevel CRM Management</option>
+                <option value="Custom AI Application Development">Custom AI Application Development</option>
+                <option value="Business Workflow Integration">Business Workflow Integration</option>
               </select>
             </div>
 
             <div class="form-group">
               <label for="form-datetime" class="form-label">📅 Preferred Date &amp; Time for Session</label>
-              <input type="datetime-local" id="form-datetime" class="form-input" style="color-scheme: light;">
+              <input type="datetime-local" id="form-datetime" name="booking_time" class="form-input" style="color-scheme: light;">
               <small style="color: var(--text-muted, #94A3B8); font-size: 0.75rem; margin-top: 4px; display: block;">Optional — leave blank if you just want to send a message</small>
             </div>
 
             <div class="form-group">
               <label for="form-message" class="form-label">Operation Details &amp; Description</label>
-              <textarea id="form-message" class="form-input" placeholder="Please outline the workflow bottleneck you wish to automate..." required></textarea>
+              <textarea id="form-message" name="message" class="form-input" placeholder="Please outline the workflow bottleneck you wish to automate..." required></textarea>
             </div>
 
             <button type="submit" class="btn btn-primary" style="width: 100%;">
