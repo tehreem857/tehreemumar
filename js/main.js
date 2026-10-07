@@ -304,11 +304,12 @@ document.addEventListener('DOMContentLoaded', () => {
       const subjectInput = document.getElementById('form-subject');
       if (subjectInput) subjectInput.value = `New Booking from ${name} — ${service}`;
 
-      // Show loading state (form will submit and redirect naturally)
+      // Update button text without setting disabled (disabling aborts native form submit in Chromium)
       const submitBtn = contactForm.querySelector('button[type="submit"]');
       if (submitBtn) {
-        submitBtn.disabled = true;
         submitBtn.innerHTML = 'Transmitting... <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24" style="animation:spin 1s linear infinite;margin-left:8px"><circle cx="12" cy="12" r="10" stroke="rgba(255,255,255,0.2)"></circle><path d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" fill="currentColor"></path></svg>';
+        submitBtn.style.pointerEvents = 'none';
+        submitBtn.style.opacity = '0.7';
       }
       // Form submits natively to Web3Forms → redirects to thank-you.html
     });
