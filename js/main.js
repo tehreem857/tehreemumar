@@ -274,109 +274,49 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // ==========================================
-  // 5. Contact Form Submission Handling
+  // 5. Contact Form — native Web3Forms POST (no fetch needed)
   // ==========================================
   const contactForm = document.getElementById('contact-form');
-  const formFeedback = document.getElementById('form-feedback');
 
-  contactForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    
-    const name = document.getElementById('form-name').value.trim();
-    const email = document.getElementById('form-email').value.trim();
-    const message = document.getElementById('form-message').value.trim();
-    const serviceEl = document.getElementById('form-service');
-    const service = serviceEl ? serviceEl.options[serviceEl.selectedIndex].text : '';
-    const datetimeRaw = document.getElementById('form-datetime')?.value || '';
-    const gotcha = contactForm.querySelector('input[name="_gotcha"]')?.value || "";
-    const submitBtn = contactForm.querySelector('button[type="submit"]');
+  if (contactForm) {
+    contactForm.addEventListener('submit', (e) => {
+      const name = document.getElementById('form-name')?.value.trim() || '';
+      const email = document.getElementById('form-email')?.value.trim() || '';
+      const message = document.getElementById('form-message')?.value.trim() || '';
+      const serviceEl = document.getElementById('form-service');
+      const service = serviceEl ? serviceEl.options[serviceEl.selectedIndex].text : '';
 
-    // Format datetime nicely if provided
-    let bookingTime = 'Not specified';
-    if (datetimeRaw) {
-      const dt = new Date(datetimeRaw);
-      bookingTime = dt.toLocaleString('en-US', {
-        weekday: 'long', year: 'numeric', month: 'long',
-        day: 'numeric', hour: '2-digit', minute: '2-digit'
-      });
-    }
-    
-    // Basic Client-side Validation
-    if (!name || !email || !message) {
-      showFeedback('Please fill out all required fields to submit.', 'error');
-      return;
-    }
-
-    if (!isValidEmail(email)) {
-      showFeedback('Please provide a valid email address.', 'error');
-      return;
-    }
-
-    // Change button state to loading
-    const originalBtnText = submitBtn.innerHTML;
-    submitBtn.disabled = true;
-    submitBtn.innerHTML = `
-      Transmitting Request...
-      <svg class="spinner" width="18" height="18" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24" style="animation: spin 1s linear infinite; margin-left: 8px;">
-        <circle cx="12" cy="12" r="10" stroke="rgba(255,255,255,0.2)"></circle>
-        <path d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" fill="currentColor"></path>
-      </svg>
-    `;
-
-    // Web3Forms endpoint
-    const FORM_ENDPOINT = "https://api.web3forms.com/submit";
-    try {
-      const response = await fetch(FORM_ENDPOINT, {
-        method: "POST",
-        headers: {
-          "Accept": "application/json",
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-          access_key: "dceca9da-1eae-4124-ab52-089f05ba397a",
-          name,
-          email,
-          service,
-          booking_time: bookingTime,
-          message,
-          botcheck: gotcha,
-          subject: `New Booking Request from ${name} — ${service}`
-        })
-      });
-
-      if (response.ok) {
-        showFeedback('Integration Request Transmitted Successfully. Redirecting...', 'success');
-        contactForm.reset();
-        setTimeout(() => {
-          window.location.href = "/thank-you.html";
-        }, 1000);
-      } else {
-        const errData = await response.json();
-        showFeedback(errData.error || 'Failed to transmit request.', 'error');
+      // Basic validation
+      if (!name || !email || !message) {
+        e.preventDefault();
+        const fb = document.getElementById('form-feedback');
+        if (fb) { fb.textContent = 'Please fill out all required fields.'; fb.className = 'form-status error'; }
+        return;
       }
-    } catch (err) {
-      showFeedback('Network error. Please try again later.', 'error');
-    } finally {
-      submitBtn.disabled = false;
-      submitBtn.innerHTML = originalBtnText;
-    }
-  });
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        e.preventDefault();
+        const fb = document.getElementById('form-feedback');
+        if (fb) { fb.textContent = 'Please provide a valid email address.'; fb.className = 'form-status error'; }
+        return;
+      }
 
-  function isValidEmail(email) {
-    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+      // Update email subject dynamically
+      const subjectInput = document.getElementById('form-subject');
+      if (subjectInput) subjectInput.value = `New Booking from ${name} — ${service}`;
+
+      // Show loading state (form will submit and redirect naturally)
+      const submitBtn = contactForm.querySelector('button[type="submit"]');
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = 'Transmitting... <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24" style="animation:spin 1s linear infinite;margin-left:8px"><circle cx="12" cy="12" r="10" stroke="rgba(255,255,255,0.2)"></circle><path d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" fill="currentColor"></path></svg>';
+      }
+      // Form submits natively to Web3Forms → redirects to thank-you.html
+    });
   }
 
-  function showFeedback(msg, type) {
-    formFeedback.textContent = msg;
-    formFeedback.className = `form-status ${type}`;
-    
-    // Clear feedback warning after 8 seconds
-    if (type === 'error') {
-      setTimeout(() => {
-        if (formFeedback.className.includes('error')) formFeedback.className = 'form-status';
-      }, 8000);
-    }
-  }
+
+
+
 
   // ==========================================
   // 6. Copy Clipboard Helper Actions
