@@ -323,8 +323,8 @@ document.addEventListener('DOMContentLoaded', () => {
       </svg>
     `;
 
-    // Formspree endpoint
-    const FORM_ENDPOINT = "https://formspree.io/f/mykadknj";
+    // Web3Forms endpoint
+    const FORM_ENDPOINT = "https://api.web3forms.com/submit";
     try {
       const response = await fetch(FORM_ENDPOINT, {
         method: "POST",
@@ -333,13 +333,14 @@ document.addEventListener('DOMContentLoaded', () => {
           "Content-Type": "application/json"
         },
         body: JSON.stringify({
+          access_key: "dceca9da-1eae-4124-ab52-089f05ba397a",
           name,
           email,
           service,
           booking_time: bookingTime,
           message,
-          _gotcha: gotcha,
-          _subject: `New Booking Request from ${name} — ${service}`
+          botcheck: gotcha,
+          subject: `New Booking Request from ${name} — ${service}`
         })
       });
 
