@@ -285,8 +285,21 @@ document.addEventListener('DOMContentLoaded', () => {
     const name = document.getElementById('form-name').value.trim();
     const email = document.getElementById('form-email').value.trim();
     const message = document.getElementById('form-message').value.trim();
+    const serviceEl = document.getElementById('form-service');
+    const service = serviceEl ? serviceEl.options[serviceEl.selectedIndex].text : '';
+    const datetimeRaw = document.getElementById('form-datetime')?.value || '';
     const gotcha = contactForm.querySelector('input[name="_gotcha"]')?.value || "";
     const submitBtn = contactForm.querySelector('button[type="submit"]');
+
+    // Format datetime nicely if provided
+    let bookingTime = 'Not specified';
+    if (datetimeRaw) {
+      const dt = new Date(datetimeRaw);
+      bookingTime = dt.toLocaleString('en-US', {
+        weekday: 'long', year: 'numeric', month: 'long',
+        day: 'numeric', hour: '2-digit', minute: '2-digit'
+      });
+    }
     
     // Basic Client-side Validation
     if (!name || !email || !message) {
@@ -319,7 +332,15 @@ document.addEventListener('DOMContentLoaded', () => {
           "Accept": "application/json",
           "Content-Type": "application/json"
         },
-        body: JSON.stringify({ name, email, message, _gotcha: gotcha })
+        body: JSON.stringify({
+          name,
+          email,
+          service,
+          booking_time: bookingTime,
+          message,
+          _gotcha: gotcha,
+          _subject: `New Booking Request from ${name} — ${service}`
+        })
       });
 
       if (response.ok) {
