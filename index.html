@@ -12,15 +12,12 @@
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://tehreemumar.com/">
 
-  <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Tehreem Umar - AI Automation Consulting">
   <meta property="og:url" content="https://tehreemumar.com/">
   <meta property="og:title" content="AI Automation Consultant &amp; GoHighLevel CRM Expert | Tehreem Umar">
   <meta property="og:description" content="AI Automation Consultant specializing in Closebot, AI voice agents, workflow automation, CRM integrations, and conversational AI. Book a discovery session with Tehreem Umar.">
   <meta property="og:image" content="https://tehreemumar.com/images/about_ai_concept.png">
-  
-  <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image">
   <meta property="twitter:title" content="AI Automation Consultant &amp; GoHighLevel CRM Expert | Tehreem Umar">
   <meta property="twitter:description" content="AI Automation Consultant specializing in Closebot, AI voice agents, workflow automation, CRM integrations, and conversational AI. Book a discovery session with Tehreem Umar.">
@@ -28,7 +25,6 @@
 
   <title>AI Automation Consultant &amp; GoHighLevel CRM Expert | Tehreem Umar</title>
 
-  <!-- JSON-LD Schema: ProfessionalService -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -39,24 +35,12 @@
     "description": "AI Automation Consultant specializing in Closebot setup, GoHighLevel CRM workflow automation, custom AI agent development, funnel building, and business process automation.",
     "areaServed": "Worldwide",
     "serviceType": "AI Automation and CRM Services",
-    "sameAs": [
-      "https://www.linkedin.com/in/tehreem-umar",
-      "https://www.instagram.com/yourfavtehreem"
-    ]
+    "sameAs": ["https://www.linkedin.com/in/tehreem-umar", "https://www.instagram.com/yourfavtehreem"]
   }
   </script>
-
-  <!-- JSON-LD Schema: WebSite -->
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "Tehreem Umar AI Automation Consulting",
-    "url": "https://tehreemumar.com"
-  }
+  {"@context": "https://schema.org", "@type": "WebSite", "name": "Tehreem Umar AI Automation Consulting", "url": "https://tehreemumar.com"}
   </script>
-
-  <!-- JSON-LD Schema: Person -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -65,506 +49,235 @@
     "jobTitle": "AI Automation Consultant and GoHighLevel CRM Expert",
     "url": "https://tehreemumar.com",
     "email": "tehreems857@gmail.com",
-    "sameAs": [
-      "https://www.linkedin.com/in/tehreem-umar",
-      "https://www.instagram.com/yourfavtehreem"
-    ]
+    "sameAs": ["https://www.linkedin.com/in/tehreem-umar", "https://www.instagram.com/yourfavtehreem"]
   }
   </script>
-  
-  <link rel="stylesheet" href="css/styles.css?v=19.0">
-  
 
-  <style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/three-d.css?v=2">
 
-    /* Outer wrapper — centers the robot */
-    .robot-wrapper {
-      display: flex;
-      justify-content: center;
-      align-items: flex-end;
-      width: 100%;
-      margin-bottom: 8px;
-      position: relative;
-      z-index: 2;
-      pointer-events: none;
-      user-select: none;
-    }
-
-    /* The robot image itself */
-    .robot-img {
-      width: 220px;
-      height: auto;
-      display: block;
-      flex-shrink: 0;
-      animation: botFloat 3.8s ease-in-out infinite;
-      filter: drop-shadow(0 14px 28px rgba(0,0,0,0.30))
-              drop-shadow(0 0 22px rgba(0,200,100,0.14));
-      transform-origin: center bottom;
-    }
-
-    /* Float animation */
-    @keyframes botFloat {
-      0%, 100% { transform: translateY(0px) rotate(0deg); }
-      35%      { transform: translateY(-16px) rotate(-2deg); }
-      70%      { transform: translateY(-6px) rotate(1.5deg); }
-    }
-
-    /* Subtle body sway */
-    .robot-body-sway {
-      display: flex;
-      justify-content: center;
-      animation: bodySway 4.5s ease-in-out infinite;
-      transform-origin: center bottom;
-    }
-    @keyframes bodySway {
-      0%,100% { transform: rotate(0deg); }
-      25%      { transform: rotate(-2.5deg); }
-      75%      { transform: rotate(2.5deg); }
-    }
-
-    /* Ground glow shadow */
-    .robot-shadow {
-      width: 110px;
-      height: 12px;
-      background: radial-gradient(ellipse, rgba(0,200,100,0.18) 0%, transparent 75%);
-      border-radius: 50%;
-      margin: -4px auto 0;
-      animation: shadowPulse 3.8s ease-in-out infinite;
-    }
-    @keyframes shadowPulse {
-      0%,100% { transform: scaleX(1);    opacity: 0.85; }
-      30%      { transform: scaleX(0.65); opacity: 0.35; }
-      60%      { transform: scaleX(0.8);  opacity: 0.55; }
-    }
-
-    /* Floating question mark */
-    .robot-qmark {
-      position: absolute;
-      top: 2px;
-      right: 6px;
-      font-size: 1.5rem;
-      color: #94a3b8;
-      font-weight: 700;
-      animation: qmarkFloat 4.5s ease-in-out infinite;
-      opacity: 0.7;
-      line-height: 1;
-      font-family: var(--font-heading, sans-serif);
-    }
-    @keyframes qmarkFloat {
-      0%,100% { transform: translateY(0)    scale(1);    opacity: 0.7; }
-      45%      { transform: translateY(-9px) scale(1.1); opacity: 1; }
-      80%      { transform: translateY(-5px) scale(0.97); opacity: 0.5; }
-    }
-
-    /* Mobile: hide robot cleanly */
-    @media (max-width: 768px) {
-      .robot-wrapper { display: none; }
-    }
-
-    /* ── Hero Projects Showcase ── */
-    .hero-projects-showcase {
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-      position: relative;
-      z-index: 1;
-    }
-
-    .showcase-label {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 0.78rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--text-muted);
-      margin-bottom: 4px;
-    }
-
-    .showcase-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: var(--accent);
-      box-shadow: 0 0 8px var(--accent);
-      animation: pulse-dot 2s infinite alternate;
-    }
-
-    .showcase-card {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      padding: 16px 20px;
-      background: var(--glass-bg);
-      border: 1px solid var(--glass-border);
-      border-radius: 16px;
-      text-decoration: none;
-      color: var(--text-primary);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-      position: relative;
-      overflow: hidden;
-      cursor: pointer;
-    }
-
-    .showcase-card::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, rgba(16,185,129,0.05) 0%, transparent 60%);
-      opacity: 0;
-      transition: opacity 0.35s ease;
-    }
-
-    .showcase-card:hover {
-      border-color: rgba(16, 185, 129, 0.4);
-      box-shadow: 0 8px 32px rgba(16, 185, 129, 0.15);
-      transform: translateX(6px);
-    }
-
-    .showcase-card:hover::before {
-      opacity: 1;
-    }
-
-    .showcase-card-icon {
-      width: 44px;
-      height: 44px;
-      border-radius: 12px;
-      background: rgba(16, 185, 129, 0.1);
-      border: 1px solid rgba(16, 185, 129, 0.2);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--accent);
-      flex-shrink: 0;
-      transition: background 0.3s ease;
-    }
-
-    .showcase-card:hover .showcase-card-icon {
-      background: rgba(16, 185, 129, 0.18);
-    }
-
-    .showcase-card-info {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-    }
-
-    .showcase-card-title {
-      font-size: 0.95rem;
-      font-weight: 700;
-      color: var(--text-primary);
-      font-family: var(--font-heading);
-    }
-
-    .showcase-card-desc {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-    }
-
-    .showcase-card-tag {
-      font-size: 0.72rem;
-      font-weight: 600;
-      color: var(--accent);
-      background: rgba(16, 185, 129, 0.08);
-      border: 1px solid rgba(16, 185, 129, 0.15);
-      padding: 3px 10px;
-      border-radius: 100px;
-      white-space: nowrap;
-      letter-spacing: 0.04em;
-    }
-
-    .showcase-card-arrow {
-      color: var(--text-muted);
-      transition: color 0.3s ease, transform 0.3s ease;
-      flex-shrink: 0;
-    }
-
-    .showcase-card:hover .showcase-card-arrow {
-      color: var(--accent);
-      transform: translate(2px, -2px);
-    }
-
-    /* Nth card accent colors */
-    .showcase-card:nth-child(3) .showcase-card-icon { background: rgba(245,158,11,0.1); border-color: rgba(245,158,11,0.2); color: #F59E0B; }
-    .showcase-card:nth-child(3):hover .showcase-card-icon { background: rgba(245,158,11,0.18); }
-    .showcase-card:nth-child(3) .showcase-card-tag { color: #F59E0B; background: rgba(245,158,11,0.08); border-color: rgba(245,158,11,0.15); }
-    .showcase-card:nth-child(3):hover { border-color: rgba(245,158,11,0.4); box-shadow: 0 8px 32px rgba(245,158,11,0.12); }
-    .showcase-card:nth-child(3):hover .showcase-card-arrow { color: #F59E0B; }
-
-    .showcase-card:nth-child(4) .showcase-card-icon { background: rgba(167,139,250,0.1); border-color: rgba(167,139,250,0.2); color: #A78BFA; }
-    .showcase-card:nth-child(4):hover .showcase-card-icon { background: rgba(167,139,250,0.18); }
-    .showcase-card:nth-child(4) .showcase-card-tag { color: #A78BFA; background: rgba(167,139,250,0.08); border-color: rgba(167,139,250,0.15); }
-    .showcase-card:nth-child(4):hover { border-color: rgba(167,139,250,0.4); box-shadow: 0 8px 32px rgba(167,139,250,0.12); }
-    .showcase-card:nth-child(4):hover .showcase-card-arrow { color: #A78BFA; }
-  </style>
+  <script type="importmap">
+  { "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+  } }
+  </script>
 </head>
-<body data-theme="light">
+<body>
 
-  <!-- Cursor Glow Follower -->
-  <div class="cursor-dot"></div>
-  <div class="cursor-outline"></div>
+  <!-- Fixed 3D canvas behind everything -->
+  <canvas id="scene" aria-hidden="true"></canvas>
+  <div class="vignette" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
 
-  <!-- Scroll Progress Bar -->
-  <div class="scroll-progress-bar" aria-hidden="true"></div>
-
-  <!-- Ambient Glow Effects -->
-  <div class="bg-glow-container" aria-hidden="true">
-    <div class="glow-circle glow-1"></div>
-    <div class="glow-circle glow-2"></div>
-    <div class="glow-circle glow-3"></div>
+  <!-- Loader -->
+  <div class="loader" id="loader" aria-hidden="true">
+    <div class="loader-ring"></div>
+    <span class="loader-text">Initialising systems</span>
   </div>
 
-  <!-- Header / Navigation -->
+  <!-- Header -->
   <header class="header" id="header">
-    <div class="container nav-container">
-      <a href="#hero" class="logo" aria-label="Tehreem Portfolio Home">
-        <img src="images/tehreem_logo.png?v=15.0" alt="tehreemumar.com" class="brand-logo-img">
+    <div class="wrap nav">
+      <a href="#hero" class="logo" aria-label="Tehreem Umar home">
+        <img src="images/logo_transparent.png?v=15.0" alt="tehreemumar.com" class="logo-img">
       </a>
-      
-            <nav class="nav-links" id="nav-links" aria-label="Main Navigation">
-        <a href="about.html" class="nav-link">About</a>
-        <a href="services.html" class="nav-link">Services</a>
-        <a href="projects.html" class="nav-link">Projects</a>
-        <a href="skills.html" class="nav-link">Skills</a>
-        <a href="process.html" class="nav-link">Process</a>
-        <a href="reviews.html" class="nav-link">Reviews</a>
-        <a href="blogs.html" class="nav-link">Blog</a>
-        <a href="contact.html" class="nav-link">Contact</a>
+      <nav class="nav-links" id="nav-links" aria-label="Main Navigation">
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="projects.html">Projects</a>
+        <a href="skills.html">Skills</a>
+        <a href="process.html">Process</a>
+        <a href="reviews.html">Reviews</a>
+        <a href="blogs.html">Blog</a>
+        <a href="contact.html">Contact</a>
       </nav>
-      
       <div class="nav-actions">
-        <button class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle Dark/Light Mode" title="Toggle Dark/Light Mode">
-          <svg class="sun-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m0 13.5V21M4.93 4.93l1.59 1.59m10.96 10.96l1.59 1.59m-17.5 0l1.59-1.59M17.47 6.52l1.59-1.59M5.25 12H3m18 0h-2.25m-2.25 0a6 6 0 11-12 0 6 6 0 0112 0z"></path>
-          </svg>
-          <svg class="moon-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z"></path>
-          </svg>
-        </button>
-        
-        <a href="contact.html" class="btn btn-primary nav-cta-btn" style="padding: 10px 22px; font-size: 0.9rem; font-weight: 700; box-shadow: 0 4px 16px rgba(16, 185, 129, 0.35);">Book Consultation</a>
-        
-        <button class="mobile-menu-btn" id="mobile-menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
-          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
-          </svg>
+        <a href="contact.html" class="btn btn-gold btn-sm">Book Consultation</a>
+        <button class="menu-btn" id="menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
+          <span></span><span></span>
         </button>
       </div>
     </div>
   </header>
 
-  <!-- Hero Section -->
-  <section class="hero" id="hero">
-    <!-- Floating Particles -->
-    <div class="particles-container" aria-hidden="true"></div>
-    <div class="container hero-grid">
-      <div class="hero-content">
-        <div class="hero-tag">
-          <span class="dot"></span> Digital Tools &amp; Web Systems
-        </div>
-        <h1 class="hero-title">
-          <span>Tehreem Umar</span> · Digital Tools &amp; Automation
+  <main>
+    <!-- HERO -->
+    <section class="hero" id="hero">
+      <div class="wrap hero-inner">
+        <p class="eyebrow reveal"><span class="pulse"></span> AI Automation · Web Systems</p>
+        <h1 class="hero-title reveal">
+          <span class="line">Tehreem Umar</span>
+          <span class="line gold-text">builds systems that work while you sleep.</span>
         </h1>
-        
-        <p class="hero-subheadline">
-          Building clean websites, custom web applications, Closebot AI chatbots, and GoHighLevel CRM workflows.
+        <p class="hero-sub reveal">
+          Clean websites, custom web applications, Closebot AI chatbots, and GoHighLevel CRM workflows, all wired together into one automated engine.
         </p>
-
-        <!-- Scannable Capabilities Pills -->
-        <div class="hero-capabilities-pills">
-          <span class="cap-pill">🤖 Closebot AI Setup</span>
-          <span class="cap-pill">⚡ GoHighLevel Workflows</span>
-          <span class="cap-pill">🌐 Website Building</span>
-          <span class="cap-pill">💻 Application Building</span>
-        </div>
-
-        <div class="hero-actions">
-          <a href="contact.html" class="btn btn-primary">
+        <div class="hero-actions reveal">
+          <a href="contact.html" class="btn btn-gold">
             Book a Consultation
-            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"></path>
-            </svg>
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
           </a>
-          <a href="projects.html" class="btn btn-secondary">View My Work</a>
+          <a href="#work" class="btn btn-ghost">View My Work</a>
         </div>
       </div>
+      <div class="scroll-cue" aria-hidden="true"><span></span>Scroll</div>
+    </section>
 
-      <!-- ✨ Live Projects Showcase -->
-      <div class="hero-graphic-container">
-        <div class="hero-projects-showcase">
-
-          <!-- 🤖 Cute Robot -->
-          <div class="robot-wrapper" aria-hidden="true">
-            <div style="position:relative; display:inline-block;">
-              <!-- Ambient Aura Glow -->
-              <div style="position:absolute; inset:-20px; background:radial-gradient(circle, rgba(16,185,129,0.18) 0%, rgba(16,185,129,0.03) 65%, transparent 85%); border-radius:50%; pointer-events:none; z-index:0;"></div>
-              <!-- Robot body with sway -->
-              <div class="robot-body-sway" style="position:relative; z-index:1;">
-                <img
-                  class="robot-img"
-                  src="images/cute_robot.png?v=10"
-                  alt="AI Robot"
-                  width="220"
-                  height="177"
-                  draggable="false"
-                  loading="eager"
-                />
-              </div>
-              <!-- Ground shadow that breathes with the float -->
-              <div class="robot-shadow" style="position:relative; z-index:1;"></div>
-            </div>
-          </div>
-          <!-- END Robot -->
-
-          <div class="showcase-label">
-            <span class="showcase-dot"></span> Featured Systems &amp; Deployed Work
-          </div>
-
-          <!-- Project 1: AI Resume Builder -->
-          <a href="https://tehreem857.github.io/resume-generator" target="_blank" rel="noopener noreferrer" class="showcase-card" id="hero-project-resume">
-            <div class="showcase-card-icon">
-              <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
-              </svg>
-            </div>
-            <div class="showcase-card-info">
-              <span class="showcase-card-title">ResumeAI</span>
-              <span class="showcase-card-desc">AI-Powered Resume Builder</span>
-              <span class="showcase-card-roi">⚡ Saved 15+ hrs/wk on onboarding</span>
-            </div>
-            <div class="showcase-card-tag">AI · Builder</div>
-            <div class="showcase-card-arrow">
-              <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
-              </svg>
-            </div>
-          </a>
-
-          <!-- Project 2: TaleWeave Story Platform -->
-          <a href="https://tehreem857.github.io/tale-weave" target="_blank" rel="noopener noreferrer" class="showcase-card" id="hero-project-story">
-            <div class="showcase-card-icon">
-              <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
-              </svg>
-            </div>
-            <div class="showcase-card-info">
-              <span class="showcase-card-title">TaleWeave</span>
-              <span class="showcase-card-desc">Interactive Story Platform</span>
-              <span class="showcase-card-roi">⚡ High engagement SPA architecture</span>
-            </div>
-            <div class="showcase-card-tag">Creative · Web</div>
-            <div class="showcase-card-arrow">
-              <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
-              </svg>
-            </div>
-          </a>
-
-          <!-- Project 3: AURÉLIE Jewelry Shop -->
-          <a href="https://tehreem857.github.io/jewelry-shop" target="_blank" rel="noopener noreferrer" class="showcase-card" id="hero-project-jewelry">
-            <div class="showcase-card-icon">
-              <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-              </svg>
-            </div>
-            <div class="showcase-card-info">
-              <span class="showcase-card-title">AURÉLIE</span>
-              <span class="showcase-card-desc">Fine Handmade Jewelry Store</span>
-              <span class="showcase-card-roi">⚡ +38% mobile checkout conversion</span>
-            </div>
-            <div class="showcase-card-tag">E-Commerce · UI</div>
-            <div class="showcase-card-arrow">
-              <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
-              </svg>
-            </div>
-          </a>
-
-          <!-- Project 4: Closebot AI Chatbot -->
-          <div class="showcase-card showcase-card-closebot" id="hero-project-closebot" onclick="triggerClosebotWidget(event)" style="cursor: pointer; background: rgba(16, 185, 129, 0.06); border-color: rgba(16, 185, 129, 0.25);">
-            <div class="showcase-card-icon" style="background: rgba(16, 185, 129, 0.15); color: #10B981;">
-              <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-4l-4 4z"/>
-              </svg>
-            </div>
-            <div class="showcase-card-info">
-              <span class="showcase-card-title">Live Site AI Chatbot <span style="font-size:0.75rem; color:var(--accent); font-weight:600; margin-left:4px;">(Closebot AI)</span></span>
-              <span class="showcase-card-desc">Built with Closebot! Click to test or book setup.</span>
-              <span class="showcase-card-roi">⚡ 85% lead qualification deflection</span>
-            </div>
-            <div class="showcase-card-tag" style="background: rgba(16, 185, 129, 0.15); color: #10B981;">Try Chatbot</div>
-            <div class="showcase-card-arrow">
-              <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
-              </svg>
-            </div>
-          </div>
-
-        </div>
+    <!-- MARQUEE -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span>Closebot AI</span><span>GHL Automations</span><span>Funnels</span><span>Websites</span><span>Chatbots</span><span>Workflows</span>
+        <span>Closebot AI</span><span>GHL Automations</span><span>Funnels</span><span>Websites</span><span>Chatbots</span><span>Workflows</span>
       </div>
     </div>
-  </section>
 
-  <!-- Services Marquee Strip -->
-  <div class="marquee-strip" aria-hidden="true">
-    <div class="marquee-track">
-      <span class="marquee-item"><span class="marquee-dot"></span>Closebot AI</span>
-      <span class="marquee-item"><span class="marquee-dot"></span>GHL Automations</span>
-      <span class="marquee-item"><span class="marquee-dot"></span>Funnels</span>
-      <span class="marquee-item"><span class="marquee-dot"></span>Websites</span>
-      <span class="marquee-item"><span class="marquee-dot"></span>Chatbots</span>
-      <span class="marquee-item"><span class="marquee-dot"></span>Workflows</span>
-      <!-- Duplicate for seamless loop -->
-      <span class="marquee-item"><span class="marquee-dot"></span>Closebot AI</span>
-      <span class="marquee-item"><span class="marquee-dot"></span>GHL Automations</span>
-      <span class="marquee-item"><span class="marquee-dot"></span>Funnels</span>
-      <span class="marquee-item"><span class="marquee-dot"></span>Websites</span>
-      <span class="marquee-item"><span class="marquee-dot"></span>Chatbots</span>
-      <span class="marquee-item"><span class="marquee-dot"></span>Workflows</span>
-    </div>
-  </div>
+    <!-- SERVICES -->
+    <section class="section" id="services">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="kicker">01 — Services</p>
+          <h2>Four pillars of one <span class="gold-text">automated business</span>.</h2>
+        </div>
+        <div class="card-grid">
+          <article class="card tilt reveal">
+            <div class="card-num">01</div>
+            <h3>Closebot AI Chatbot Setup</h3>
+            <p>Closebot AI chat widgets for websites and social channels that answer visitor questions, capture lead details, and handle basic support automatically.</p>
+            <a href="services.html" class="card-link">Learn more →</a>
+          </article>
+          <article class="card tilt reveal">
+            <div class="card-num">02</div>
+            <h3>GoHighLevel Workflows</h3>
+            <p>GHL CRM pipelines, automated email and SMS follow-ups, calendar booking setups, and lead tagging to keep your contacts organised.</p>
+            <a href="services.html" class="card-link">Learn more →</a>
+          </article>
+          <article class="card tilt reveal">
+            <div class="card-num">03</div>
+            <h3>Website Building</h3>
+            <p>Clean, modern, responsive websites for personal brands, small businesses, and projects that look great on every screen.</p>
+            <a href="services.html" class="card-link">Learn more →</a>
+          </article>
+          <article class="card tilt reveal">
+            <div class="card-num">04</div>
+            <h3>Application Building</h3>
+            <p>Custom web applications and interactive digital tools tailored to specific, practical needs and clear user experiences.</p>
+            <a href="services.html" class="card-link">Learn more →</a>
+          </article>
+        </div>
+      </div>
+    </section>
 
-    <!-- Footer -->
+    <!-- WORK -->
+    <section class="section" id="work">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="kicker">02 — Deployed Work</p>
+          <h2>Featured systems, <span class="gold-text">live and running</span>.</h2>
+        </div>
+        <div class="work-grid">
+          <a href="https://tehreem857.github.io/resume-generator" target="_blank" rel="noopener noreferrer" class="work tilt reveal">
+            <div class="work-media"><img src="images/project_resume_builder.png" alt="ResumeAI resume builder preview" loading="lazy"></div>
+            <div class="work-body">
+              <span class="tag">AI · Builder</span>
+              <h3>ResumeAI</h3>
+              <p>AI-powered resume builder.</p>
+              <span class="roi">Saved 15+ hrs/wk on onboarding</span>
+            </div>
+          </a>
+          <a href="https://tehreem857.github.io/tale-weave" target="_blank" rel="noopener noreferrer" class="work tilt reveal">
+            <div class="work-media"><img src="images/project_tale_weave.png" alt="TaleWeave story platform preview" loading="lazy"></div>
+            <div class="work-body">
+              <span class="tag">Creative · Web</span>
+              <h3>TaleWeave</h3>
+              <p>Interactive story platform.</p>
+              <span class="roi">High-engagement SPA architecture</span>
+            </div>
+          </a>
+          <a href="https://tehreem857.github.io/jewelry-shop" target="_blank" rel="noopener noreferrer" class="work tilt reveal">
+            <div class="work-media"><img src="images/project_jewelry_store.png" alt="AURÉLIE jewelry store preview" loading="lazy"></div>
+            <div class="work-body">
+              <span class="tag">E-Commerce · UI</span>
+              <h3>AURÉLIE</h3>
+              <p>Fine handmade jewelry store.</p>
+              <span class="roi">+38% mobile checkout conversion</span>
+            </div>
+          </a>
+          <button type="button" class="work work-bot tilt reveal" onclick="triggerClosebotWidget(event)">
+            <div class="work-media"><img src="images/project_closebot_ai.png" alt="Closebot AI chatbot preview" loading="lazy"></div>
+            <div class="work-body">
+              <span class="tag">Try it live</span>
+              <h3>Live Site AI Chatbot</h3>
+              <p>Built with Closebot. Click to test it or book your own setup.</p>
+              <span class="roi">85% lead qualification deflection</span>
+            </div>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section class="section" id="process">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="kicker">03 — Process</p>
+          <h2>The 5-step <span class="gold-text">build lifecycle</span>.</h2>
+        </div>
+        <ol class="steps">
+          <li class="step reveal"><span class="step-n">01</span><div><h3>Discovery &amp; Strategy</h3><p>Trace your bottlenecks, document existing CRM channels, and design a workflow that targets immediate hour-saving goals.</p></div></li>
+          <li class="step reveal"><span class="step-n">02</span><div><h3>System Design</h3><p>Map data routes, integrations, conversational prompts, APIs, and pipeline changes before anything is built.</p></div></li>
+          <li class="step reveal"><span class="step-n">03</span><div><h3>Implementation</h3><p>Configure GHL pipelines, script webhooks, train Closebot AI, and connect the cloud services that stitch it all together.</p></div></li>
+          <li class="step reveal"><span class="step-n">04</span><div><h3>Testing &amp; Optimization</h3><p>Run simulated lead interactions, trace failure paths, and refine prompts for high-accuracy behaviour.</p></div></li>
+          <li class="step reveal"><span class="step-n">05</span><div><h3>Deployment &amp; Support</h3><p>Launch live with analytics dashboards, ongoing support, and scaling reviews as your business grows.</p></div></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section cta" id="cta">
+      <div class="wrap cta-inner reveal">
+        <p class="kicker">04 — Let's build</p>
+        <h2>Ready to put your business <span class="gold-text">on autopilot</span>?</h2>
+        <p class="hero-sub">Book a free discovery session and we'll map out exactly what to automate first.</p>
+        <div class="hero-actions">
+          <a href="contact.html" class="btn btn-gold">Book a Consultation</a>
+          <a href="mailto:tehreems857@gmail.com" class="btn btn-ghost">Email Me</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
   <footer class="footer">
-    <div class="container footer-grid">
-      <div class="footer-brand">
-        <a href="/" class="logo"><img src="images/tehreem_logo.png?v=15.0" alt="tehreemumar.com" class="brand-logo-img"></a>
-        <p style="margin-top: 14px; font-size: 0.98rem; color: #475569; max-width: 360px; line-height: 1.6;">A curious mind exploring technology, digital projects, and creative ideas.</p>
+    <div class="wrap footer-grid">
+      <div>
+        <img src="images/logo_transparent.png?v=15.0" alt="tehreemumar.com" class="logo-img">
+        <p class="muted">A curious mind exploring technology, digital projects, and creative ideas.</p>
       </div>
-      
-      <div class="footer-nav-col">
-        <h4 style="font-size: 1.05rem; font-weight: 700; color: #0F172A; margin-bottom: 16px;">Quick Links</h4>
-        <ul class="footer-links">
-          <li><a href="/" class="footer-link">Home</a></li>
-          <li><a href="about.html" class="footer-link">About</a></li>
-          <li><a href="projects.html" class="footer-link">Projects</a></li>
-          <li><a href="contact.html" class="footer-link">Contact</a></li>
+      <div>
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="contact.html">Contact</a></li>
         </ul>
       </div>
-      
-      <div class="footer-nav-col">
-        <h4 style="font-size: 1.05rem; font-weight: 700; color: #0F172A; margin-bottom: 16px;">Connect</h4>
-        <ul class="footer-links">
-          <li><a href="https://www.linkedin.com/in/tehreem-umar" target="_blank" rel="noopener noreferrer" class="footer-link">LinkedIn</a></li>
-          <li><a href="mailto:tehreems857@gmail.com" class="footer-link">Email</a></li>
+      <div>
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="https://www.linkedin.com/in/tehreem-umar" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+          <li><a href="mailto:tehreems857@gmail.com">Email</a></li>
         </ul>
       </div>
     </div>
-    
-    <div class="container footer-bottom">
-      <p>&copy; 2026 Tehreem Umar. All rights reserved.</p>
-    </div>
+    <div class="wrap footer-bottom"><p>&copy; 2026 Tehreem Umar. All rights reserved.</p></div>
   </footer>
 
-  <!-- Animation Libraries -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
-  <script src="js/main.js?v=20.0"></script>
-  <script src="js/cursor.js"></script>
+  <script src="js/site-3d.js?v=2"></script>
+  <script type="module" src="js/scene3d.js?v=2"></script>
 </body>
 </html>
