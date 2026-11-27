@@ -42,214 +42,136 @@
     ]
   }
   </script>
-  
-  <link rel="stylesheet" href="css/styles.css?v=19.0">
-  
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/three-d.css?v=2">
+  <script type="importmap">
+  { "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+  } }
+  </script>
 </head>
-<body data-theme="light">
+<body data-scene="page">
 
-  <!-- Cursor Glow Follower -->
-  <div class="cursor-dot"></div>
-  <div class="cursor-outline"></div>
+  <canvas id="scene" aria-hidden="true"></canvas>
+  <div class="vignette" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
 
-  <!-- Scroll Progress Bar -->
-  <div class="scroll-progress-bar" aria-hidden="true"></div>
-
-  <!-- Header / Navigation -->
   <header class="header" id="header">
-    <div class="container nav-container">
-      <a href="/" class="logo" aria-label="Tehreem Portfolio Home">
-        <img src="images/tehreem_logo.png?v=15.0" alt="tehreemumar.com" class="brand-logo-img">
+    <div class="wrap nav">
+      <a href="/" class="logo" aria-label="Tehreem Umar home">
+        <img src="images/logo_transparent.png?v=15.0" alt="tehreemumar.com" class="logo-img">
       </a>
-      
       <nav class="nav-links" id="nav-links" aria-label="Main Navigation">
-        <a href="about.html" class="nav-link">About</a>
-        <a href="services.html" class="nav-link active">Services</a>
-        <a href="projects.html" class="nav-link">Projects</a>
-        <a href="skills.html" class="nav-link">Skills</a>
-        <a href="process.html" class="nav-link">Process</a>
-        <a href="reviews.html" class="nav-link">Reviews</a>
-        <a href="blogs.html" class="nav-link">Blog</a>
-        <a href="contact.html" class="nav-link">Contact</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="projects.html">Projects</a>
+        <a href="skills.html">Skills</a>
+        <a href="process.html">Process</a>
+        <a href="reviews.html">Reviews</a>
+        <a href="blogs.html">Blog</a>
+        <a href="contact.html">Contact</a>
       </nav>
-      
       <div class="nav-actions">
-        <a href="contact.html" class="btn btn-primary nav-cta-btn" style="padding: 10px 22px; font-size: 0.9rem; font-weight: 700; box-shadow: 0 4px 16px rgba(16, 185, 129, 0.35);">Book Consultation</a>
-        
-        <button class="mobile-menu-btn" id="mobile-menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
-          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
-          </svg>
+        <a href="contact.html" class="btn btn-gold btn-sm">Book Consultation</a>
+        <button class="menu-btn" id="menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
+          <span></span><span></span>
         </button>
       </div>
     </div>
   </header>
 
-  <!-- Main Content -->
-  <main style="padding-top: 80px;">
-  <section class="section" id="services" style="background-color: var(--bg-secondary);">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="section-tag">What I Offer</span>
-        <h1 class="section-title">AI Automation &amp; GoHighLevel <span>Services</span></h1>
-        <p class="section-subtitle">Simple, practical digital solutions — helping you set up Closebot AI chatbots, GoHighLevel CRM workflows, clean websites, and custom web applications.</p>
+  <main>
+    <section class="page">
+      <div class="wrap">
+      <div class="page-head reveal">
+        <p class="kicker">What I Offer</p>
+        <h1>AI Automation &amp; GoHighLevel <span class="gold-text">Services</span></h1>
+        <p class="hero-sub">Simple, practical digital solutions: Closebot AI chatbots, GoHighLevel CRM workflows, clean websites, and custom web applications.</p>
       </div>
-      
-      <div class="services-grid">
-        <!-- Service Card 1 -->
-        <div class="service-card glass-card tilt-card reveal reveal-delay-1">
-          <div class="service-icon-box">
-            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
-            </svg>
-          </div>
-          <h3>Closebot AI Chatbot Setup</h3>
-          <p>Setting up Closebot AI chat widgets for websites and social channels to answer visitor questions, capture lead details, and handle basic support automatically.</p>
-          <ul class="service-list">
-            <li class="service-list-item">
-              <svg fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"></path></svg>
-              Chatbot widget installation &amp; prompt setup
-            </li>
-            <li class="service-list-item">
-              <svg fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"></path></svg>
-              Lead qualification &amp; question flows
-            </li>
-            <li class="service-list-item">
-              <svg fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"></path></svg>
-              Automated customer support answers
-            </li>
-            <li class="service-list-item">
-              <svg fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"></path></svg>
-              Website &amp; social chat integration
-            </li>
-          </ul>
-        </div>
-        
-        <!-- Service Card 2 -->
-        <div class="service-card glass-card tilt-card reveal reveal-delay-2">
-          <div class="service-icon-box">
-            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zM3.75 15.75A2.25 2.25 0 016 13.5h2.25a2.25 2.25 0 012.25 2.25V18a2.25 2.25 0 01-2.25 2.25H6A2.25 2.25 0 013.75 18v-2.25zM13.5 6a2.25 2.25 0 012.25-2.25H18A2.25 2.25 0 0120.25 6v2.25A2.25 2.25 0 0118 10.5h-2.25a2.25 2.25 0 01-2.25-2.25V6zM13.5 15.75a2.25 2.25 0 012.25-2.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-2.25A2.25 2.25 0 0113.5 18v-2.25z"></path>
-            </svg>
-          </div>
-          <h3>GoHighLevel (GHL) Workflows</h3>
-          <p>Setting up GoHighLevel CRM pipelines, automated email and SMS follow-ups, calendar booking setups, and lead tagging to keep your contacts organized.</p>
-          <ul class="service-list">
-            <li class="service-list-item">
-              <svg fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"></path></svg>
-              CRM pipeline &amp; stage setup
-            </li>
-            <li class="service-list-item">
-              <svg fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"></path></svg>
-              Automated email &amp; SMS follow-up sequences
-            </li>
-            <li class="service-list-item">
-              <svg fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"></path></svg>
-              Calendar &amp; booking page configuration
-            </li>
-            <li class="service-list-item">
-              <svg fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"></path></svg>
-              Lead tags &amp; contact database organization
-            </li>
-          </ul>
-        </div>
-        
-        <!-- Service Card 3 -->
-        <div class="service-card glass-card tilt-card reveal reveal-delay-1">
-          <div class="service-icon-box">
-            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9 9 0 100-18 9 9 0 000 18zM3.6 9h16.8M3.6 15h16.8"></path>
-            </svg>
-          </div>
-          <h3>Website Building</h3>
-          <p>Building clean, modern, responsive websites for personal brands, small businesses, and projects that look great across desktop, tablet, and mobile screens.</p>
-          <ul class="service-list">
-            <li class="service-list-item">
-              <svg fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"></path></svg>
-              Modern responsive website design
-            </li>
-            <li class="service-list-item">
-              <svg fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"></path></svg>
-              Mobile-friendly layouts
-            </li>
-            <li class="service-list-item">
-              <svg fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"></path></svg>
-              Clean typography &amp; visual styling
-            </li>
-            <li class="service-list-item">
-              <svg fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"></path></svg>
-              Fast loading pages &amp; contact forms
-            </li>
-          </ul>
-        </div>
-        
-        <!-- Service Card 4 -->
-        <div class="service-card glass-card reveal reveal-delay-2">
-          <div class="service-icon-box">
-            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M14.25 6.087c0-.355.186-.676.401-.959.221-.29.549-.516.892-.612a4.5 4.5 0 015.02 5.021c-.096.343-.322.67-.612.891-.283.215-.604.401-.959.401h-4.742zM9.75 6.087c0-.355-.186-.676-.401-.959-.221-.29-.549-.516-.892-.612a4.5 4.5 0 00-5.02 5.021c.096.343.322.67.612.891.283.215.604.401.959.401h4.742zM9.75 17.913c0 .355-.186.676-.401.959-.221.29-.549.516-.892.612a4.5 4.5 0 01-5.02-5.021c.096-.343.322-.67.612-.891.283-.215.604-.401.959-.401h4.742zM14.25 17.913c0 .355.186.676.401.959.221.29.549.516.892.612a4.5 4.5 0 005.02-5.021c-.096-.343-.322-.67-.612-.891-.283-.215-.604-.401-.959-.401h-4.742z"></path>
-            </svg>
-          </div>
-          <h3>Application Building</h3>
-          <p>Building custom web applications and interactive digital tools tailored to specific practical needs and clear user experiences.</p>
-          <ul class="service-list">
-            <li class="service-list-item">
-              <svg fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"></path></svg>
-              Custom web application interfaces
-            </li>
-            <li class="service-list-item">
-              <svg fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"></path></svg>
-              Interactive digital tools
-            </li>
-            <li class="service-list-item">
-              <svg fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"></path></svg>
-              User-friendly design &amp; layout
-            </li>
-            <li class="service-list-item">
-              <svg fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"></path></svg>
-              Practical functional features
-            </li>
-          </ul>
+        <div class="svc-grid">
+          <article class="svc card tilt reveal">
+            <div class="svc-icon"><svg fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg></div>
+            <h2>Closebot AI Chatbot Setup</h2>
+            <p>Setting up Closebot AI chat widgets for websites and social channels to answer visitor questions, capture lead details, and handle basic support automatically.</p>
+            <ul class="checks">
+              <li>Chatbot widget installation &amp; prompt setup</li>
+              <li>Lead qualification &amp; question flows</li>
+              <li>Automated customer support answers</li>
+              <li>Website &amp; social chat integration</li>
+            </ul>
+          </article>
+          <article class="svc card tilt reveal">
+            <div class="svc-icon"><svg fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zM3.75 15.75A2.25 2.25 0 016 13.5h2.25a2.25 2.25 0 012.25 2.25V18a2.25 2.25 0 01-2.25 2.25H6A2.25 2.25 0 013.75 18v-2.25zM13.5 6a2.25 2.25 0 012.25-2.25H18A2.25 2.25 0 0120.25 6v2.25A2.25 2.25 0 0118 10.5h-2.25a2.25 2.25 0 01-2.25-2.25V6zM13.5 15.75a2.25 2.25 0 012.25-2.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-2.25A2.25 2.25 0 0113.5 18v-2.25z"/></svg></div>
+            <h2>GoHighLevel (GHL) Workflows</h2>
+            <p>Setting up GoHighLevel CRM pipelines, automated email and SMS follow-ups, calendar booking setups, and lead tagging to keep your contacts organized.</p>
+            <ul class="checks">
+              <li>CRM pipeline &amp; stage setup</li>
+              <li>Automated email &amp; SMS follow-up sequences</li>
+              <li>Calendar &amp; booking page configuration</li>
+              <li>Lead tags &amp; contact database organization</li>
+            </ul>
+          </article>
+          <article class="svc card tilt reveal">
+            <div class="svc-icon"><svg fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9 9 0 100-18 9 9 0 000 18zM3.6 9h16.8M3.6 15h16.8M12 3a15 15 0 010 18M12 3a15 15 0 000 18"/></svg></div>
+            <h2>Website Building</h2>
+            <p>Building clean, modern, responsive websites for personal brands, small businesses, and projects that look great across desktop, tablet, and mobile screens.</p>
+            <ul class="checks">
+              <li>Modern responsive website design</li>
+              <li>Mobile-friendly layouts</li>
+              <li>Clean typography &amp; visual styling</li>
+              <li>Fast loading pages &amp; contact forms</li>
+            </ul>
+          </article>
+          <article class="svc card tilt reveal">
+            <div class="svc-icon"><svg fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5"/></svg></div>
+            <h2>Application Building</h2>
+            <p>Building custom web applications and interactive digital tools tailored to specific practical needs and clear user experiences.</p>
+            <ul class="checks">
+              <li>Custom web application interfaces</li>
+              <li>Interactive digital tools</li>
+              <li>User-friendly design &amp; layout</li>
+              <li>Practical functional features</li>
+            </ul>
+          </article>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
   </main>
 
-  <!-- Footer -->
   <footer class="footer">
-    <div class="container footer-grid">
-      <div class="footer-brand">
-        <a href="/" class="logo"><img src="images/tehreem_logo.png?v=15.0" alt="tehreemumar.com" class="brand-logo-img"></a>
-        <p style="margin-top: 14px; font-size: 0.98rem; color: #475569; max-width: 360px; line-height: 1.6;">A curious mind exploring technology, digital projects, and creative ideas.</p>
+    <div class="wrap footer-grid">
+      <div>
+        <img src="images/logo_transparent.png?v=15.0" alt="tehreemumar.com" class="logo-img">
+        <p class="muted">A curious mind exploring technology, digital projects, and creative ideas.</p>
       </div>
-      
-      <div class="footer-nav-col">
-        <h4 style="font-size: 1.05rem; font-weight: 700; color: #0F172A; margin-bottom: 16px;">Quick Links</h4>
-        <ul class="footer-links">
-          <li><a href="/" class="footer-link">Home</a></li>
-          <li><a href="about.html" class="footer-link">About</a></li>
-          <li><a href="projects.html" class="footer-link">Projects</a></li>
-          <li><a href="contact.html" class="footer-link">Contact</a></li>
+      <div>
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="blogs.html">Blog</a></li>
+          <li><a href="contact.html">Contact</a></li>
         </ul>
       </div>
-      
-      <div class="footer-nav-col">
-        <h4 style="font-size: 1.05rem; font-weight: 700; color: #0F172A; margin-bottom: 16px;">Connect</h4>
-        <ul class="footer-links">
-          <li><a href="https://www.linkedin.com/in/tehreem-umar" target="_blank" rel="noopener noreferrer" class="footer-link">LinkedIn</a></li>
-          <li><a href="mailto:tehreems857@gmail.com" class="footer-link">Email</a></li>
+      <div>
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="https://www.linkedin.com/in/tehreem-umar" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+          <li><a href="mailto:tehreems857@gmail.com">Email</a></li>
         </ul>
       </div>
     </div>
-    
-    <div class="container footer-bottom">
-      <p>&copy; 2026 Tehreem Umar. All rights reserved.</p>
-    </div>
+    <div class="wrap footer-bottom"><p>&copy; 2026 Tehreem Umar. All rights reserved.</p></div>
   </footer>
 
-  <!-- Animation Libraries -->
-  <script src="js/main.js?v=20.0"></script>
-  <script src="js/cursor.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="js/site-3d.js?v=2"></script>
+  <script type="module" src="js/scene3d.js?v=2"></script>
 </body>
 </html>
