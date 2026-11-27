@@ -71,242 +71,128 @@
     ]
   }
   </script>
-  
-  <link rel="stylesheet" href="css/styles.css?v=19.0">
-  
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/three-d.css?v=2">
+  <script type="importmap">
+  { "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+  } }
+  </script>
 </head>
-<body data-theme="light">
+<body data-scene="page">
 
-  <!-- Cursor Glow Follower -->
-  <div class="cursor-dot"></div>
-  <div class="cursor-outline"></div>
+  <canvas id="scene" aria-hidden="true"></canvas>
+  <div class="vignette" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
 
-  <!-- Scroll Progress Bar -->
-  <div class="scroll-progress-bar" aria-hidden="true"></div>
-
-  <!-- Ambient Glow Effects -->
-  <div class="bg-glow-container" aria-hidden="true">
-    <div class="glow-circle glow-1"></div>
-    <div class="glow-circle glow-2"></div>
-    <div class="glow-circle glow-3"></div>
-  </div>
-
-  <!-- Header / Navigation -->
   <header class="header" id="header">
-    <div class="container nav-container">
-      <a href="/" class="logo" aria-label="Tehreem Portfolio Home">
-        <img src="images/tehreem_logo.png?v=15.0" alt="tehreemumar.com" class="brand-logo-img">
+    <div class="wrap nav">
+      <a href="/" class="logo" aria-label="Tehreem Umar home">
+        <img src="images/logo_transparent.png?v=15.0" alt="tehreemumar.com" class="logo-img">
       </a>
-      
-            <nav class="nav-links" id="nav-links" aria-label="Main Navigation">
-        <a href="about.html" class="nav-link">About</a>
-        <a href="services.html" class="nav-link">Services</a>
-        <a href="projects.html" class="nav-link">Projects</a>
-        <a href="skills.html" class="nav-link">Skills</a>
-        <a href="process.html" class="nav-link">Process</a>
-        <a href="reviews.html" class="nav-link">Reviews</a>
-        <a href="blogs.html" class="nav-link">Blog</a>
-        <a href="contact.html" class="nav-link">Contact</a>
+      <nav class="nav-links" id="nav-links" aria-label="Main Navigation">
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="projects.html">Projects</a>
+        <a href="skills.html">Skills</a>
+        <a href="process.html">Process</a>
+        <a href="reviews.html">Reviews</a>
+        <a href="blogs.html">Blog</a>
+        <a href="contact.html">Contact</a>
       </nav>
-      
       <div class="nav-actions">
-        <button class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle Dark/Light Mode" title="Toggle Dark/Light Mode">
-          <svg class="sun-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m0 13.5V21M4.93 4.93l1.59 1.59m10.96 10.96l1.59 1.59m-17.5 0l1.59-1.59M17.47 6.52l1.59-1.59M5.25 12H3m18 0h-2.25m-2.25 0a6 6 0 11-12 0 6 6 0 0112 0z"></path>
-          </svg>
-          <svg class="moon-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z"></path>
-          </svg>
-        </button>
-        
-        <a href="contact.html" class="btn btn-primary nav-cta-btn" style="padding: 10px 22px; font-size: 0.9rem; font-weight: 700; box-shadow: 0 4px 16px rgba(16, 185, 129, 0.35);">Book Consultation</a>
-        
-        <button class="mobile-menu-btn" id="mobile-menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
-          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
-          </svg>
+        <a href="contact.html" class="btn btn-gold btn-sm">Book Consultation</a>
+        <button class="menu-btn" id="menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
+          <span></span><span></span>
         </button>
       </div>
     </div>
   </header>
 
-  <!-- Hero Section -->
-  <main style="padding-top: 80px;">
-  <section class="section" id="skills" style="background-color: var(--bg-secondary);">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="section-tag">Stack &amp; Expertise</span>
-        <h1 class="section-title">AI Automation &amp; <span>GoHighLevel</span> Technical Skills</h1>
-        <p class="section-subtitle">Deep expertise in Closebot configuration, GoHighLevel CRM systems, AI agent development, Make.com automation, and API-first integrations - the complete stack for modern business automation.</p>
+  <main>
+    <section class="page">
+      <div class="wrap">
+      <div class="page-head reveal">
+        <p class="kicker">Stack &amp; Expertise</p>
+        <h1>AI Automation &amp; <span class="gold-text">GoHighLevel</span> Technical Skills</h1>
+        <p class="hero-sub">Deep expertise in Closebot configuration, GoHighLevel CRM systems, AI agent development, Make.com automation, and API-first integrations: the complete stack for modern business automation.</p>
       </div>
-      
-      <div class="skills-grid">
-        
-        <!-- Skill Card 2 -->
-        <div class="skills-card glass-card reveal reveal-delay-2">
-          <h3>Closebot</h3>
-          <div class="skills-list">
-            <div class="skill-item">
-              <span class="skill-name">Chatbot Config</span>
-              <div class="skill-bar-wrapper"><div class="skill-bar" data-width="95%"></div></div>
-            </div>
-            <div class="skill-item">
-              <span class="skill-name">Conversation Design</span>
-              <div class="skill-bar-wrapper"><div class="skill-bar" data-width="92%"></div></div>
-            </div>
-            <div class="skill-item">
-              <span class="skill-name">Knowledge Sync</span>
-              <div class="skill-bar-wrapper"><div class="skill-bar" data-width="88%"></div></div>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Skill Card 3 -->
-        <div class="skills-card glass-card reveal reveal-delay-3">
-          <h3>GoHighLevel</h3>
-          <div class="skills-list">
-            <div class="skill-item">
-              <span class="skill-name">GHL CRM Setup</span>
-              <div class="skill-bar-wrapper"><div class="skill-bar" data-width="95%"></div></div>
-            </div>
-            <div class="skill-item">
-              <span class="skill-name">Funnel Architectures</span>
-              <div class="skill-bar-wrapper"><div class="skill-bar" data-width="85%"></div></div>
-            </div>
-            <div class="skill-item">
-              <span class="skill-name">Workflow Triggers</span>
-              <div class="skill-bar-wrapper"><div class="skill-bar" data-width="95%"></div></div>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Skill Card 4 -->
-        <div class="skills-card glass-card reveal reveal-delay-4">
-          <h3>Automation Tools</h3>
-          <div class="skills-list">
-            <div class="skill-item">
-              <span class="skill-name">Make.com / Integromat</span>
-              <div class="skill-bar-wrapper"><div class="skill-bar" data-width="95%"></div></div>
-            </div>
-            <div class="skill-item">
-              <span class="skill-name">Zapier Automations</span>
-              <div class="skill-bar-wrapper"><div class="skill-bar" data-width="90%"></div></div>
-            </div>
-            <div class="skill-item">
-              <span class="skill-name">n8n / Self-Hosted</span>
-              <div class="skill-bar-wrapper"><div class="skill-bar" data-width="75%"></div></div>
-            </div>
-          </div>
-        </div>
-
-        
-        <!-- Skill Card 6 -->
-        <div class="skills-card glass-card reveal reveal-delay-2">
-          <h3>API Integrations</h3>
-          <div class="skills-list">
-            <div class="skill-item">
-              <span class="skill-name">RESTful Webhooks</span>
-              <div class="skill-bar-wrapper"><div class="skill-bar" data-width="95%"></div></div>
-            </div>
-            <div class="skill-item">
-              <span class="skill-name">GraphQL Queries</span>
-              <div class="skill-bar-wrapper"><div class="skill-bar" data-width="80%"></div></div>
-            </div>
-            <div class="skill-item">
-              <span class="skill-name">OAuth Custom Flow</span>
-              <div class="skill-bar-wrapper"><div class="skill-bar" data-width="85%"></div></div>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Skill Card 7 -->
-        <div class="skills-card glass-card reveal reveal-delay-3">
-          <h3>Prompt Engineering</h3>
-          <div class="skills-list">
-            <div class="skill-item">
-              <span class="skill-name">Context Compression</span>
-              <div class="skill-bar-wrapper"><div class="skill-bar" data-width="90%"></div></div>
-            </div>
-            <div class="skill-item">
-              <span class="skill-name">JSON Output Control</span>
-              <div class="skill-bar-wrapper"><div class="skill-bar" data-width="95%"></div></div>
-            </div>
-            <div class="skill-item">
-              <span class="skill-name">Few-Shot Prompting</span>
-              <div class="skill-bar-wrapper"><div class="skill-bar" data-width="95%"></div></div>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Skill Card 8 -->
-        <div class="skills-card glass-card reveal reveal-delay-4">
-          <h3>Web Technologies</h3>
-          <div class="skills-list">
-            <div class="skill-item">
-              <span class="skill-name">HTML5 / CSS3</span>
-              <div class="skill-bar-wrapper"><div class="skill-bar" data-width="90%"></div></div>
-            </div>
-            <div class="skill-item">
-              <span class="skill-name">JavaScript (ES6+)</span>
-              <div class="skill-bar-wrapper"><div class="skill-bar" data-width="85%"></div></div>
-            </div>
-            <div class="skill-item">
-              <span class="skill-name">Node.js Backends</span>
-              <div class="skill-bar-wrapper"><div class="skill-bar" data-width="80%"></div></div>
-            </div>
-          </div>
+        <div class="skill-grid">
+          <article class="skill-card card tilt reveal">
+            <h2>Closebot</h2>
+              <div class="skill"><div class="skill-top"><span>Chatbot Config</span><b>95%</b></div><div class="bar"><i data-w="95%"></i></div></div>
+              <div class="skill"><div class="skill-top"><span>Conversation Design</span><b>92%</b></div><div class="bar"><i data-w="92%"></i></div></div>
+              <div class="skill"><div class="skill-top"><span>Knowledge Sync</span><b>88%</b></div><div class="bar"><i data-w="88%"></i></div></div>
+          </article>
+          <article class="skill-card card tilt reveal">
+            <h2>GoHighLevel</h2>
+              <div class="skill"><div class="skill-top"><span>GHL CRM Setup</span><b>95%</b></div><div class="bar"><i data-w="95%"></i></div></div>
+              <div class="skill"><div class="skill-top"><span>Funnel Architectures</span><b>85%</b></div><div class="bar"><i data-w="85%"></i></div></div>
+              <div class="skill"><div class="skill-top"><span>Workflow Triggers</span><b>95%</b></div><div class="bar"><i data-w="95%"></i></div></div>
+          </article>
+          <article class="skill-card card tilt reveal">
+            <h2>Automation Tools</h2>
+              <div class="skill"><div class="skill-top"><span>Make.com / Integromat</span><b>95%</b></div><div class="bar"><i data-w="95%"></i></div></div>
+              <div class="skill"><div class="skill-top"><span>Zapier Automations</span><b>90%</b></div><div class="bar"><i data-w="90%"></i></div></div>
+              <div class="skill"><div class="skill-top"><span>n8n / Self-Hosted</span><b>75%</b></div><div class="bar"><i data-w="75%"></i></div></div>
+          </article>
+          <article class="skill-card card tilt reveal">
+            <h2>API Integrations</h2>
+              <div class="skill"><div class="skill-top"><span>RESTful Webhooks</span><b>95%</b></div><div class="bar"><i data-w="95%"></i></div></div>
+              <div class="skill"><div class="skill-top"><span>GraphQL Queries</span><b>80%</b></div><div class="bar"><i data-w="80%"></i></div></div>
+              <div class="skill"><div class="skill-top"><span>OAuth Custom Flow</span><b>85%</b></div><div class="bar"><i data-w="85%"></i></div></div>
+          </article>
+          <article class="skill-card card tilt reveal">
+            <h2>Prompt Engineering</h2>
+              <div class="skill"><div class="skill-top"><span>Context Compression</span><b>90%</b></div><div class="bar"><i data-w="90%"></i></div></div>
+              <div class="skill"><div class="skill-top"><span>JSON Output Control</span><b>95%</b></div><div class="bar"><i data-w="95%"></i></div></div>
+              <div class="skill"><div class="skill-top"><span>Few-Shot Prompting</span><b>95%</b></div><div class="bar"><i data-w="95%"></i></div></div>
+          </article>
+          <article class="skill-card card tilt reveal">
+            <h2>Web Technologies</h2>
+              <div class="skill"><div class="skill-top"><span>HTML5 / CSS3</span><b>90%</b></div><div class="bar"><i data-w="90%"></i></div></div>
+              <div class="skill"><div class="skill-top"><span>JavaScript (ES6+)</span><b>85%</b></div><div class="bar"><i data-w="85%"></i></div></div>
+              <div class="skill"><div class="skill-top"><span>Node.js Backends</span><b>80%</b></div><div class="bar"><i data-w="80%"></i></div></div>
+          </article>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- Process Section -->
+    </section>
   </main>
-    <!-- Footer -->
+
   <footer class="footer">
-    <div class="container footer-grid">
-      <div class="footer-brand">
-        <a href="/" class="logo"><img src="images/tehreem_logo.png?v=15.0" alt="tehreemumar.com" class="brand-logo-img"></a>
-        <p style="margin-top: 14px; font-size: 0.98rem; color: #475569; max-width: 360px; line-height: 1.6;">A curious mind exploring technology, digital projects, and creative ideas.</p>
+    <div class="wrap footer-grid">
+      <div>
+        <img src="images/logo_transparent.png?v=15.0" alt="tehreemumar.com" class="logo-img">
+        <p class="muted">A curious mind exploring technology, digital projects, and creative ideas.</p>
       </div>
-      
-      <div class="footer-nav-col">
-        <h4 style="font-size: 1.05rem; font-weight: 700; color: #0F172A; margin-bottom: 16px;">Quick Links</h4>
-        <ul class="footer-links">
-          <li><a href="/" class="footer-link">Home</a></li>
-          <li><a href="about.html" class="footer-link">About</a></li>
-          <li><a href="projects.html" class="footer-link">Projects</a></li>
-          <li><a href="contact.html" class="footer-link">Contact</a></li>
+      <div>
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="blogs.html">Blog</a></li>
+          <li><a href="contact.html">Contact</a></li>
         </ul>
       </div>
-      
-      <div class="footer-nav-col">
-        <h4 style="font-size: 1.05rem; font-weight: 700; color: #0F172A; margin-bottom: 16px;">Connect</h4>
-        <ul class="footer-links">
-          <li><a href="https://www.linkedin.com/in/tehreem-umar" target="_blank" rel="noopener noreferrer" class="footer-link">LinkedIn</a></li>
-          <li><a href="mailto:tehreems857@gmail.com" class="footer-link">Email</a></li>
+      <div>
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="https://www.linkedin.com/in/tehreem-umar" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+          <li><a href="mailto:tehreems857@gmail.com">Email</a></li>
         </ul>
       </div>
     </div>
-    
-    <div class="container footer-bottom">
-      <p>&copy; 2026 Tehreem Umar. All rights reserved.</p>
-    </div>
+    <div class="wrap footer-bottom"><p>&copy; 2026 Tehreem Umar. All rights reserved.</p></div>
   </footer>
 
-    <!-- Animation Libraries -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
-  <script src="js/main.js?v=20.0"></script>
-  <script src="js/cursor.js"></script>
+  <script src="js/site-3d.js?v=2"></script>
+  <script type="module" src="js/scene3d.js?v=2"></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
