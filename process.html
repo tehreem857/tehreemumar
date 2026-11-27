@@ -71,174 +71,100 @@
     ]
   }
   </script>
-  
-  <link rel="stylesheet" href="css/styles.css?v=19.0">
-  
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/three-d.css?v=2">
+  <script type="importmap">
+  { "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+  } }
+  </script>
 </head>
-<body data-theme="light">
+<body data-scene="page">
 
-  <!-- Cursor Glow Follower -->
-  <div class="cursor-dot"></div>
-  <div class="cursor-outline"></div>
+  <canvas id="scene" aria-hidden="true"></canvas>
+  <div class="vignette" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
 
-  <!-- Scroll Progress Bar -->
-  <div class="scroll-progress-bar" aria-hidden="true"></div>
-
-  <!-- Ambient Glow Effects -->
-  <div class="bg-glow-container" aria-hidden="true">
-    <div class="glow-circle glow-1"></div>
-    <div class="glow-circle glow-2"></div>
-    <div class="glow-circle glow-3"></div>
-  </div>
-
-  <!-- Header / Navigation -->
   <header class="header" id="header">
-    <div class="container nav-container">
-      <a href="/" class="logo" aria-label="Tehreem Portfolio Home">
-        <img src="images/tehreem_logo.png?v=15.0" alt="tehreemumar.com" class="brand-logo-img">
+    <div class="wrap nav">
+      <a href="/" class="logo" aria-label="Tehreem Umar home">
+        <img src="images/logo_transparent.png?v=15.0" alt="tehreemumar.com" class="logo-img">
       </a>
-      
-            <nav class="nav-links" id="nav-links" aria-label="Main Navigation">
-        <a href="about.html" class="nav-link">About</a>
-        <a href="services.html" class="nav-link">Services</a>
-        <a href="projects.html" class="nav-link">Projects</a>
-        <a href="skills.html" class="nav-link">Skills</a>
-        <a href="process.html" class="nav-link">Process</a>
-        <a href="reviews.html" class="nav-link">Reviews</a>
-        <a href="blogs.html" class="nav-link">Blog</a>
-        <a href="contact.html" class="nav-link">Contact</a>
+      <nav class="nav-links" id="nav-links" aria-label="Main Navigation">
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="projects.html">Projects</a>
+        <a href="skills.html">Skills</a>
+        <a href="process.html">Process</a>
+        <a href="reviews.html">Reviews</a>
+        <a href="blogs.html">Blog</a>
+        <a href="contact.html">Contact</a>
       </nav>
-      
       <div class="nav-actions">
-        <button class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle Dark/Light Mode" title="Toggle Dark/Light Mode">
-          <svg class="sun-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m0 13.5V21M4.93 4.93l1.59 1.59m10.96 10.96l1.59 1.59m-17.5 0l1.59-1.59M17.47 6.52l1.59-1.59M5.25 12H3m18 0h-2.25m-2.25 0a6 6 0 11-12 0 6 6 0 0112 0z"></path>
-          </svg>
-          <svg class="moon-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z"></path>
-          </svg>
-        </button>
-        
-        <a href="contact.html" class="btn btn-primary nav-cta-btn" style="padding: 10px 22px; font-size: 0.9rem; font-weight: 700; box-shadow: 0 4px 16px rgba(16, 185, 129, 0.35);">Book Consultation</a>
-        
-        <button class="mobile-menu-btn" id="mobile-menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
-          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
-          </svg>
+        <a href="contact.html" class="btn btn-gold btn-sm">Book Consultation</a>
+        <button class="menu-btn" id="menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
+          <span></span><span></span>
         </button>
       </div>
     </div>
   </header>
 
-  <!-- Hero Section -->
-  <main style="padding-top: 80px;">
-  <section class="section" id="process">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="section-tag">How It Works</span>
-        <h1 class="section-title">The 5-Step <span>Deployment</span> Protocol</h1>
-        <p class="section-subtitle">A structured system design lifecycle ensuring custom automation assets are deployed error-free.</p>
+  <main>
+    <section class="page">
+      <div class="wrap">
+      <div class="page-head reveal">
+        <p class="kicker">How It Works</p>
+        <h1>The 5-Step <span class="gold-text">Deployment</span> Protocol</h1>
+        <p class="hero-sub">A structured system design lifecycle ensuring custom automation assets are deployed error-free.</p>
       </div>
-      
-      <div class="process-container">
-        <div class="process-line" aria-hidden="true"></div>
-        <div class="process-steps">
-          <!-- Step 1 -->
-          <div class="process-step reveal">
-            <div class="process-node">01</div>
-            <div class="process-content glass-card">
-              <h3>Discovery & Strategy</h3>
-              <p>We trace your administrative bottlenecks, document existing legacy CRM channels, and design a custom workflow layout targeting immediate hour-saving goals.</p>
-            </div>
-          </div>
-          
-          <!-- Step 2 -->
-          <div class="process-step reveal">
-            <div class="process-node">02</div>
-            <div class="process-content glass-card">
-              <h3>System Design</h3>
-              <p>We outline technical schemas detailing data routes, system integrations, conversational prompts, API structures, and CRM pipeline changes before coding.</p>
-            </div>
-          </div>
-          
-          <!-- Step 3 -->
-          <div class="process-step reveal">
-            <div class="process-node">03</div>
-            <div class="process-content glass-card">
-              <h3>Implementation</h3>
-              <p>We configure GHL pipelines, script custom webhooks, train Closebot AI models, and assemble the cloud connections that stitch your systems together.</p>
-            </div>
-          </div>
-          
-          <!-- Step 4 -->
-          <div class="process-step reveal">
-            <div class="process-node">04</div>
-            <div class="process-content glass-card">
-              <h3>Testing & Optimization</h3>
-              <p>We run simulated lead interactions, trace failure paths in API webhooks, and refine language prompt outputs to ensure high-accuracy behavior.</p>
-            </div>
-          </div>
-          
-          <!-- Step 5 -->
-          <div class="process-step reveal">
-            <div class="process-node">05</div>
-            <div class="process-content glass-card">
-              <h3>Deployment & Support</h3>
-              <p>We launch the operations live and provide immediate analytical dashboard configurations, ongoing support, and scaling reviews to adapt to business expansion.</p>
-            </div>
-          </div>
+        <ol class="steps">
+          <li class="step reveal"><span class="step-n">01</span><div><h2 style="font-size:1.25rem;margin-bottom:6px">Discovery &amp; Strategy</h2><p>We trace your administrative bottlenecks, document existing legacy CRM channels, and design a custom workflow layout targeting immediate hour-saving goals.</p></div></li>
+          <li class="step reveal"><span class="step-n">02</span><div><h2 style="font-size:1.25rem;margin-bottom:6px">System Design</h2><p>We outline technical schemas detailing data routes, system integrations, conversational prompts, API structures, and CRM pipeline changes before coding.</p></div></li>
+          <li class="step reveal"><span class="step-n">03</span><div><h2 style="font-size:1.25rem;margin-bottom:6px">Implementation</h2><p>We configure GHL pipelines, script custom webhooks, train Closebot AI models, and assemble the cloud connections that stitch your systems together.</p></div></li>
+          <li class="step reveal"><span class="step-n">04</span><div><h2 style="font-size:1.25rem;margin-bottom:6px">Testing &amp; Optimization</h2><p>We run simulated lead interactions, trace failure paths in API webhooks, and refine language prompt outputs to ensure high-accuracy behavior.</p></div></li>
+          <li class="step reveal"><span class="step-n">05</span><div><h2 style="font-size:1.25rem;margin-bottom:6px">Deployment &amp; Support</h2><p>We launch the operations live and provide immediate analytical dashboard configurations, ongoing support, and scaling reviews to adapt to business expansion.</p></div></li>
+        </ol>
+        <div class="hero-actions reveal" style="margin-top:48px">
+          <a href="contact.html" class="btn btn-gold">Start with Discovery <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg></a>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- Testimonials Section -->
+    </section>
   </main>
-    <!-- Footer -->
+
   <footer class="footer">
-    <div class="container footer-grid">
-      <div class="footer-brand">
-        <a href="/" class="logo"><img src="images/tehreem_logo.png?v=15.0" alt="tehreemumar.com" class="brand-logo-img"></a>
-        <p style="margin-top: 14px; font-size: 0.98rem; color: #475569; max-width: 360px; line-height: 1.6;">A curious mind exploring technology, digital projects, and creative ideas.</p>
+    <div class="wrap footer-grid">
+      <div>
+        <img src="images/logo_transparent.png?v=15.0" alt="tehreemumar.com" class="logo-img">
+        <p class="muted">A curious mind exploring technology, digital projects, and creative ideas.</p>
       </div>
-      
-      <div class="footer-nav-col">
-        <h4 style="font-size: 1.05rem; font-weight: 700; color: #0F172A; margin-bottom: 16px;">Quick Links</h4>
-        <ul class="footer-links">
-          <li><a href="/" class="footer-link">Home</a></li>
-          <li><a href="about.html" class="footer-link">About</a></li>
-          <li><a href="projects.html" class="footer-link">Projects</a></li>
-          <li><a href="contact.html" class="footer-link">Contact</a></li>
+      <div>
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="blogs.html">Blog</a></li>
+          <li><a href="contact.html">Contact</a></li>
         </ul>
       </div>
-      
-      <div class="footer-nav-col">
-        <h4 style="font-size: 1.05rem; font-weight: 700; color: #0F172A; margin-bottom: 16px;">Connect</h4>
-        <ul class="footer-links">
-          <li><a href="https://www.linkedin.com/in/tehreem-umar" target="_blank" rel="noopener noreferrer" class="footer-link">LinkedIn</a></li>
-          <li><a href="mailto:tehreems857@gmail.com" class="footer-link">Email</a></li>
+      <div>
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="https://www.linkedin.com/in/tehreem-umar" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+          <li><a href="mailto:tehreems857@gmail.com">Email</a></li>
         </ul>
       </div>
     </div>
-    
-    <div class="container footer-bottom">
-      <p>&copy; 2026 Tehreem Umar. All rights reserved.</p>
-    </div>
+    <div class="wrap footer-bottom"><p>&copy; 2026 Tehreem Umar. All rights reserved.</p></div>
   </footer>
 
-    <!-- Animation Libraries -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
-  <script src="js/main.js?v=20.0"></script>
-  <script src="js/cursor.js"></script>
+  <script src="js/site-3d.js?v=2"></script>
+  <script type="module" src="js/scene3d.js?v=2"></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
