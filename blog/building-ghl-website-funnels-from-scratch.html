@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <!-- Closebot Sales Intelligence Pixel -->
@@ -66,130 +66,58 @@
   }
   </script>
 
-  <link rel="stylesheet" href="/css/blog.css">
-  <style>
-    .workflow-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-md);
-      padding: 24px 28px;
-      margin: 22px 0;
-      transition: border-color var(--transition), transform var(--transition);
-    }
-    .workflow-card:hover {
-      border-color: rgba(34,211,238,0.3);
-      transform: translateY(-2px);
-    }
-    .workflow-title {
-      font-family: var(--font-heading);
-      font-size: 1rem;
-      font-weight: 700;
-      color: var(--neon-blue);
-      margin-bottom: 14px;
-    }
-    .step-badge {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      background: var(--gradient);
-      color: #fff;
-      font-weight: 800;
-      font-size: 0.72rem;
-      border-radius: 4px;
-      padding: 3px 10px;
-      margin-right: 8px;
-      vertical-align: middle;
-    }
-    .toc {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-md);
-      padding: 24px 28px;
-      margin: 32px 0;
-    }
-    .toc h3 { color: var(--glow-accent); margin-bottom: 14px; font-size: 1rem; font-family: var(--font-heading); }
-    .toc ol { margin: 0; padding-left: 20px; }
-    .toc li { margin-bottom: 6px; }
-    .toc a { color: var(--neon-blue); text-decoration: none; font-size: 0.92rem; transition: color 0.2s; }
-    .toc a:hover { color: var(--glow-accent); }
-  </style>
-  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/three-d.css?v=2">
+  <script type="importmap">
+  { "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+  } }
+  </script>
 </head>
-<body>
+<body data-scene="article">
 
-<!-- Cursor Glow Follower -->
-<div class="cursor-dot"></div>
-  <div class="cursor-outline"></div>
-<!-- Scroll Progress Bar -->
-<div class="scroll-progress-bar" aria-hidden="true"></div>
-<!-- Ambient Glow -->
-<div class="bg-glow-container" aria-hidden="true">
-  <div class="glow-circle glow-1"></div>
-  <div class="glow-circle glow-2"></div>
-  <div class="glow-circle glow-3"></div>
-</div>
+  <canvas id="scene" aria-hidden="true"></canvas>
+  <div class="vignette" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
 
-<nav class="blog-nav">
-  <a href="/" class="nav-brand">Tehreem Umar</a>
-  <div class="nav-links" id="nav-links">
-    <a href="/#services">Services</a>
-    <a href="/#projects">Case Studies</a>
-    <a href="/#blog">Blog</a>
-    <a href="/#contact" class="nav-cta">Contact</a>
-  </div>
-  <button class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle Dark/Light Mode" title="Toggle Dark/Light Mode">
-    <!-- Sun Icon (visible in light mode) -->
-    <svg class="sun-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-      <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m0 13.5V21M4.93 4.93l1.59 1.59m10.96 10.96l1.59 1.59m-17.5 0l1.59-1.59M17.47 6.52l1.59-1.59M5.25 12H3m18 0h-2.25m-2.25 0a6 6 0 11-12 0 6 6 0 0112 0z"></path>
-    </svg>
-    <!-- Moon Icon (visible in dark mode) -->
-    <svg class="moon-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-      <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z"></path>
-    </svg>
-  </button>
-  <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Open menu" aria-expanded="false">
-    <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
-  </button>
-</nav>
+  <header class="header" id="header">
+    <div class="wrap nav">
+      <a href="/" class="logo" aria-label="Tehreem Umar home">
+        <img src="/images/logo_transparent.png?v=15.0" alt="tehreemumar.com" class="logo-img">
+      </a>
+      <nav class="nav-links" id="nav-links" aria-label="Main Navigation">
+        <a href="/about.html">About</a>
+        <a href="/services.html">Services</a>
+        <a href="/projects.html">Projects</a>
+        <a href="/skills.html">Skills</a>
+        <a href="/process.html">Process</a>
+        <a href="/reviews.html">Reviews</a>
+        <a href="/blogs.html">Blog</a>
+        <a href="/contact.html">Contact</a>
+      </nav>
+      <div class="nav-actions">
+        <a href="/contact.html" class="btn btn-gold btn-sm">Book Consultation</a>
+        <button class="menu-btn" id="menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
+          <span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
 
-<!-- Tech Marquee Strip -->
-<div class="marquee-strip" aria-hidden="true">
-  <div class="marquee-track">
-    <span class="marquee-item"><span class="marquee-dot"></span>GoHighLevel</span>
-    <span class="marquee-item"><span class="marquee-dot"></span>Funnel Building</span>
-    <span class="marquee-item"><span class="marquee-dot"></span>Landing Pages</span>
-    <span class="marquee-item"><span class="marquee-dot"></span>GHL Sites</span>
-    <span class="marquee-item"><span class="marquee-dot"></span>Workflow Automation</span>
-    <span class="marquee-item"><span class="marquee-dot"></span>Domain Setup</span>
-    <span class="marquee-item"><span class="marquee-dot"></span>GHL Forms</span>
-    <span class="marquee-item"><span class="marquee-dot"></span>Conversion Rate</span>
-    <span class="marquee-item"><span class="marquee-dot"></span>CRM Integration</span>
-    <span class="marquee-item"><span class="marquee-dot"></span>Lead Generation</span>
-    <!-- Duplicate -->
-    <span class="marquee-item"><span class="marquee-dot"></span>GoHighLevel</span>
-    <span class="marquee-item"><span class="marquee-dot"></span>Funnel Building</span>
-    <span class="marquee-item"><span class="marquee-dot"></span>Landing Pages</span>
-    <span class="marquee-item"><span class="marquee-dot"></span>GHL Sites</span>
-    <span class="marquee-item"><span class="marquee-dot"></span>Workflow Automation</span>
-    <span class="marquee-item"><span class="marquee-dot"></span>Domain Setup</span>
-    <span class="marquee-item"><span class="marquee-dot"></span>GHL Forms</span>
-    <span class="marquee-item"><span class="marquee-dot"></span>Conversion Rate</span>
-    <span class="marquee-item"><span class="marquee-dot"></span>CRM Integration</span>
-    <span class="marquee-item"><span class="marquee-dot"></span>Lead Generation</span>
-  </div>
-</div>
+  <main>
+    <section class="article-hero">
+      <div class="wrap">
+        <nav class="crumbs reveal" aria-label="Breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/blogs.html">Blog</a> &rsaquo; GoHighLevel Websites &amp; Funnels</nav>
+        <span class="tag reveal">GoHighLevel &middot; Website &middot; Funnel Design</span>
+        <h1 class="reveal">From Zero to Launch: Building High-Converting GoHighLevel Websites &amp; Funnels From Scratch</h1>
+        <p class="article-meta reveal">By <span>Tehreem Umar</span> - GHL Website &amp; Funnel Expert &nbsp;|&nbsp; July 2026 &nbsp;|&nbsp; 10 min read</p>
+      </div>
+    </section>
 
-<div class="hero-blog">
-  <div class="particles-container" aria-hidden="true"></div>
-  <div class="breadcrumb">
-    <a href="/">Home</a> &rsaquo; <a href="/#blog">Blog</a> &rsaquo; GoHighLevel Websites &amp; Funnels
-  </div>
-  <div class="blog-tag">GoHighLevel &middot; Website &middot; Funnel Design</div>
-  <h1 class="blog-hero-title">From Zero to Launch: Building High-Converting GoHighLevel Websites &amp; Funnels From Scratch</h1>
-  <p class="blog-meta">By <span>Tehreem Umar</span> - GHL Website &amp; Funnel Expert &nbsp;|&nbsp; July 2026 &nbsp;|&nbsp; 10 min read</p>
-</div>
-
-<article class="blog-article">
+    <article class="blog-article">
 
   <p class="reveal">Building a high-converting website or sales funnel inside GoHighLevel (GHL) is a critical skill for modern marketing agencies and businesses. GHL offers a robust drag-and-drop page builder, native forms, integrated calendar bookings, and deep automation capabilities. In this guide, we will walk you through the end-to-end process of setting up, designing, and launching custom websites and funnels from scratch.</p>
 
@@ -298,35 +226,49 @@
     <h3>Related Guides &amp; Services</h3>
     <a href="/blog/gohighlevel-crm-workflow-automation-guide.html">GoHighLevel CRM Workflow Automation: The Complete Expert Guide &rarr;</a>
     <a href="/blog/how-to-setup-closebot-gohighlevel-integration.html">How to Set Up Closebot + GoHighLevel Integration &rarr;</a>
-    <a href="/#services">Custom GoHighLevel Website &amp; Funnel Setup Services &rarr;</a>
-    <a href="/#contact">Book a System Mapping Session &rarr;</a>
+    <a href="/services.html">Custom GoHighLevel Website &amp; Funnel Setup Services &rarr;</a>
+    <a href="/contact.html">Book a System Mapping Session &rarr;</a>
   </div>
 
   <div class="cta-box reveal">
     <h2>Want a High-Converting Funnel Built from Scratch?</h2>
     <p>I design, build, and automate complete GoHighLevel websites and sales funnels integrated with CRM workflows, appointment booking systems, and AI qualification chatbot sequences.</p>
-    <a href="/#contact" class="btn">Schedule a System Mapping Session</a>
+    <a href="/contact.html" class="btn">Schedule a System Mapping Session</a>
   </div>
 
 </article>
+  </main>
 
-<footer class="blog-footer">
-  <p>&copy; 2026 <a href="/">Tehreem Umar</a> - GoHighLevel CRM Expert &amp; AI Automation Consultant. All rights reserved.</p>
-</footer>
+  <footer class="footer">
+    <div class="wrap footer-grid">
+      <div>
+        <img src="/images/logo_transparent.png?v=15.0" alt="tehreemumar.com" class="logo-img">
+        <p class="muted">A curious mind exploring technology, digital projects, and creative ideas.</p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/projects.html">Projects</a></li>
+          <li><a href="/blogs.html">Blog</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="https://www.linkedin.com/in/tehreem-umar" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+          <li><a href="mailto:tehreems857@gmail.com">Email</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="wrap footer-bottom"><p>&copy; 2026 Tehreem Umar. All rights reserved.</p></div>
+  </footer>
 
-<script src="/js/blog.js"></script>
-  <script src="../js/cursor.js"></script>
-  <!-- Animation Libraries -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
+  <script src="/js/site-3d.js?v=2"></script>
+  <script type="module" src="/js/scene3d.js?v=2"></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
