@@ -80,7 +80,11 @@ main, .footer, .header { position: relative; z-index: 2; }
   border-bottom-color: var(--glass-border);
 }
 .nav { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
-.logo-img { height: 42px; width: auto; }
+.logo { display: inline-flex; align-items: center; gap: 10px; }
+.logo-mark { height: 42px; width: auto; filter: drop-shadow(0 0 10px rgba(227,168,87,.35)); transition: transform .6s var(--ease); }
+.logo:hover .logo-mark { transform: rotate(-6deg) scale(1.06); }
+.logo-word { font-family: var(--font-h); font-size: 1.3rem; font-weight: 600; letter-spacing: -0.01em; color: var(--text); white-space: nowrap; }
+.footer .logo-word { font-size: 1.45rem; }
 .nav-links { display: flex; gap: 28px; font-size: .9rem; color: var(--text-2); }
 .nav-links a { position: relative; transition: color .3s; }
 .nav-links a::after {
