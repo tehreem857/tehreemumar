@@ -25,9 +25,25 @@
 
   /* Mark the current page in the nav */
   const here = location.pathname.split('/').pop() || 'index.html';
+  const navKey = document.body.dataset.nav; // e.g. service pages highlight "Services"
   document.querySelectorAll('.nav-links a').forEach((a) => {
-    if (a.getAttribute('href').split('/').pop() === here) a.classList.add('active');
+    const file = a.getAttribute('href').split('/').pop();
+    if (file === here || (navKey && file === navKey + '.html')) a.classList.add('active');
   });
+
+  /* Contact form: preselect the service when arriving from a service page */
+  const SERVICE_OPTIONS = {
+    closebot: 'Closebot Setup & Optimization',
+    gohighlevel: 'GoHighLevel CRM Management',
+    website: 'Website Development',
+    webapp: 'Custom AI Application Development',
+  };
+  const wanted = SERVICE_OPTIONS[new URLSearchParams(location.search).get('service')];
+  const serviceSelect = document.getElementById('form-service');
+  if (wanted && serviceSelect) {
+    const opt = [...serviceSelect.options].find((o) => o.value === wanted);
+    if (opt) serviceSelect.value = wanted;
+  }
 
   /* Skill bars fill when visible */
   const bars = document.querySelectorAll('.bar i[data-w]');
