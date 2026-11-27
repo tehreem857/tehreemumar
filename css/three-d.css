@@ -359,6 +359,8 @@ select.input option { background: var(--bg-2); color: var(--text); }
 .thanks-card h1 { font-size: clamp(2rem, 4vw, 2.8rem); margin-bottom: 16px; }
 .thanks-card p { color: var(--text-2); }
 .thanks-card .hero-actions { justify-content: center; }
+.nf-links a { color: var(--gold); }
+.nf-links a:hover { color: var(--gold-hi); }
 .divider { height: 1px; background: rgba(255,255,255,.08); margin: 28px 0; }
 
 /* Blog article */
